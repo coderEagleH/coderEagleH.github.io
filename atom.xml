@@ -6,7 +6,7 @@
   <link href="http://codereagleh.github.io/atom.xml" rel="self"/>
   
   <link href="http://codereagleh.github.io/"/>
-  <updated>2021-02-10T08:31:22.470Z</updated>
+  <updated>2021-02-10T12:29:08.620Z</updated>
   <id>http://codereagleh.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>HTML学习笔记</title>
+    <link href="http://codereagleh.github.io/2021/02/10/html-xue-xi-bi-ji/"/>
+    <id>http://codereagleh.github.io/2021/02/10/html-xue-xi-bi-ji/</id>
+    <published>2021-02-10T10:19:41.000Z</published>
+    <updated>2021-02-10T12:29:08.620Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;前言：作为一名即将毕业的普通大四学生，面对未来一片迷茫，回想一下大学四年下来，似乎除了享受无边无际的大学生活，随着时间流逝，在最后关头即将毕业才发现自己一无所有。面临毕业即失业的问题，花时间认真思考了一下自己的未来和兴趣，在做毕业设计的过程中，发现</summary>
+        
+      
+    
+    
+    
+    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="HTML" scheme="http://codereagleh.github.io/tags/HTML/"/>
+    
+    <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>毕业季我想说的话</title>
     <link href="http://codereagleh.github.io/2021/02/09/gan-kun-wei-ding-ni-wo-jie-shi-hei-ma/"/>
     <id>http://codereagleh.github.io/2021/02/09/gan-kun-wei-ding-ni-wo-jie-shi-hei-ma/</id>
     <published>2021-02-09T13:09:25.000Z</published>
-    <updated>2021-02-10T08:31:22.470Z</updated>
+    <updated>2021-02-10T10:25:23.199Z</updated>
     
     
       
@@ -34,10 +62,10 @@
     
     
     
-    <category term="随笔" scheme="http://codereagleh.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随便写写" scheme="http://codereagleh.github.io/categories/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
     
     
-    <category term="markdown" scheme="http://codereagleh.github.io/tags/markdown/"/>
+    <category term="随笔" scheme="http://codereagleh.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
