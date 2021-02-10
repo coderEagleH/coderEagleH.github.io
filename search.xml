@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>我的第一篇博客文</title>
+      <link href="2021/02/09/wo-de-di-yi-pian-bo-ke-wen/"/>
+      <url>2021/02/09/wo-de-di-yi-pian-bo-ke-wen/</url>
+      
+        <content type="html"><![CDATA[<h1 id="毕业季"><a href="#毕业季" class="headerlink" title="毕业季"></a>毕业季</h1><p>​        忙于毕业设计，才知道大学四年没有提前铺垫是多么无可惜。大四过半，整日没有课程，却整日学的比以往更加认真，手头毕业设计是大学的最终考验，却也是就业前的最后希望。我这样的人，高中“应试教育”压迫出来的积极性随着大学的“放养生活”逐渐消磨殆尽，张嘴便是本来以前如何，只是现在怎样。搪塞他人，也是麻醉自己。</p><p>​    这些天，因为一些原因，开始审视自己，开始抱怨自己，开始自暴自弃。直到最近看到了一段视频，里面有段独白我印象颇深：<br>   “Unless they lead to good actions. Nobody ever had their life change by somebody hoping.<br>​    所以在忙毕业设计之余，想写点东西激励自己，想不到好名字，就引用喜欢的一句话来做标题：</p><p>乾坤未定，你我皆是黑马。</p><p>​    没有人是生来就所向披靡，优秀的人之所以优秀，因为他们付出了配得上优秀的努力。同样是十余年的寒窗苦读，不论曾经走马观花还是披风戴雨，你怎能就此甘拜下风！本来可以很了不起，生命不息，时间还有余力，现在也来得及。总是喜欢在嘴上挂着：“认真你就输了。”其实一直认真你就赢了，毕竟放弃不难，但是坚持超酷。</p><p>​    可能绝大部分人都会被“天生我材必有用”洗脑，总有推文说：每个人都有自己的价值。其实对于我们来说，我们的价值高低，在遭遇诱惑的一瞬间就即将被决定。你可能会遭遇低谷，面临绝境，但你应该庆幸不会更糟，如果事与愿违，请相信人生一定另有安排。如果没有人扶你，那请你自己爬起来，只要迈向阳光，黑暗就永远跟不上你。</p><p>​    从现在开始，尝试着慢慢改变，不需一蹴而就，但求步步为营。不要担心看不到进步，人生在为你铭刻生平，凡事到最后必定是皆大欢喜，如果没有，那一定是没有到最后。因为，无论多么崇峻的高山，总是会为攀登的人留下一条山脊。</p><p>​    人生的痛苦有两种，一种是自律的痛苦，一种是后悔的痛苦。每天起床闹钟提前一点，每天游戏时间少花一点，每天出去多运动一点，每天饭吃的更准时一点，每天自律一点，每天就能变得更好不止一点。</p><p>​    不要在对自己说我想做这个我想做那个我想做什么什么！<br>​    问问自己，你为什么还没做呢？</p><p>​    不要再想着等我有了什么我就能做什么，也不要想着等到了什么日子我就去做什么，人生不等，时间不等，岁月不等，他们也不等。</p><p>​    正如视频里我喜欢的那段独白：<br>​    除非付诸行动，否则空口无凭，没有人能通过祈祷和妄想来改变人生。</p><p>​    加油吧，为家庭拼搏的打工人。<br>​    加油吧，为增添履历的实习生。<br>​    加油吧，为忙毕业设计的自己。<br>​    也加油吧，正在大二大三，正在享受大学生活，正在求学路上的读书人。</p><p>​    愿，<br>​    逢山开路，遇水架桥，历尽千帆，苦尽甘来！</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="2021/02/09/hello-world/"/>
+      <url>2021/02/09/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
