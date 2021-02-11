@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="EagleH World" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="EagleH World" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -450,7 +450,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.6k
+                    9k
                 </div>
                 
 
@@ -1653,7 +1653,45 @@
 </li>
 </ul>
 </li>
+<li><p><strong>兼容性：适合webkit浏览器或移动端</strong>（尽量让后端人员去写）</p>
+</li>
 </ul>
+<h3 id="十七、CSS常见的布局技巧"><a href="#十七、CSS常见的布局技巧" class="headerlink" title="十七、CSS常见的布局技巧"></a>十七、CSS常见的布局技巧</h3><ul>
+<li><code>margin</code>的负值运用：<ul>
+<li>运用margin负值消除2倍边框的问题</li>
+<li>运用定位解决边框被压住的问题（相对定位）</li>
+<li>若周围盒子都有定位，可用<code>z-index</code>提层</li>
+</ul>
+</li>
+<li>文字围绕浮动元素：<ul>
+<li>浮动元素不会压住文字，巧妙运动可以实现文字围绕浮动元素的效果，布局更轻松</li>
+</ul>
+</li>
+<li>行内块元素巧用：<ul>
+<li>对父元素添加<code>text-align: center;</code> 可以实现水平居中子元素（先转为行内块元素）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>~最后的叭叭~</strong></p>
+<ul>
+<li>CSS初始化<ul>
+<li>不同浏览器对有些标签的默认值不同，为了消除不同浏览器对HTML文本呈现的差异，照顾浏览器的兼容，需要对CSS初始化，重设浏览器的样式（也称<code>CSS reset</code>）</li>
+</ul>
+</li>
+<li>Unicode编码字体：<ul>
+<li>把中文名称字体用相应的Unicode编码代替，可以有效避免浏览器解释CSS代码时出现乱码的问题</li>
+<li>黑体：\9ED1\4F53</li>
+<li>宋体：\5B8B\4F53</li>
+<li>微软雅黑：\5FAE\8F6F\96C5\9ED1</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>————————————————————无情的分割线——————————————————————-</p>
+<blockquote>
+<p>EagleH有话说：<br>这篇笔记是在学习CSS时记在笔记本上的，花时间将它整理到了博客上，内容上可能有所欠缺，而且本文以及另一篇HTML的笔记里，是不包含HTML5和CSS3的新增部分，H5C3的学习笔记会单独更新出来~~~~~</p>
+</blockquote>
 
                 
             </div>
