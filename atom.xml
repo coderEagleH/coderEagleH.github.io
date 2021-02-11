@@ -6,7 +6,7 @@
   <link href="http://codereagleh.github.io/atom.xml" rel="self"/>
   
   <link href="http://codereagleh.github.io/"/>
-  <updated>2021-02-10T13:24:30.585Z</updated>
+  <updated>2021-02-11T10:40:55.242Z</updated>
   <id>http://codereagleh.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CSS学习笔记</title>
+    <link href="http://codereagleh.github.io/2021/02/11/css-xue-xi-bi-ji/"/>
+    <id>http://codereagleh.github.io/2021/02/11/css-xue-xi-bi-ji/</id>
+    <published>2021-02-11T04:48:16.000Z</published>
+    <updated>2021-02-11T10:40:55.242Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;前言：这些笔记都是之前学习时写在笔记本上或者记录在markdown文件上的，现在学习搭建了一个自己的个人博客，所以将学习笔记都一点点写在个人博客上，作为自己个人博客的起步内容，同时也正好复习一遍WEB前端的基础学习内容，可能有些不正确的地方，或者有</summary>
+        
+      
+    
+    
+    
+    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="CSS" scheme="http://codereagleh.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>HTML学习笔记</title>
     <link href="http://codereagleh.github.io/2021/02/10/html-xue-xi-bi-ji/"/>
     <id>http://codereagleh.github.io/2021/02/10/html-xue-xi-bi-ji/</id>
     <published>2021-02-10T10:19:41.000Z</published>
-    <updated>2021-02-10T13:24:30.585Z</updated>
+    <updated>2021-02-11T06:10:03.952Z</updated>
     
     
       
