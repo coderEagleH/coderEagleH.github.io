@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="EagleH World" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="EagleH World" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -450,7 +450,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.3k
+                    8.6k
                 </div>
                 
 
@@ -1473,6 +1473,187 @@
 </li>
 </ol>
 </blockquote>
+<h3 id="十五、元素的显示与隐藏"><a href="#十五、元素的显示与隐藏" class="headerlink" title="十五、元素的显示与隐藏"></a>十五、元素的显示与隐藏</h3><ul>
+<li>display属性（<strong>应用广泛，重要</strong>）：<ul>
+<li>用于设置一个元素如何显示，也可以将元素进行隐藏</li>
+<li>语法：<code>选择器 {display: none;}</code></li>
+<li>属性值：<ul>
+<li><code>none</code>：隐藏元素，且不占有原位置（脱标）</li>
+<li><code>block</code>：显示元素，将元素转为块级元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>visibility：<ul>
+<li>指定一个元素可见还是隐藏</li>
+<li>语法：<code>选择器 {visibility: visible;}</code></li>
+<li>属性值：<ul>
+<li><code>visible</code>：元素可见</li>
+<li><code>hidden</code>：元素隐藏，保留原位置（不脱标）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>overflow溢出<ul>
+<li>内容溢出元素框时操作设定</li>
+<li>语法：<code>选择器 {overflow: hidden;}</code></li>
+<li>属性值：<ul>
+<li><code>visible</code>：显示</li>
+<li><code>hidden</code>：隐藏</li>
+<li><code>scroll</code>：滚动条显示</li>
+<li><code>auto</code>：自动选择(在<code>visible</code>和<code>scroll</code>中)</li>
+</ul>
+</li>
+<li><strong>注意：有定位的盒子慎用<code>overflow:hidden;</code>因为会将超出的内容全部隐藏</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="十六、CSS提高部分"><a href="#十六、CSS提高部分" class="headerlink" title="十六、CSS提高部分"></a>十六、CSS提高部分</h3><h4 id="16-1-CSS精灵技术sprites（精灵图、雪碧图）"><a href="#16-1-CSS精灵技术sprites（精灵图、雪碧图）" class="headerlink" title="16.1 CSS精灵技术sprites（精灵图、雪碧图）"></a>16.1 CSS精灵技术sprites（精灵图、雪碧图）</h4><ul>
+<li>优势：有效减少服务器接收和发送请求的次数，提高页面的加载速度</li>
+<li>核心原理：将网页中的一些小的背景图片整合到一张大图中，这样服务器只需要请求一次即可</li>
+<li>Sprites精灵图的使用：<ul>
+<li>主要针对背景图像</li>
+<li>整合的大图城卫精灵图或者雪碧图（雪碧包装上写的英文就是sprites）</li>
+<li>移动背景图位置，可以用<code>background-position</code></li>
+<li>移动的距离就是图片的x和y坐标（<strong>以左上角为远点，x轴向右为正方向，y轴向下为正方向</strong>）</li>
+<li>一般情况下，图片向左/向上都是负值</li>
+<li><strong>图片的大小和位置需要精确测量</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="16-2-字体图标"><a href="#16-2-字体图标" class="headerlink" title="16.2 字体图标"></a>16.2 字体图标</h4><ul>
+<li><p>显示网页中的一些通用、常用的小图标（展示的是图标，本质是字体）</p>
+</li>
+<li><p>优势：</p>
+<ul>
+<li>轻量级：本质是字体，小，减少服务器请求数据（字体由浏览器自己渲染，不需要向服务器请求）</li>
+<li>灵活性：因为本质是文字，所以可以通过CSS修改颜色、阴影和透明效果等等</li>
+<li>兼容性：几乎支持所有的浏览器</li>
+</ul>
+</li>
+<li><p><strong>注意</strong>：字体图标只对部分小图片有着提升和优化，无法完全取代<strong>精灵技术</strong></p>
+</li>
+<li><p>字体图标的使用：</p>
+<ul>
+<li><p>字体图标是网页中常见的小图标，可以在网上下载</p>
+<ul>
+<li>字体图标下载<ul>
+<li><a target="_blank" rel="noopener" href="https://icomoon.io/">icomoon</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.iconfont.cn/">阿里巴巴矢量图标库</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字体图标下载使用流程（<strong>icomoon为例</strong>）：</p>
+<ol>
+<li><p>将解压出的<code>fonts</code>文件夹复制到<code>HTML根目录</code>下（内涵兼容的4种字体，不可乱动）</p>
+</li>
+<li><p>字体声明：在<code>&lt;style&gt;</code>中复制压缩包里的<code>style.css</code>的第一大段代码，即声明（注意路径问题）</p>
+<ul>
+<li><pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'icomoon'</span><span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span>  <span class="token url">url('fonts/icomoon.eot?cjoxil')</span><span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span>  <span class="token url">url('fonts/icomoon.eot?cjoxil#iefix')</span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'embedded-opentype'</span><span class="token punctuation">)</span>,
+    <span class="token url">url('fonts/icomoon.ttf?cjoxil')</span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'truetype'</span><span class="token punctuation">)</span>,
+    <span class="token url">url('fonts/icomoon.woff?cjoxil')</span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'woff'</span><span class="token punctuation">)</span>,
+    <span class="token url">url('fonts/icomoon.svg?cjoxil#icomoon')</span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'svg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+  <span class="token property">font-style</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+  <span class="token property">font-display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>打开解压出的文件里的demo.html文件，将图片后的”口“小方框复制到要使用的位置（”口“即字体图标）</p>
+</li>
+<li><p>在<code>&lt;style&gt;</code>标签里给引用字体图标的元素指定字体，即第二步中声明代码里的第一条</p>
+<ul>
+<li><code>选择器 {font-family: 'icomoon';}</code></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>字体图标不够用了怎么办？怎么添加新的？</strong></p>
+<ol>
+<li>将旧文件夹中的<code>selected.json</code>文件上传到<code>icomoon主页</code> -&gt; <code>右上角ICOMOONAPP</code> -&gt; <code>左上角Import Icons</code>中去（选Y）</li>
+<li>选择需要增加的字体图标（旧图标仍然存在）</li>
+<li>重新下载下面的压缩包 -&gt; 解压替换原文件夹，并将里面新的fonts文件夹复制到HTML根目录替换即可</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="16-3-CSS用户界面样式"><a href="#16-3-CSS用户界面样式" class="headerlink" title="16.3 CSS用户界面样式"></a>16.3 CSS用户界面样式</h4><ul>
+<li>更改用户的鼠标样式</li>
+<li>表单轮廓</li>
+<li>防止表单域拖拽</li>
+</ul>
+<h5 id="16-3-1-鼠标样式"><a href="#16-3-1-鼠标样式" class="headerlink" title="16.3.1 鼠标样式"></a>16.3.1 鼠标样式</h5><ul>
+<li>语法：<code>li {cursor: pointer;}</code></li>
+<li>设置或检索在对象上移动的鼠标指针采用何种光标形状</li>
+<li>属性值：<ul>
+<li><code>default</code>：小白（默认样式）</li>
+<li><code>pointer</code>：小手</li>
+<li><code>move</code>：移动十字架</li>
+<li><code>text</code>：文本框（I）</li>
+<li><code>not-allowed</code>：禁止</li>
+</ul>
+</li>
+</ul>
+<h5 id="16-3-2-轮廓线"><a href="#16-3-2-轮廓线" class="headerlink" title="16.3.2 轮廓线"></a>16.3.2 轮廓线</h5><ul>
+<li>语法：<code>input {outline: none;}</code></li>
+<li>常用属性值：<ul>
+<li><code>none</code>/<code>0</code>：去除轮廓线</li>
+</ul>
+</li>
+</ul>
+<h5 id="16-3-3-表单域防拖拽"><a href="#16-3-3-表单域防拖拽" class="headerlink" title="16.3.3 表单域防拖拽"></a>16.3.3 表单域防拖拽</h5><ul>
+<li>语法：<code>textarea {resize: none;}</code></li>
+</ul>
+<h5 id="16-3-4-vertical-align应用"><a href="#16-3-4-vertical-align应用" class="headerlink" title="16.3.4 vertical-align应用"></a>16.3.4 <code>vertical-align应用</code></h5><ul>
+<li>语法：<code>vertical-align: baseline;</code></li>
+<li>用于设置图片或表单与文字<strong>垂直对齐</strong></li>
+<li>常用属性值：<ul>
+<li><code>baseline</code>：元素放在父元素基线上</li>
+<li><code>top</code>：顶端与行中最高元素顶端对齐</li>
+<li><code>middle</code>：此元素放在父元素中部对齐</li>
+<li><code>bottom</code>：顶端与行中最低元素的顶端对齐</li>
+</ul>
+</li>
+<li><strong>注意：只针对行内元素和行内块元素有效</strong></li>
+</ul>
+<h4 id="16-4-图片底部有空白缝隙解决方法："><a href="#16-4-图片底部有空白缝隙解决方法：" class="headerlink" title="16.4 图片底部有空白缝隙解决方法："></a>16.4 图片底部有空白缝隙解决方法：</h4><ul>
+<li>给图片添加<code>vertical-align: middle/bottom/top;</code>等即可(<strong>推荐方案</strong>)</li>
+<li>把元素转换为块元素：<code>display: block;</code></li>
+</ul>
+<h4 id="16-5-溢出的文字用省略号显示"><a href="#16-5-溢出的文字用省略号显示" class="headerlink" title="16.5 溢出的文字用省略号显示"></a>16.5 溢出的文字用省略号显示</h4><ul>
+<li><p>单行文本溢出省略号显示：</p>
+<ul>
+<li><pre class=" language-css"><code class="language-css"><span class="token punctuation">{</span>
+    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span> // 强制一行内显示
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>  //超出部分文字隐藏
+    <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>  // 隐藏部分省略号代替
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>多行文本溢出省略号显示：</p>
+<ul>
+<li><pre class=" language-css"><code class="language-css"><span class="token punctuation">{</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span> // 溢出部分隐藏
+    <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span> // 用省略号代替
+    <span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span> // 弹性伸缩盒子模型显示
+    <span class="token property">-webkit-line-clamp</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">;</span> // 限制一个块元素显示的文本行数为<span class="token number">2</span>行
+    <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> vertical<span class="token punctuation">;</span> // 检索伸缩盒子子元素的排列方式
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
                 
             </div>
