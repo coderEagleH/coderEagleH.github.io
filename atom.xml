@@ -6,7 +6,7 @@
   <link href="http://codereagleh.github.io/atom.xml" rel="self"/>
   
   <link href="http://codereagleh.github.io/"/>
-  <updated>2021-02-12T06:41:37.830Z</updated>
+  <updated>2021-02-12T11:55:04.693Z</updated>
   <id>http://codereagleh.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript学习笔记</title>
+    <link href="http://codereagleh.github.io/2021/02/12/javascript-xue-xi-bi-ji/"/>
+    <id>http://codereagleh.github.io/2021/02/12/javascript-xue-xi-bi-ji/</id>
+    <published>2021-02-12T07:00:08.000Z</published>
+    <updated>2021-02-12T11:55:04.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;JavaScript ( JS ) 是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发Web 页面的脚本语言而出名的，但是它也被用到了很多非浏览器环境中，例如 Node.js、 Apache CouchDB 和 Adobe</summary>
+        
+      
+    
+    
+    
+    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="JavaScript" scheme="http://codereagleh.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>H5C3新增学习笔记</title>
@@ -79,7 +107,7 @@
     <link href="http://codereagleh.github.io/2021/02/10/html-xue-xi-bi-ji/"/>
     <id>http://codereagleh.github.io/2021/02/10/html-xue-xi-bi-ji/</id>
     <published>2021-02-10T10:19:41.000Z</published>
-    <updated>2021-02-11T10:56:38.317Z</updated>
+    <updated>2021-02-12T07:11:06.915Z</updated>
     
     
       
