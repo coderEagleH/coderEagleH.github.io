@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="EagleH World" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="EagleH World" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -450,7 +450,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    9.7k
                 </div>
                 
 
@@ -568,7 +568,7 @@
 <li><code>var age; console.log(age);</code> 只声明不赋值。运行结果：<code>undefined</code></li>
 <li><code>console.log(age);</code>不声明不赋值，使用。运行结果：<code>error报错</code></li>
 <li><code>age = 10; console.log(age);</code>不声明，只赋值。运行结果：<code>10</code><ul>
-<li><strong>可以使用但是极为不推荐，会影响全局</strong></li>
+<li><strong>可以使用但是极为不推荐，会影响全局（若在函数中不声明直接赋值，那么该变量为全局变量）</strong></li>
 </ul>
 </li>
 </ul>
@@ -592,13 +592,18 @@
 </li>
 </ul>
 <h5 id="2-4-1-简单数据类型（基本数据类型）"><a href="#2-4-1-简单数据类型（基本数据类型）" class="headerlink" title="2.4.1 简单数据类型（基本数据类型）"></a>2.4.1 简单数据类型（基本数据类型）</h5><ul>
+<li><p>简单数据类型又称为基本数据类型或者值类型，在储存时变量中储存的是<strong>值本身</strong></p>
+</li>
 <li><p>简单数据类型分类（最新版更新为7种，可以查阅文档）</p>
 <ul>
 <li><code>Number</code></li>
 <li><code>Boolean</code></li>
 <li><code>String</code></li>
 <li><code>Undefined</code></li>
-<li><code>Null</code></li>
+<li><code>Null</code><ul>
+<li>若有个变量，以后打算储存为对象，但是暂时没想好放什么，可以先赋值为null</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p><code>Number</code></p>
@@ -673,7 +678,14 @@
 <p>变量的数据类型可以通过typeof()来获取</p>
 <p><code>typeof str;</code>中间用空格隔开</p>
 </blockquote>
-<h5 id="2-4-2-数据类型的转换"><a href="#2-4-2-数据类型的转换" class="headerlink" title="2.4.2 数据类型的转换"></a>2.4.2 数据类型的转换</h5><ul>
+<h5 id="2-4-2-复杂数据类型（引用数据类型）"><a href="#2-4-2-复杂数据类型（引用数据类型）" class="headerlink" title="2.4.2 复杂数据类型（引用数据类型）"></a>2.4.2 复杂数据类型（引用数据类型）</h5><ul>
+<li>也叫做引用数据类型，在储存变量中储存的仅仅是地址（引用），因此叫做引用数据类型，通过new关键字创建的对象（系统对象、自定义对象）</li>
+<li>包含<code>Object Array Date</code>等</li>
+</ul>
+<blockquote>
+<p>在第七节和第八节会细讲~</p>
+</blockquote>
+<h5 id="2-4-3-数据类型的转换"><a href="#2-4-3-数据类型的转换" class="headerlink" title="2.4.3 数据类型的转换"></a>2.4.3 数据类型的转换</h5><ul>
 <li><p>使用表单、prompt获取来的数据默认时字符串类型的，不能直接进行计算，需要进行变量的数据类型的转换，即<strong>将一种数据类型的变量转换为另一种数据类型</strong></p>
 </li>
 <li><p>常用：</p>
@@ -1169,6 +1181,590 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ul>
 <blockquote>
 <p>JavaScript在ES6时新增了<strong>块级作用域</strong>，ES5之前都不存在这个概念，但比较重要，说直白一点，块级作用域修复了我们尊敬的艾奇大哥在设计JS这门语言时留下的bug，所以还是非常有必要学习一下。本篇笔记以ES5为基础，所以不写ES6的新增内容，有兴趣可以去MDN等网站查询学习</p>
+</blockquote>
+<h3 id="理论知识补充（重要）"><a href="#理论知识补充（重要）" class="headerlink" title="理论知识补充（重要）"></a>理论知识补充（重要）</h3><blockquote>
+<ul>
+<li><p>首先来两个小题目，是较为经典的面试题</p>
+</li>
+<li><p><strong>test1：</strong></p>
+<blockquote>
+<p>var num = 10;</p>
+<p>fun( );</p>
+<p>function fun( ) {</p>
+<p>​    console.log(num );</p>
+<p>var num = 20;</p>
+<p>}</p>
+</blockquote>
+</li>
+<li><p>问控制台台打印的内容是什么？</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p><strong>test2：</strong></p>
+<blockquote>
+<p>f1( );</p>
+<p>console.log(c );</p>
+<p>console.log(b );</p>
+<p>console.log(a );</p>
+<p>function f1( ) {</p>
+<p>​    var a = b = c = 9;</p>
+<p>​    console.log(a );</p>
+<p>​    console.log(b );</p>
+<p>​    console.log(c );</p>
+<p>}</p>
+</blockquote>
+</li>
+<li><p>问控制台台打印的内容是什么？</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>JS的预解析：</strong></p>
+<ul>
+<li>JS代码由浏览器中的JS解析器来执行，JS解析器在解释代码时分为两步：<strong>预解析</strong>和代码执行</li>
+<li>什么是预解析：<ul>
+<li>JS引擎会把JS里所有的<code>var</code>和<code>function</code>提升到<strong>当前作用域</strong>的最前面优先解析，然后再按照书写顺序自上而下解析代码</li>
+</ul>
+</li>
+<li>变量预解析（变量提升）：<ul>
+<li>将所有变量的声明提升到当前作用域最前面，但是<strong>只提升声明操作，不提升赋值操作</strong></li>
+</ul>
+</li>
+<li>函数提升：<ul>
+<li>将所有的函数声明调到最前面优先解析，但是不调用函数。调用必须写在函数表达式下。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>题目都做出来了吗？一起来看看结果是不是如你所想：</p>
+<ul>
+<li><p>key1：</p>
+<blockquote>
+<p>undefined</p>
+</blockquote>
+</li>
+<li><p>因为在代码解析过程中，<code>fun()</code>函数内的<code>var num</code>声明被提升到了函数最上层，声明变量但不赋值的情况下，变量值默认为<code>undefined</code>(我前面有写哦，不信回看 第二节 2.2的内容)，所以解析的真实代码为：</p>
+<blockquote>
+<p>var num;</p>
+<p>function fun( ) { };</p>
+<p>num = 10;</p>
+<p>function fun( ) {</p>
+<p>​    var num; // 此时num声明但没有赋值</p>
+<p>​    console.log(num ); // 打印内容为undefined</p>
+<p>​    num = 20;</p>
+<p>}</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>key2：</p>
+<blockquote>
+<p>9<br>9<br>9<br>9<br>9</p>
+<p>error // 报错</p>
+</blockquote>
+</li>
+<li><p>这就涉及到艾奇大佬设计JavaScript时留下的bug了，且听我道来</p>
+</li>
+<li><p>这道题目中的函数f1( )内有一段代码<code>var a = b = c = 9;</code>在<strong>JS的解析中</strong>，并不是解析为：<code>var a = 9; var b = 9; var c = 9;</code>，而是被解析为：<code>var a = 9; b = 9; c = 9;</code>而在函数中的b和c未使用<code>var</code>声明直接赋值，那么b和c就是两个全局变量（这个我也在前面讲过的哟，不信还是回看第二节的2.2~），所以被解析的真实代码为:</p>
+<blockquote>
+<p>function f1( ) { };</p>
+<p>f1( ); // 调用函数</p>
+<blockquote>
+<p>function f1( ) {</p>
+<p>​    var a;</p>
+<p>​    a = 9;</p>
+<p>​    b = 9; // 此时的b为全局变量，全局可调用</p>
+<p>​    c = 9; // 此时的c为全局变量，全局可调用</p>
+<p>​    console.log(a ); // 9</p>
+<p>​    console.log(b ); // 9</p>
+<p>​    console.log(c ); // 9</p>
+<p>}</p>
+</blockquote>
+<p>console.log(c ); // 9</p>
+<p>console.log(b ); // 9</p>
+<p>console.log(a ); // error，a被声明在函数中，所以a是一个局部变量，在外部不可以使用，所以报错</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="七、对象Object"><a href="#七、对象Object" class="headerlink" title="七、对象Object"></a>七、对象Object</h3><ul>
+<li>对象是一个具体的事物，在JS中，对象是一组无序的相关属性和方法的集合，所有事物都是对象，例如：字符串、数值、数组、函数等。</li>
+<li>对象有属性和方法<ul>
+<li>属性：<strong>事物的特征</strong>，在对象中用<strong>属性</strong>来表示（常用名词）</li>
+<li>方法：<strong>事物的行为</strong>，在对象中用<strong>方法</strong>表示。（常用动词）</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-1-创建对象的三种方式（现阶段）"><a href="#7-1-创建对象的三种方式（现阶段）" class="headerlink" title="7.1 创建对象的三种方式（现阶段）"></a>7.1 创建对象的三种方式（现阶段）</h4><ol>
+<li><p>用字面量创建：用花括号<code>{}</code>包裹，里面包含了表达这个具体对象的属性和方法</p>
+<ul>
+<li><p><code>var obj = { }; // 创建了一个空对象</code></p>
+</li>
+<li><p>具体使用方法：</p>
+<ul>
+<li><blockquote>
+<p>var object = {</p>
+<p>​    uname: EagleH, // 属性</p>
+<p>​    age: 3,</p>
+<p>​    sex: ‘男’,</p>
+<p>​    SayHi: funciton( ) { // 方法</p>
+<p>​        console.log(‘Hi~’);</p>
+<p>​    }</p>
+<p>}</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>注意：</strong></p>
+<ul>
+<li>里面的属性或者方法采用键值对的形式，属性名：属性值。</li>
+<li>多个属性或方法中间用英文逗号<code>,</code>隔开（最后一个不跟）</li>
+<li>方法冒号后面跟一个<strong>匿名函数</strong></li>
+<li>调用对象的属性：<ul>
+<li><code>对象名.属性名</code></li>
+<li><code>对象名['属性名']</code></li>
+<li>两者都行，比如<code>object.age</code>或者<code>object[age]</code></li>
+</ul>
+</li>
+<li>调用对象的方法：<ul>
+<li><code>对象名.方法名</code></li>
+<li>如：<code>object.SayHi()</code></li>
+<li>注意小括号</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用new关键字创建：</p>
+<ul>
+<li><code>var obj = new Object(); // 创建了一个空对象，注意O为大写</code></li>
+<li>追加属性：<ul>
+<li><code>obj.uname = EagleH;</code></li>
+<li><code>obj.age = 3;</code></li>
+</ul>
+</li>
+<li>追加方法：<ul>
+<li><code>obj.SayHi = function() {}</code></li>
+</ul>
+</li>
+<li><strong>注意：</strong><ul>
+<li>利用等号赋值的方法添加对象的属性和方法</li>
+<li>每个属性和方法之间用<code>;</code>隔开</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用<strong>构造函数</strong>创建：利用函数的方法重复创建<strong>多个对象</strong></p>
+<ul>
+<li><p>构造函数封装的是对象而不是普通代码</p>
+</li>
+<li><p>封装的是共同的属性和方法</p>
+</li>
+<li><p>语法： </p>
+<ul>
+<li><blockquote>
+<p>function 构造函数名( ) {</p>
+<p>​    this.属性1 = 属性值1；</p>
+<p>​    this.属性2 = 属性值2；</p>
+<p>​    this.方法 = function( ) {</p>
+<p>​    } </p>
+<p>}</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>调用构造函数创建对象：</p>
+<ul>
+<li><code>new 构造函数名();</code></li>
+</ul>
+</li>
+<li><p><strong>注意：</strong></p>
+<ul>
+<li>构造函数名的首字母要大写（代码规范，不是强制要求）</li>
+<li>构造函数不需要return，也可以返回值</li>
+<li>调用构造函数必须使用new关键字</li>
+</ul>
+</li>
+<li><p>示例：</p>
+<ul>
+<li><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Star</span><span class="token punctuation">(</span>uname<span class="token punctuation">,</span> age<span class="token punctuation">,</span> sex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>uname <span class="token operator">=</span> uname<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> sex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Star</span><span class="token punctuation">(</span><span class="token string">'EagleH'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>构造函数与对象的区别：</p>
+<ul>
+<li>构造函数，如Sta( )，抽取了对象的公共部分，封装到函数里，泛指某一大类</li>
+<li>创建对象，如new Star( )，特质某一个，通过new关键字创建对象也称对象实例化。</li>
+</ul>
+</blockquote>
+<h4 id="7-2-new-关键字"><a href="#7-2-new-关键字" class="headerlink" title="7.2 new 关键字"></a>7.2 new 关键字</h4><ul>
+<li>new构造函数可以在内存中创建一个空的对象</li>
+<li>this就会指向这个空对象</li>
+<li>执行构造函数里的代码，添加属性和方法</li>
+<li>返回对象</li>
+</ul>
+<h4 id="7-3-遍历对象"><a href="#7-3-遍历对象" class="headerlink" title="7.3 遍历对象"></a>7.3 遍历对象</h4><ul>
+<li><p>ES5中用<code>for...in...</code>来对数组或者对象的属性进行循环操作</p>
+</li>
+<li><p>语法：<code>for(变量 in 对象) { }</code></p>
+</li>
+<li><p>示例：</p>
+<ul>
+<li><pre class=" language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> k <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// k变量，输出得到的是属性名</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出的是k属性的属性值</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-4-小结"><a href="#7-4-小结" class="headerlink" title="7.4 小结"></a>7.4 小结</h4><ul>
+<li>合理利用对象可以让代码更清晰</li>
+<li>对象为<strong>复杂数据类型</strong>Object</li>
+<li>对象的本质：一组无序的相关属性和方法的集合</li>
+<li>构造函数泛指某一大类</li>
+<li>对象实例特质某一个</li>
+<li><code>for..in..</code>用于对对象的属性和方法进行循环操作</li>
+</ul>
+<h3 id="八、JS内置对象"><a href="#八、JS内置对象" class="headerlink" title="八、JS内置对象"></a>八、JS内置对象</h3><ul>
+<li><p>JS语言中自带的一些对象，供开发者使用，提供了一些常用的或是最基本且必要的功能（属性和方法），可帮助快速开发。</p>
+</li>
+<li><p>在JS中的对象分为三大类</p>
+<ul>
+<li>自定义对象</li>
+<li>内置对象</li>
+<li>浏览器对象</li>
+</ul>
+</li>
+<li><p>自定义对象和内置对象为JS的基础内容，属于ECMAScript，而浏览器对象为JS独有</p>
+</li>
+<li><p>查阅文档：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/">MDN</a></li>
+<li>Mozilla开发者网络（MDN）提供了有关开放网络技术（Open Web）的信息，包括HTML、CSS和万维网及HTML5应用的API</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-1-Math-数学对象"><a href="#8-1-Math-数学对象" class="headerlink" title="8.1 Math()数学对象"></a>8.1 Math()数学对象</h4><ul>
+<li><p>不是一个构造函数，所以不需要用new关键字来调用，而是直接使用里面的属性和方法即可</p>
+</li>
+<li><p>常用的属性和方法：</p>
+<blockquote>
+<p><code>Math.PI</code>：圆周率</p>
+<p><code>Math.max()</code>：数组中最大的数（括号内应全为数字，若括号内没有值，则返回<code>-infinity</code>，如果有非数字的值，则返回<code>NaN</code>）</p>
+<p><code>Math.floor()</code>：向下取整</p>
+<p><code>Math.ceil()</code>：向上取整</p>
+<p><code>Math.round()</code>：四舍五入取整（就近取整，<code>.5</code>比较特殊，<code>Math.round(1.5) = 2</code>但是<code>Math.round(-5) = -1</code>）</p>
+<p><code>Math.abs()</code>：取绝对值（隐式转换，“1”的绝对值为1）</p>
+<p><code>Math,random()</code>：返回一个随机小数，范围在[0, 1)之间，左闭右开，该方法括号内不能有参数。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="8-2-Date-事件对象"><a href="#8-2-Date-事件对象" class="headerlink" title="8.2 Date()事件对象"></a>8.2 Date()事件对象</h4><ul>
+<li><p>是一个构造函数，所以必须用new来调用和创建</p>
+</li>
+<li><p>声明：<code>var date = new Date(); // 括号内没有参数，则返回当前事件给date变量</code></p>
+</li>
+<li><p><code>Date()</code>参数的常用写法：</p>
+<ul>
+<li>数字型：<code>2021, 1, 1</code>  <strong>注意：返回的月份是2月，因为月份计算从0开始</strong></li>
+<li>字符串型：<code>"2021-1-1 08:00:00"</code></li>
+</ul>
+</li>
+<li><p>日期的格式化：</p>
+<ul>
+<li><blockquote>
+<p><code>getFullYear();</code>：获取当前年份</p>
+<p><code>getMonth();</code>：获取当前月份（0~11），所以实际月份需要+1</p>
+<p><code>getDate();</code>：获取当前为几号</p>
+<p><code>getDay();</code>：获取今天星期几周日0~周六6）</p>
+<p><code>getHours();</code>：获取当前时</p>
+<p><code>getMinutes();</code>：当前分</p>
+<p><code>getSeconds();</code>：当前秒</p>
+</blockquote>
+</li>
+<li><p><strong>注意：使用格式化方法前需要声明时间对象</strong></p>
+</li>
+</ul>
+</li>
+<li><p>获取日期总的毫秒数（时间戳）</p>
+<ul>
+<li>Date()对象总的毫秒数是基于1970年1月1日开始的毫秒数（时间戳，独一无二）</li>
+<li>获取方法：<ul>
+<li><code>valueOf();</code></li>
+<li><code>getTime();</code></li>
+<li>用<code>+new</code>的声明方式</li>
+</ul>
+</li>
+<li>第三种最常用<ul>
+<li>示例：<code>var date = +new Date(); // date中保存的就是当前的时间戳</code></li>
+</ul>
+</li>
+<li>HTML5还新增了一种：<ul>
+<li><code>Date.now();</code></li>
+<li>更加简单，但是需要考虑兼容性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-3-Array-数组对象"><a href="#8-3-Array-数组对象" class="headerlink" title="8.3 Array()数组对象"></a>8.3 Array()数组对象</h4><ul>
+<li>话不多说直接来<ul>
+<li><code>var arr1 = new Array(); // 创建了一个空数组</code></li>
+<li><code>var arr2 = new Array(2); // 创建了一个长度为2的空数组</code></li>
+<li><code>var arr3 = new Array(2, 3); // 创建了一个数组内容为[2, 3]的数组（有内容啦~）</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="8-3-1-检测是否为数组"><a href="#8-3-1-检测是否为数组" class="headerlink" title="8.3.1 检测是否为数组"></a>8.3.1 检测是否为数组</h5><ul>
+<li><p><code>instanceof</code>运算符，用于检测是否为数组</p>
+<ul>
+<li><p>示例：</p>
+<blockquote>
+<p>var arr = [ ];</p>
+<p>console.log(arr instanceof Array);</p>
+</blockquote>
+</li>
+<li><p>打印内容为true，表示arr是一个数组。</p>
+</li>
+</ul>
+</li>
+<li><p><code>Array.isArray(参数);</code> 方法，用于判断<code>参数</code>是否为数组（<strong>该方法为HTML5新增</strong>）</p>
+</li>
+</ul>
+<h5 id="8-3-2-添加和删除数组元素"><a href="#8-3-2-添加和删除数组元素" class="headerlink" title="8.3.2 添加和删除数组元素"></a>8.3.2 添加和删除数组元素</h5><ul>
+<li><p><code>push()</code>：在<strong>数组末尾</strong>添加一个或多个数组元素，参数为所添加的元素</p>
+<ul>
+<li><blockquote>
+<p>var arr = [1, 2, 3];</p>
+<p>arr.push(4, 5);</p>
+<p>console.log(arr);</p>
+</blockquote>
+</li>
+<li><p>打印内容为<code>[1, 2, 3, 4, 5]</code></p>
+</li>
+<li><p><code>push()</code>的返回值为新数组的长度</p>
+</li>
+</ul>
+</li>
+<li><p><code>unshift()</code>：在<strong>数组开头</strong>添加一个或多个数组元素，参数为所添加的元素</p>
+<ul>
+<li><blockquote>
+<p>var arr = [1, 2, 3];</p>
+<p>arr.unshift(4, 5);</p>
+<p>console.log(arr);</p>
+</blockquote>
+</li>
+<li><p>打印内容为<code>[4, 5, 1, 2, 3]</code></p>
+</li>
+<li><p><code>unshift()</code>的返回值为新数组的长度</p>
+</li>
+</ul>
+</li>
+<li><p><code>pop()</code>：删除<strong>数组末尾</strong>的一个元素（括号内不跟参数）</p>
+<ul>
+<li>返回值为被删除的元素</li>
+</ul>
+</li>
+<li><p><code>shift()</code>：删除<strong>数组开头</strong>的第一个元素（无参数）</p>
+<ul>
+<li>返回值为被删除的元素</li>
+</ul>
+</li>
+</ul>
+<h5 id="8-3-3-数组排序"><a href="#8-3-3-数组排序" class="headerlink" title="8.3.3 数组排序"></a>8.3.3 数组排序</h5><ul>
+<li><p><code>reverse()</code>：将数组进行翻转（<code>[1, 2, 3]</code>变成<code>[3, 2, 1]</code>）</p>
+</li>
+<li><p><code>sort()</code>：讲数组进行冒泡排序</p>
+<ul>
+<li><blockquote>
+<p>该排序方式有一定的问题，他根据元素最左边的一位数字来排序，话不多说看例子</p>
+<blockquote>
+<p>var arr = [1, 30, 12, 18, 5, 9, 42, 99];</p>
+<p>var nArr = arr.sort();</p>
+<p>console.log(nArr);</p>
+</blockquote>
+<p>打印结果为：<code>[1, 12, 18, 30, 42, 5, 9, 99]</code></p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>解决方案（记住即可）：</p>
+<ul>
+<li><code>arr.sort(function(a, b) {return a - b;})</code>升序排列</li>
+<li><code>arr.sort(function(a, b) {return b - a;})</code>降序排列</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="8-3-4-数组索引方法"><a href="#8-3-4-数组索引方法" class="headerlink" title="8.3.4 数组索引方法"></a>8.3.4 数组索引方法</h5><ul>
+<li><p><code>indexOf(数组元素);</code>返回数组索引号</p>
+<ul>
+<li><p>若有相同元素，则返回找到的第一个的索引号，若找不到，返回<code>-1</code></p>
+</li>
+<li><blockquote>
+<p>var arr = [‘red’, ‘green’, ‘blue’];</p>
+<p>console.log(arr.indexOf(‘green’));</p>
+</blockquote>
+</li>
+<li><p>打印内容为<code>1</code>(‘green’的索引号)</p>
+</li>
+</ul>
+</li>
+<li><p><code>lastindexOf(数组元素);</code>：与<code>indexOf();</code>用法相同，区别在于<strong>从末尾开始</strong>往前查找</p>
+</li>
+</ul>
+<h5 id="8-3-5-数组转换为字符串"><a href="#8-3-5-数组转换为字符串" class="headerlink" title="8.3.5 数组转换为字符串"></a>8.3.5 数组转换为字符串</h5><ul>
+<li><code>toString() // 逗号分隔，不可更改</code></li>
+<li><code>join(分隔符) // 默认逗号分隔，可更改，常用'-'和'&amp;'</code></li>
+</ul>
+<h5 id="8-3-6-数组的拼接、截取和批量删除"><a href="#8-3-6-数组的拼接、截取和批量删除" class="headerlink" title="8.3.6 数组的拼接、截取和批量删除"></a>8.3.6 数组的拼接、截取和批量删除</h5><ul>
+<li><p>数组的拼接：<code>concat();</code></p>
+<ul>
+<li><p>该方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组</p>
+</li>
+<li><blockquote>
+<p>var array1 = [‘a’, ‘b’, ‘c’];<br>var array2 = [‘d’, ‘e’, ‘f’];<br>var array3 = array1.concat(array2);</p>
+<p>console.log(array3);</p>
+</blockquote>
+</li>
+<li><p>打印内容为：<code>["a", "b", "c", "d", "e", "f"]</code></p>
+</li>
+</ul>
+</li>
+<li><p>数组的截取：<code>slice(begin, end);</code></p>
+<ul>
+<li><p>该方法返回一个新的数组对象，这一对象是一个由 <code>begin</code> 和 <code>end</code> 决定的原数组的<strong>浅拷贝</strong>（包括 <code>begin</code>，不包括<code>end</code>）。原始数组不会被改变。</p>
+</li>
+<li><blockquote>
+<blockquote>
+<p>var animals = [‘ant’, ‘bison’, ‘camel’, ‘duck’, ‘elephant’];</p>
+<p>console.log(animals.slice(2));</p>
+</blockquote>
+<p>打印内容为：<code>["camel", "duck", "elephant"]</code></p>
+<blockquote>
+<p>console.log(animals.slice(2, 4));</p>
+</blockquote>
+<p>打印内容为：<code>["camel", "duck"]</code></p>
+<blockquote>
+<p>console.log(animals.slice(1, 5));</p>
+</blockquote>
+<p>打印内容为：<code>["bison", "camel", "duck", "elephant"]</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>数组的批量删除：<code>splice(开始， 个数);</code></strong></p>
+<ul>
+<li><p>该方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会<strong>改变原数组。</strong></p>
+</li>
+<li><blockquote>
+<blockquote>
+<p>const months = [‘Jan’, ‘March’, ‘April’, ‘June’];<br>months.splice(1, 0, ‘Feb’);<br>console.log(months);</p>
+</blockquote>
+<p>打印内容为：<code>["Jan", "Feb", "March", "April", "June"]</code></p>
+<blockquote>
+<p>months.splice(4, 1, ‘May’);<br>console.log(months);</p>
+</blockquote>
+<p>打印内容为：<code>["Jan", "Feb", "March", "April", "May"]</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-4-字符串对象"><a href="#8-4-字符串对象" class="headerlink" title="8.4 字符串对象"></a>8.4 字符串对象</h4><blockquote>
+<p><strong>字符串对象的不可变性：</strong></p>
+<p>字符串内的值不可改变，开发者对其进行重新赋值，实质上只是在内存中重新开辟了新空间，然后将变量名指向了新的空间并赋值。<strong>原空间和值仍然存在</strong>，所以尽量减少拼接字符串和修改字符串，因为浏览器要不断地开辟新空间，会降低性能。</p>
+<p><strong>注意：</strong>字符串对象的所有方法都不会改变本身（不可变性），而是在完成操作以后生成新的字符串，将变量名指向。</p>
+</blockquote>
+<ul>
+<li><p>根据字符串中的字符位置返回下标：</p>
+<ul>
+<li><p><code>indexOf('要检查的字符', [起始位置]);</code> // 用法和数组差不多 </p>
+</li>
+<li><p><code>lastindexOf();也一样</code></p>
+</li>
+<li><p>中括号<code>[]</code>包裹的表示可选参数，可写可不写，默认从头开始</p>
+</li>
+<li><blockquote>
+<p>常见面试题test：</p>
+<p><code>var str = 'abcoefoxyozzopp';</code></p>
+<p>编写代码查找并返回<code>o</code>出现的次数和位置</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>根据位置返回字符：</strong></p>
+<ul>
+<li><code>charAt(index ); // index为索引号，返回字符</code></li>
+<li><code>charCodeAt(index); // 返回字符的ASCII码（常用于判断用户按键按下）</code></li>
+<li><code>str[index]; // 返回字符（H5新增，考虑兼容性）</code></li>
+</ul>
+</li>
+<li><p><strong>字符串操作方法：</strong></p>
+<ul>
+<li><code>concat(字符串1, 字符串2...); // 拼接字符串，但是使用+拼接更为常见</code></li>
+<li><code>substr(start, lenght); // 从start(索引号)开始，截取length个字符(较为常用)</code></li>
+<li><code>slice(start, end); // 从start开始取，end结束，end取不到</code></li>
+<li><code>substring(start, end); // 与slice相同，但是不接受负值</code></li>
+</ul>
+</li>
+<li><p>替换字符串：</p>
+<ul>
+<li><code>replace(被替换的字符, 替换的字符)</code></li>
+<li>仅替换匹配到的第一个字符，若要全部替换或者多个替换，可以使用循环</li>
+</ul>
+</li>
+<li><p>字符串转为数组：</p>
+<ul>
+<li><p><code>split(分隔符);</code>与<code>jion()</code>相反</p>
+</li>
+<li><blockquote>
+<blockquote>
+<p>str = ‘red&amp;blue&amp;yellow’;</p>
+<p>console.log(str.split(‘&amp;’));</p>
+</blockquote>
+<p>打印内容为：<code>["red", "blue", "yellow"]</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>其他常用方法：</p>
+<ul>
+<li>转为大写：<code>toUpperCase();</code></li>
+<li>转为小写：<code>toLowerCase();</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>JS中堆和栈空间分配的区别：</p>
+<ul>
+<li>栈（操作系统）：由操作系统自动分配释放存放函数的参数值、局部变量的值等，其操作方式类似于数据结构中的栈，简单数据类型就是保存在栈里的；</li>
+<li>堆（操作系统）：储存复杂数据类型（对象），一般由程序员分配释放，若程序员不分配释放，由垃圾回收机制回收，引用数据类型就是保存在堆里的。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>JS终末的叭叭叭：<br>这篇笔记里只写了ECMAScript5的一些基本知识，不涉及到ES6，而JS中的DOM和BOM打算另起一篇笔记写一下，方便查看，否则全部写到一起我觉得不方便阅读，也不方便取舍哈哈哈（我身边有的人就是不学DOM直接看框架，虽然困难，但是也能够过得去）</p>
+<p>okk~es5的一些基础内容我觉得我都写到了，如果发现有什么遗漏，可以告诉我我来补充</p>
+<p>我是EagleH，一个正处于前端起步阶段的IT小白~</p>
 </blockquote>
 
                 
