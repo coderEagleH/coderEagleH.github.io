@@ -6,7 +6,7 @@
   <link href="http://codereagleh.github.io/atom.xml" rel="self"/>
   
   <link href="http://codereagleh.github.io/"/>
-  <updated>2021-02-13T08:32:44.199Z</updated>
+  <updated>2021-02-13T11:57:16.736Z</updated>
   <id>http://codereagleh.github.io/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>jQuery学习笔记</title>
+    <link href="http://codereagleh.github.io/2021/02/14/jquery-xue-xi-bi-ji/"/>
+    <id>http://codereagleh.github.io/2021/02/14/jquery-xue-xi-bi-ji/</id>
+    <published>2021-02-14T04:53:23.000Z</published>
+    <updated>2021-02-13T11:57:16.736Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;jQuery是小白EagleH正式接触的除web前端三件套以外的第一门前端工具，也是从jQuery的学习中，渐渐开始觉得合理运用这些不一样的思想和方法，对于前端开发来说更为的简单方便了，正如jQuery封面上写的那句：Write less, Do</summary>
+        
+      
+    
+    
+    
+    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="jQuery" scheme="http://codereagleh.github.io/tags/jQuery/"/>
+    
+    <category term="JS库" scheme="http://codereagleh.github.io/tags/JS%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS学习笔记之DOM</title>
     <link href="http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/"/>
     <id>http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/</id>
     <published>2021-02-13T07:56:39.000Z</published>
-    <updated>2021-02-13T08:32:44.199Z</updated>
+    <updated>2021-02-13T08:59:18.343Z</updated>
     
     
       
@@ -35,7 +65,7 @@
     
     
     
-    <category term="WEB前端" scheme="http://codereagleh.github.io/categories/WEB%E5%89%8D%E7%AB%AF/"/>
+    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>

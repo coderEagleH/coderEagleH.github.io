@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JS学习笔记之DOM, EagleH World">
+    <meta name="keywords" content="jQuery学习笔记, EagleH World">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JS学习笔记之DOM | EagleH World</title>
+    <title>jQuery学习笔记 | EagleH World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/./images/featureimages/DOMxue-xi-bi-ji.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/./images/featureimages/jquery-xue-xi-bi-ji.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JS学习笔记之DOM</h1>
+                    <h1 class="description center-align post-title">jQuery学习笔记</h1>
                 </div>
             </div>
         </div>
@@ -416,12 +416,12 @@
                                 <span class="chip bg-color">学习笔记</span>
                             </a>
                         
-                            <a href="/tags/JavaScript/">
-                                <span class="chip bg-color">JavaScript</span>
+                            <a href="/tags/jQuery/">
+                                <span class="chip bg-color">jQuery</span>
                             </a>
                         
-                            <a href="/tags/DOM/">
-                                <span class="chip bg-color">DOM</span>
+                            <a href="/tags/JS%E5%BA%93/">
+                                <span class="chip bg-color">JS库</span>
                             </a>
                         
                     </div>
@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-13
+                    2021-02-14
                 </div>
                 
 
@@ -454,7 +454,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.2k
+                    3.4k
                 </div>
                 
 
@@ -472,496 +472,401 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>上一篇中笔记做的是JS的基础阶段，学习的是ECMAScript标准规定的基本语法，只要求掌握基础语法就可以了，为后面的JS打下基础。但是只学了语法，我们还是无法做到网页的交互效果，所以JS还有一个重要的阶段，叫”WEB APIs”，他是W3C组织的标准，在JS中我们要掌握的是DOM和BOM，但是BOM其实根据不同的浏览器有不同的要求，所以本片笔记主要只针对JS中的DOM部分，主要学习的是页面交互功能，冲鸭~</p>
+<p>jQuery是小白EagleH正式接触的除web前端三件套以外的第一门前端工具，也是从jQuery的学习中，渐渐开始觉得合理运用这些不一样的思想和方法，对于前端开发来说更为的简单方便了，正如jQuery封面上写的那句：Write less, Do more。朋友告诉我，不论是后面要学习Vue还是React亦或者是其他框架，他们的思想都是从jQuery中获得的启发，所以不论将来是否使用jQuery，将它的思想和基础内容学习一下也是非常有利于以后其他内容的学习的，所以我花了几天时间学习了jQuery的基础内容，并写下这篇笔记~</p>
 </blockquote>
-<h3 id="一、API概念"><a href="#一、API概念" class="headerlink" title="一、API概念"></a>一、API概念</h3><ul>
-<li>什么是API？<ul>
-<li>API（Application Programming Interface），翻译为应用程序编程接口</li>
-<li>是一些由官方预先定义好的函数，目的是提供应用程序与开发人员基于某软件或者硬件得以访问一组例程的能力，又无需访问源码或理解内部工作机制细节。</li>
-<li>说白了，<strong>API就是给程序员提供了一种工具，来轻松实现功能</strong></li>
+<h1 id="jQuery-学习笔记"><a href="#jQuery-学习笔记" class="headerlink" title="jQuery 学习笔记"></a>jQuery 学习笔记</h1><h3 id="一、新老对比"><a href="#一、新老对比" class="headerlink" title="一、新老对比~"></a>一、新老对比~</h3><ul>
+<li>原生JS的缺陷：<ul>
+<li>不能添加多个入口函数，后面的会层叠前面的，万一忘记了，重新添加了一个，岂不是很麻烦~</li>
+<li>原生JS的API名字都太长了<del>不好记呀</del></li>
+<li>原生JS代码易冗余</li>
+<li>原生JS中易出现兼容性问题~</li>
+<li>容错率较低</li>
 </ul>
 </li>
-<li>什么又是Web API？<ul>
-<li>Web API是浏览器提供的一套操作浏览器功能（BOM）和页面元素（DOM）的API。</li>
+<li>啊哈，新来的jQuery就可以很好的解决这些问题啦</li>
+<li>那么jQuery到底是什么呢？<ul>
+<li>首先jQuery是一个JS库（library），是一个<strong>封装好的特定的集合</strong>（方法和函数）</li>
 </ul>
 </li>
-</ul>
-<h3 id="二、DOM导读"><a href="#二、DOM导读" class="headerlink" title="二、DOM导读"></a>二、DOM导读</h3><ul>
-<li>DOM（Document Object Model）翻译为文档对象模型，处理可扩展语言（HTML或XML）的标准编程接口。可以通过DOM改变页面的结构、样式、内容。</li>
-<li>DOM树：<ul>
-<li>文档：一个页面就是一个文档，DOM中使用document来表示文档</li>
-<li>元素：页面中所有的标签都称为元素，DOM中用element来表示元素</li>
-<li>节点：网页中所有的内容都是节点（标签、属性、文本、注释），DOM中用node来表示节点</li>
-<li><strong>DOM把上面内容都看作对象</strong></li>
+<li>jQuery到底做了什么呢？<ul>
+<li>jQuery封装了JavaScript常用的功能代码，优化了DOM操作、事件处理、动画设计和Ajax交互</li>
 </ul>
 </li>
-</ul>
-<h3 id="三、获取元素"><a href="#三、获取元素" class="headerlink" title="三、获取元素"></a>三、获取元素</h3><h4 id="3-1-根据id获取"><a href="#3-1-根据id获取" class="headerlink" title="3.1 根据id获取"></a>3.1 根据id获取</h4><ul>
-<li>使用<code>.getElementById()</code>的方法可以获取带有<code>id</code>的元素</li>
-<li>参数：<code>id</code></li>
-<li>参数是一个<strong>严格区分大小写</strong>的字符串，代表元素的<strong>唯一id</strong></li>
-<li>返回值：返回一个匹配到id的<code>Element</code>对象，没有找到则返回<code>null</code></li>
 </ul>
 <blockquote>
-<p>PS：利用<code>console.dir()</code>可以打印返回的元素对象，更好的查看里面的方法和属性</p>
+<p>ok，话不多说，我们直接开始~</p>
 </blockquote>
-<h4 id="3-2-根据标签名获取"><a href="#3-2-根据标签名获取" class="headerlink" title="3.2 根据标签名获取"></a>3.2 根据标签名获取</h4><ul>
-<li>使用<code>.getElementsByTagName()</code>方法可以获取带有<strong>指定标签名</strong>的对象</li>
-<li>返回的是获取来的元素对象的集合，以伪数组方式存储，若找不到则返回一个空的伪数组</li>
-<li>得到的元素对象是动态的</li>
-<li>两种情况：<ul>
-<li><code>document.getElementsByTagName();</code>获取整个文档中的对应标签名元素数组</li>
-<li><code>element.getElementsByTagName();</code>获取某个元素（父元素）中的对应标签名元素数组</li>
-</ul>
+<h3 id="二、认识jQuery"><a href="#二、认识jQuery" class="headerlink" title="二、认识jQuery"></a>二、认识jQuery</h3><h4 id="2-1-jQuery的入口函数"><a href="#2-1-jQuery的入口函数" class="headerlink" title="2.1 jQuery的入口函数"></a>2.1 jQuery的入口函数</h4><ol>
+<li><p><code>$(document).ready(function() { ... // 此处为页面DOM加载完毕的入口，其他js代码就写在这里面~ });</code></p>
 </li>
-<li><strong>注意：父元素必须是单个对象，必须指明是哪一个，并且在获取元素时不包含父元素</strong></li>
-</ul>
-<h4 id="3-3-通过类名获取"><a href="#3-3-通过类名获取" class="headerlink" title="3.3 通过类名获取"></a>3.3 通过类名获取</h4><ul>
-<li>使用<code>.getElementsByClassName();</code>方法可以获取拥有对应类名的元素</li>
-<li>返回该类名的元素对象的集合（伪数组形式）</li>
-<li>HTML5新增</li>
-</ul>
-<h4 id="3-4-指定选择器获取（单个元素）"><a href="#3-4-指定选择器获取（单个元素）" class="headerlink" title="3.4 指定选择器获取（单个元素）"></a>3.4 指定选择器获取（单个元素）</h4><ul>
-<li>使用<code>.querySelector();</code>方法可以获取指定选择器的<strong>第一个元素</strong></li>
-<li><strong>注意：括号里为选择器，而不只是名字</strong><ul>
-<li>类选择器：<code>.box</code></li>
-<li>标签选择器：<code>box</code></li>
-<li>id选择器：<code>#box</code></li>
-<li>等等等…..</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-5-指定选择器获取（集合）"><a href="#3-5-指定选择器获取（集合）" class="headerlink" title="3.5 指定选择器获取（集合）"></a>3.5 指定选择器获取（集合）</h4><ul>
-<li>使用<code>.querySelectorAll();</code>方法可以获取指定选择器的<strong>所有元素的集合</strong></li>
-<li>集合以伪数组的形式存储，使用方式与<code>3.4</code>相同</li>
-</ul>
-<h4 id="3-6-获取特殊元素"><a href="#3-6-获取特殊元素" class="headerlink" title="3.6 获取特殊元素"></a>3.6 获取特殊元素</h4><ul>
-<li>获取body元素：<code>document.body();</code></li>
-<li>获取HTML元素：<code>document.documentElement();</code></li>
-</ul>
-<h3 id="四、事件（基础部分）"><a href="#四、事件（基础部分）" class="headerlink" title="四、事件（基础部分）"></a>四、事件（基础部分）</h3><ul>
-<li>事件时可以被JavaScript侦测到的行为（触发—响应机制），JS中每个元素都可以添加触发事件</li>
-</ul>
-<h4 id="4-1事件三要素：事件源、事件类型、事件处理程序"><a href="#4-1事件三要素：事件源、事件类型、事件处理程序" class="headerlink" title="4.1事件三要素：事件源、事件类型、事件处理程序"></a>4.1事件三要素：事件源、事件类型、事件处理程序</h4><ul>
-<li><p>事件源：事件触发的对象，比如某个按钮</p>
-</li>
-<li><p>事件类型：如何触发、什么事件，如点击触发、经过触发等等</p>
-</li>
-<li><p>事件处理程序：通过函数赋值方式完成事件处理</p>
-</li>
-<li><p>示例：</p>
-<ul>
-<li><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'button-1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'按钮点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<li><pre class=" language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span> <span class="token comment" spellcheck="true">//此处为页面DOM加载完毕的入口，其他js代码就写在这里面~</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
-<li><p>当点击按钮<code>button-1</code>，控制台打印：<code>按钮点击了</code></p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-2-执行事件的步骤"><a href="#4-2-执行事件的步骤" class="headerlink" title="4.2 执行事件的步骤"></a>4.2 执行事件的步骤</h4><ol>
-<li>获取事件源</li>
-<li>注册事件（绑定事件）</li>
-<li>添加事件处理程序（函数赋值的方式）</li>
 </ol>
-<h4 id="4-3-常见的鼠标事件"><a href="#4-3-常见的鼠标事件" class="headerlink" title="4.3 常见的鼠标事件"></a>4.3 常见的鼠标事件</h4><blockquote>
-<p><code>onclikc</code>：鼠标点击左键触发</p>
-<p><code>onmouseover</code>：光标经过时触发</p>
-<p><code>onmouseout</code>：光标离开时触发</p>
-<p><code>onfocus</code>：元素获得鼠标焦点时触发</p>
-<p><code>onblur</code>：元素失去鼠标焦点时触发</p>
-<p><code>onmousemove</code>：鼠标移动触发</p>
-<p><code>onmouseup</code>：鼠标键弹起触发</p>
-<p><code>onmousedown</code>：鼠标按下触发</p>
-</blockquote>
-<h3 id="五、操作元素"><a href="#五、操作元素" class="headerlink" title="五、操作元素"></a>五、操作元素</h3><h4 id="5-1-改变元素内容"><a href="#5-1-改变元素内容" class="headerlink" title="5.1 改变元素内容"></a>5.1 改变元素内容</h4><ul>
-<li><code>element.innerText</code><ul>
-<li>不识别HTML标签</li>
-<li>从起始位置到终止位置的内容，但他除去了HTML标签，同时空格和换行也去除了</li>
-</ul>
-</li>
-<li><code>element.innerHTML</code><ul>
-<li>识别HTML标签，使用的更多</li>
-<li>从起始位置到终止位置的所有内容，包括HTML标签，同时保留换行和空格</li>
-</ul>
-</li>
-<li>常用的元素属性操作：<ul>
-<li><code>innerText</code>、<code>innerHTML</code>：修改元素内容</li>
-<li><code>src</code>、<code>href</code>：修改路径</li>
-<li><code>id</code>、<code>alt</code>、<code>title</code>：修改属性</li>
-</ul>
-</li>
-</ul>
-<h4 id="5-2-表单元素的属性设置"><a href="#5-2-表单元素的属性设置" class="headerlink" title="5.2 表单元素的属性设置"></a>5.2 表单元素的属性设置</h4><ul>
-<li><p>利用DOM可以操作如下表单的属性：</p>
 <ul>
-<li><code>type</code></li>
-<li><code>value</code></li>
-<li><code>checked</code></li>
-<li><code>selected</code></li>
-<li><code>disabled</code></li>
+<li>等DOM结构渲染完毕即可执行内部代码</li>
+<li>相当于原生JS中的DOMContentLoaded</li>
+<li>更推荐使用第二种入口函数。什么？你问为什么？因为简单嘛~</li>
 </ul>
-</li>
-<li><p><strong>注意：表单的文字内容用<code>innerText</code>和<code>innerHTML</code>无法修改，用<code>value</code>修改</strong></p>
-</li>
-<li><blockquote>
-<p>若要修改调用者的某些属性，可以用this代替调用者的元素变量</p>
-</blockquote>
-</li>
+<h4 id="2-2-jQuery的顶级对象"><a href="#2-2-jQuery的顶级对象" class="headerlink" title="2.2 jQuery的顶级对象$"></a>2.2 jQuery的顶级对象<code>$</code></h4><ul>
+<li><code>$</code>是jQuery的顶级对象，相当于原生JS中的<code>window</code>，把元素利用<code>$</code>包装成jQuery对象，就可以调用jQuery的方法了</li>
+<li><code>$</code>还有个别称就是<code>jQuery</code>，两者可以互相代替</li>
 </ul>
-<h4 id="5-3-样式的属性操作"><a href="#5-3-样式的属性操作" class="headerlink" title="5.3 样式的属性操作"></a>5.3 样式的属性操作</h4><ul>
-<li><p>通过JS修改元素的大小、颜色、位置等</p>
-<ul>
-<li><code>element.style.[...]</code>：行内样式操作</li>
-<li><strong>注意：</strong><ul>
-<li>JS里的样式采用驼峰命名法，如<code>fontSize</code>, <code>backgrountColor</code>等等</li>
-<li>JS修改的是行内style样式操作，在CSS中权重更高</li>
+<h4 id="2-3-jQuery对象和DOM对象"><a href="#2-3-jQuery对象和DOM对象" class="headerlink" title="2.3 jQuery对象和DOM对象"></a>2.3 jQuery对象和DOM对象</h4><ul>
+<li>用原生JS获取的对象就是DOM对象，用jQuery获取的元素就是jQuery对象</li>
+<li>jQuery对象的本质：利用<code>$</code>对DOM对象进行包装后产生的对象（伪数组形式）</li>
+<li><strong>两种不同的对象只能使用各自的方法和属性，不可以混用</strong></li>
+<li>DOM对象和jQuery对象之间可以相互转换（<strong>特殊情况下使用，因为有的属性方法还没有包装，但需要的时候，可以进行转换</strong>）<ul>
+<li>DOM对象转为jQuery对象：<code>$(DOM对象)</code></li>
+<li>jQuery对象转为DOM对象：<ul>
+<li><code>$('div')[index]</code></li>
+<li><code>$('div').get(index)</code></li>
+<li>两种方法都可以，其中的index代表索引号</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>当需要修改的样式较多时，修改style会比较麻烦，可以用<strong>类名样式</strong>操作</p>
-<ul>
-<li><p><code>element.className.[...]</code>：类名样式操作</p>
+</ul>
+<h3 id="三、jQuery选择器"><a href="#三、jQuery选择器" class="headerlink" title="三、jQuery选择器"></a>三、jQuery选择器</h3><h4 id="3-1-jQuery基础选择器"><a href="#3-1-jQuery基础选择器" class="headerlink" title="3.1 jQuery基础选择器"></a>3.1 jQuery基础选择器</h4><ul>
+<li>语法：<code>$("选择器")</code></li>
+<li>里面直接写CSS选择器即可，别忘了引号<code>" "</code></li>
+<li>打个比方：<ul>
+<li><code>$("#id")</code>：id选择器</li>
+<li><code>$("*")</code>：选取所有的元素</li>
+<li><code>$(".class")</code>：.class选择器</li>
+<li><code>$("div")</code>：元素选择器</li>
+<li><code>$("div, p, li")</code>：选取多个元素</li>
+<li><code>$("li.current")</code>：选取class为current的li元素</li>
+</ul>
 </li>
-<li><p>将样式写入CSS中独立的类名样式中，再给需要更改此样式的元素添加一个类名（用<code>element.className = "..."</code>）</p>
+</ul>
+<h4 id="3-2-层级选择器"><a href="#3-2-层级选择器" class="headerlink" title="3.2 层级选择器"></a>3.2 层级选择器</h4><ul>
+<li>子代选择器：<code>$("ul&gt;li")</code><ul>
+<li>选取<code>ul</code>的亲儿子<code>li</code></li>
+</ul>
 </li>
-<li><p><strong>注意：</strong>className会改变元素类名，覆盖<strong>原先的类名</strong>，若想要保留原先的类名，则需要将原先的类名<strong>也写入className中</strong></p>
-</li>
+<li>后代选择器：<code>$("ul li")</code><ul>
+<li>选取<code>ul</code>的后代<code>li</code>（可能是儿子或者更后代）</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p><strong>排他思想：</strong></p>
-<ul>
-<li>若有一组相同的元素，想要某一个元素实现某种样式，需要用到循环的排他思想算法<ul>
-<li>所有元素全部清除样式</li>
-<li>给当前元素设置样式</li>
-</ul>
-</li>
-</ul>
+<p><strong>隐式迭代：</strong></p>
+<p>遍历内部DOM元素（伪数组形式）的过程成为隐式迭代</p>
 </blockquote>
-<h4 id="5-4-自定义属性的操作"><a href="#5-4-自定义属性的操作" class="headerlink" title="5.4 自定义属性的操作"></a>5.4 自定义属性的操作</h4><ol>
-<li>获取属性值：<ul>
-<li><code>element.属性</code>可以获得属性值</li>
-<li><code>element.getAttribute('属性');</code></li>
-<li><strong>两者的区别</strong>在于，第一个获取内置属性（元素本身自带的属性），而第二个主要用于获取自定义的属性（程序自定义的属性）</li>
-</ul>
-</li>
-<li>设置属性值：<ul>
-<li><code>element.属性 = '值';</code> 设置内置属性的值</li>
-<li><code>element.setAttribute('属性', '值');</code> 针对自定义属性</li>
-</ul>
-</li>
-<li>移除属性：<ul>
-<li><code>removeAttribute('属性');</code> 移除自定义属性</li>
-</ul>
-</li>
+<h4 id="3-3-筛选选择器"><a href="#3-3-筛选选择器" class="headerlink" title="3.3 筛选选择器"></a>3.3 筛选选择器</h4><ol>
+<li><code>$("li:first")</code>：第一个li元素</li>
+<li><code>$("li:last")</code>：最后一个li元素</li>
+<li><code>$("li:eq(3)")</code>：第四个li元素（参数从0开始）</li>
+<li><code>$("li:odd")</code>：奇数个</li>
+<li><code>$("li:even")</code>：偶数个</li>
 </ol>
-<blockquote>
-<p>HTML5自定义属性：</p>
-<ul>
-<li>目的是为了保存并使用数据，有些数据可以保存到页面中，而不用保存到数据库中</li>
-<li>但有的自定义属性容易引起歧义与元素自带的属性无法区分</li>
-<li>所以：<ul>
-<li>HTML5规定自定义属性用<code>data-</code>开头作为属性名和赋值</li>
-<li>示例：<code>&lt;div data-index="1"&gt; &lt;/div&gt;</code></li>
-<li>其中的<code>data-index</code>就是一个自定义属性</li>
-</ul>
-</li>
-</ul>
-<p>HTML5新增获取属性值的方法：</p>
-<ul>
-<li><code>element.dataset.index</code>或者<code>element.dataset['index']</code></li>
-<li><code>dataset</code>为<code>data-</code>的集合，后面的<code>index</code>就不用再加<code>data-</code>了，但是有兼容性问题，需要IE11+以上版本</li>
-<li>若自定义属性里有多个<code>-</code>连接的单词，采用驼峰命名法</li>
-</ul>
-</blockquote>
-<h3 id="六、节点操作"><a href="#六、节点操作" class="headerlink" title="六、节点操作"></a>六、节点操作</h3><ul>
-<li><p>利用节点层次关系获取元素</p>
-<ul>
-<li>父子兄弟节点关系</li>
-<li>逻辑性强，兼容性稍差</li>
-</ul>
-</li>
-<li><p>一般的，节点至少拥有<code>nodeType（节点类型）</code>、<code>nodeName（节点名称）</code>和<code>nodeValue（节点值）</code>者三个基本属性</p>
-</li>
-<li><p>节点类型：</p>
-<ul>
-<li>元素节点：nodeType为1（开发中主要操作）</li>
-<li>属性节点：nodeType为2</li>
-<li>文本节点：nodeType为3（包含文字、空格、换行）</li>
-</ul>
-</li>
-</ul>
-<h4 id="6-1-节点层次"><a href="#6-1-节点层次" class="headerlink" title="6.1 节点层次"></a>6.1 节点层次</h4><ul>
-<li><p>父级节点：<code>node.parentNode</code></p>
-<ul>
-<li>得到的是距离<code>node</code>最近的上一级节点</li>
-<li>找不到则返回null</li>
-</ul>
-</li>
-<li><p>子级节点：</p>
-<ol>
-<li><code>node.childNodes</code><ul>
-<li>得到的是所有的子节点（包括元素节点和文本节点）</li>
-<li>若只想要拿到元素节点，需要专门处理，所以这个方法<strong>不推荐</strong></li>
-</ul>
-</li>
-<li><code>node.children</code><ul>
-<li>可以获取所有的<strong>子元素</strong>节点，<strong>推荐</strong></li>
-</ul>
-</li>
-<li><code>node.firstChild</code><ul>
-<li>获取第一个子节点（不区分节点类型）</li>
-</ul>
-</li>
-<li><code>node.lastChilde</code><ul>
-<li>获取最后一个子节点（不区分节点类型）</li>
-</ul>
-</li>
-<li><code>node.firstElementChild</code><ul>
-<li>获取第一个<strong>子元素</strong>节点，<strong>推荐</strong>，但兼容性问题（IE9+）</li>
-</ul>
-</li>
-<li><code>node.lastElementChild</code><ul>
-<li>获取最后一个<strong>子元素</strong>节点，兼容性问题（IE9+）</li>
-</ul>
-</li>
+<h4 id="3-4-jQuery筛选方法"><a href="#3-4-jQuery筛选方法" class="headerlink" title="3.4 jQuery筛选方法"></a>3.4 jQuery筛选方法</h4><ol>
+<li><code>$("li").parent();</code>：亲父级元素</li>
+<li><code>$("ul").children("li");</code>：亲子级元素</li>
+<li><code>$("li").find("li");</code>：后代子级元素</li>
+<li><code>$(".first").sibling("li");</code>：兄弟元素（不包含自身）</li>
+<li><code>$(".first").nextAll();</code>：之后的所有兄弟元素</li>
+<li><code>$(".last").prevAll();</code>：之前的所有兄弟元素</li>
+<li><code>$("div").hasClass("protect");</code>：检查当前元素是否含有某个特定的类，有则返回true</li>
+<li><code>$("li").eq(2);</code> = <code>$("li.eq(2)");</code>：第三个li</li>
 </ol>
-<blockquote>
-<p>实际开发中：<br><code>node.children[0]</code>获取第一个子元素节点</p>
-<p><code>node.children[长度 - 1]</code>获取最后一个子元素节点</p>
-</blockquote>
+<h3 id="四、jQuery样式操作"><a href="#四、jQuery样式操作" class="headerlink" title="四、jQuery样式操作"></a>四、jQuery样式操作</h3><h4 id="4-1-操作CSS的方法"><a href="#4-1-操作CSS的方法" class="headerlink" title="4.1 操作CSS的方法"></a>4.1 操作CSS的方法</h4><ol>
+<li><p>参数只写属性名，则返回属性值：<code>$(this).css("color");</code></p>
 </li>
-<li><p>兄弟节点：</p>
+<li><p>参数是<code>属性名，属性值</code>，逗号分开，是设置一组样式，属性必须加引号，值若为数字则可以不用跟单位和引号：<code>$(this).css("color","red");</code></p>
+</li>
+<li><p>参数可以是对象形式，方便设置多组样式，属性名和属性值用<code>:</code>分割，属性可以不用加引号：</p>
 <ul>
-<li><code>node.nextSibling</code><ul>
-<li>返回当前元素的下一个兄弟节点，找不到则返回null（不区分节点类型）</li>
-</ul>
-</li>
-<li><code>node.previousSibling</code><ul>
-<li>返回上一个兄弟节点（不区分节点类型）</li>
-</ul>
-</li>
-<li><code>ndoe.nextElementSibling</code><ul>
-<li>返回下一个兄弟<strong>元素节点</strong>，找不到返回null，兼容性IE9+</li>
-</ul>
-</li>
-<li><code>node.previousElementSibling</code><ul>
-<li>返回上一个兄弟<strong>元素节点</strong>，兼容性IE9+</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>其他办法：<strong>自己封装一个函数来获取兄弟节点</strong></p>
-<ul>
-<li><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getElementSibling</span><span class="token punctuation">(</span>element <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> el <span class="token operator">=</span> element<span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>el <span class="token operator">=</span> el<span class="token punctuation">.</span>nextSibling <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">if</span><span class="token punctuation">(</span>el<span class="token punctuation">.</span>nodeType <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-         <span class="token keyword">return</span> <span class="token number">1</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
- <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<li><pre class=" language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">"color"</span><span class="token punctuation">:</span> <span class="token string">"white"</span><span class="token punctuation">,</span>
+    <span class="token string">"font-size"</span><span class="token punctuation">:</span> <span class="token string">"20px"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 </li>
 </ul>
-</blockquote>
-</li>
-</ul>
-<h4 id="6-2-节点操作"><a href="#6-2-节点操作" class="headerlink" title="6.2 节点操作"></a>6.2 节点操作</h4><ul>
-<li>创建节点<ul>
-<li><code>document.createElement('tagName');</code></li>
-<li>创建一个由<code>tagName</code>指定的HTML元素，因为这些元素本身不存在，根据需求动态生成，所以也称为动态创建元素节点</li>
-</ul>
-</li>
-<li>添加节点<ol>
-<li><code>node.appendChild(childNode)</code><ul>
-<li>将一个节点添加到指定父节点的子节点列表末尾（类似于after）</li>
-</ul>
-</li>
-<li><code>node.insertBefore(child, 指定元素)</code><ul>
-<li>在指定元素的前面添加元素（都是node的子元素）</li>
-</ul>
 </li>
 </ol>
-</li>
-<li>删除节点<ul>
-<li><code>node.removeChild(childNode)</code></li>
-<li>从DOM中删除一个子节点，返回删除的节点</li>
+<h4 id="4-2-设置类样式方法"><a href="#4-2-设置类样式方法" class="headerlink" title="4.2 设置类样式方法"></a>4.2 设置类样式方法</h4><ul>
+<li><strong>类名千万别加点</strong></li>
+<li>添加类：<code>$("div").addClass("current");</code></li>
+<li>删除类：<code>$("div").removeClass("current");</code></li>
+<li>切换类：<code>$("div").toggleClass("current");</code> // 有<code>current</code>类就删掉，没有就加上</li>
 </ul>
-</li>
-<li>复制节点<ul>
-<li><code>node.cloneNode()</code></li>
-<li>返回调用该方法的节点的一个副本，也称克隆节点/拷贝节点</li>
-<li>克隆之后应当添加节点才能显示</li>
-<li><strong>注意：</strong><ul>
-<li>若括号参数为空或者false，则为浅拷贝，只复制节点，不包含里面的任何子节点</li>
-<li>若括号为true，则为深拷贝，复制所有内容</li>
+<h4 id="4-3-类操作与className的区别"><a href="#4-3-类操作与className的区别" class="headerlink" title="4.3 类操作与className的区别"></a>4.3 类操作与className的区别</h4><ul>
+<li>原生JS中的className会覆盖元素原先的类名</li>
+<li>jQuery类操作只对指定类进行操作，不影响原类名</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><strong>常见面试题</strong></p>
-<ol>
-<li><code>document.write()</code></li>
-<li><code>document.innerHTML()</code></li>
-<li><code>document.createElement()</code></li>
-</ol>
-<p>三种动态元素创建的区别？</p>
-<p>keys：</p>
-<ol>
-<li>第一种是直接将内容写入到页面的内容流里，文档流执行完毕以后，可能会导致<strong>页面重绘</strong></li>
-<li>第二种创建多个元素效率更高（不使用拼接，采取数组形式），但结构较为复杂</li>
-<li>第三种在创建多个元素时效率会低一些，但是结构更加清晰</li>
-</ol>
-<blockquote>
-<p>不同浏览器下，第二种比第三种效率高</p>
-</blockquote>
-</blockquote>
-<h3 id="七、事件（高级部分）"><a href="#七、事件（高级部分）" class="headerlink" title="七、事件（高级部分）"></a>七、事件（高级部分）</h3><h4 id="7-1-注册事件"><a href="#7-1-注册事件" class="headerlink" title="7.1 注册事件"></a>7.1 注册事件</h4><ul>
-<li>给元素添加事件，成为注册事件或绑定事件</li>
-<li>传统方式：<ul>
-<li>利用on开头的事件，如onclick</li>
-<li>特点：注册事件的<strong>唯一性</strong></li>
-<li>同一个元素同一个事件只能设置一个处理函数，后设置的会覆盖前一个</li>
-</ul>
-</li>
-<li><strong>方法监听注册事件</strong><ul>
-<li>W3C推荐</li>
-<li><code>addEventListener()</code>方法</li>
-<li>兼容性IE9以前不支持，可以用<code>attachEvent()</code>代替</li>
-<li>同一个元素同一个事件可以注册多个监听器</li>
-<li>按注册顺序依次执行</li>
-</ul>
-</li>
-<li>语法：<code>eventTarget.addEventListener(type, listener[, useCapture])</code></li>
+<h3 id="五、jQuery效果（动画）"><a href="#五、jQuery效果（动画）" class="headerlink" title="五、jQuery效果（动画）"></a>五、jQuery效果（动画）</h3><h4 id="5-1-显示-隐藏效果"><a href="#5-1-显示-隐藏效果" class="headerlink" title="5.1 显示/隐藏效果"></a>5.1 显示/隐藏效果</h4><ul>
+<li>显示语法：<code>show([speed, [easing], [fn]]);</code></li>
+<li>隐藏语法：<code>hide([speed, [easing], [fn]]);</code></li>
+<li>参数都可以省略，无动画则直接显示（一般都不加参数，太丑了~）</li>
 <li>参数：<ul>
-<li>type：事件类型字符串，如“click”、“mouseover”等等，<strong>注意不要加on</strong></li>
-<li>listener：事件处理函数，事件发生时会调用该监听函数</li>
-<li>useCapture：可选参数，是个布尔值，默认false，在DOM树中，注册了listener的元素， 是否要先于它下面的EventTarget，调用该listener。 当useCapture(设为true) 时，沿着DOM树向上冒泡的事件，不会触发listener。当一个元素嵌套了另一个元素，并且两个元素都对同一事件注册了一个处理函数时，所发生的事件冒泡和事件捕获是两种不同的事件传播方式。</li>
+<li>speed：三种预设速度（“slow”，“normal”（默认），“fast”）或者表示动画持续时长的<strong>毫秒数</strong></li>
+<li>easing：（Optional）用来指定切换效果，默认是“swing”，可用“linear”</li>
+<li>fn：回调函数，动画完成时执行，每个元素执行一次</li>
+</ul>
+</li>
+<li>切换效果：<code>toggle([s, [e], [f]]);</code><ul>
+<li>切换隐藏和显示效果</li>
+<li>用法与隐藏显示一致</li>
 </ul>
 </li>
 </ul>
-<h4 id="7-2-删除事件（解绑事件）"><a href="#7-2-删除事件（解绑事件）" class="headerlink" title="7.2 删除事件（解绑事件）"></a>7.2 删除事件（解绑事件）</h4><ul>
-<li>传统方式：<code>eventTarget.onclick = null;</code></li>
-<li>方法监听注册方式：<ul>
-<li><code>eventTarget.removeEventListener(type, listener[, useCapture]);</code></li>
+<h4 id="5-2-滑动效果"><a href="#5-2-滑动效果" class="headerlink" title="5.2 滑动效果"></a>5.2 滑动效果</h4><ul>
+<li>下拉滑动：<code>slideDown([speed, [easing], [fn]]);</code></li>
+<li>上拉滑动：<code>slideUp([speed, [easing], [fn]]);</code></li>
+<li>切换：<code>slideToggle([speed, [easing], [fn]]);</code></li>
+<li>参数与显示隐藏一致</li>
 </ul>
-</li>
+<h4 id="5-3-事件切换"><a href="#5-3-事件切换" class="headerlink" title="5.3 事件切换"></a>5.3 事件切换</h4><ul>
+<li><code>hover([over,]out)</code></li>
+<li>参数：<ul>
+<li>over：鼠标经过触发函数，相当于mouseover</li>
+<li>out：鼠标离开触发函数，相当于mouseout</li>
+<li>若只写一个函数，则鼠标经过和离开都会触发</li>
 </ul>
-<h4 id="7-3-DOM事件流"><a href="#7-3-DOM事件流" class="headerlink" title="7.3 DOM事件流"></a>7.3 DOM事件流</h4><ul>
-<li>描述的是从页面中接收事件的顺序，事件发生时会在元素节点之间按照特定的顺序传播，该过程成为DOM事件流</li>
-<li>DOM事件流分为三个阶段：<ul>
-<li>捕获阶段</li>
-<li>当前目标阶段</li>
-<li>冒泡阶段</li>
-</ul>
-</li>
-<li><strong>注：</strong><ul>
-<li>JS代码中只能执行捕获阶段或者冒泡阶段中的一个阶段</li>
-<li>传统的<code>onclick</code>和<code>attachEvent</code>只能得到冒泡阶段</li>
-<li><code>addEVentListener(type, listener[, useCapture])</code>的三个参数如果为true，则时间处于捕获阶段，如果是false或省略，则事件处于冒泡阶段</li>
-<li><strong>事实上，开发中很少使用事件捕获，更关注事件冒泡，但有些事件没有冒泡，比如：onbulr,onfocus,onmouseover,onmouseleave等等</strong></li>
-</ul>
-</li>
-</ul>
-<h4 id="7-4-事件对象"><a href="#7-4-事件对象" class="headerlink" title="7.4 事件对象"></a>7.4 事件对象</h4><ul>
-<li><p><code>tagName.onclick = function(event) {}</code></p>
-<ul>
-<li>代码中的<code>event</code>就是一个事件对象，写在监听函数的小括号中，可以当作形参来看待</li>
-<li>事件对象又有了事件后才存在，<strong>系统创建，无需传参</strong></li>
-<li>事件对象是事件的<strong>一系列相关数据的集合</strong>，与事件相关</li>
-<li>该事件可以自主命名，常用：event，evt，e</li>
-<li>事件对象也有兼容性问题，<code>IE6、7、8</code>通过<code>window.event</code>来获取</li>
-<li><strong>兼容性写法： e = e || window.eveng</strong></li>
-</ul>
-</li>
-<li><p>事件对象的常见属性和方法：</p>
-<ul>
-<li><code>e.target</code>：返回触发事件的对象（标准，ie9+使用）</li>
-<li><code>e.srcElement</code>：返回触发事件的对象（非标准，ie678使用）</li>
-<li><code>e.type</code>：返回事件类型（不带on的），如“click”</li>
-<li><code>e.cancelBubble</code>：该属性阻止冒泡（非标准）</li>
-<li><code>e.returnValue</code>：阻止默认事件或行为，比如不让链接跳转（非标准）</li>
-<li><code>e.preventDefault()</code>：该方法阻止默认事件或行为（标准）</li>
-<li><code>e.stopPropagation()</code>：该方法阻止冒泡（标准）</li>
-</ul>
-</li>
-<li><p><strong><code>e.target</code>与<code>this</code>的区别:</strong></p>
-<ul>
-<li><code>e.target</code>返回的是<strong>触发事件</strong>的对象，<code>this</code>返回的是<strong>绑定事件</strong>的对象</li>
-</ul>
-<blockquote>
-<p><code>return false</code>其实也可以组织默认事件和行为，并且没有兼容性问题，但是写在<code>return</code>后面的代码都不执行了，且仅限于传统注册方式</p>
-</blockquote>
 </li>
 </ul>
 <blockquote>
-<p><strong>阻止事件冒泡</strong>（面试常问）</p>
-<p>事件冒泡开始是由最具体的元素接收，逐级向上传播到DOM最顶层的节点</p>
-<p>组织冒泡的标准写法：利用事件对象的<code>e.propagation()</code>方法</p>
-<p>非标准方法：<code>e.cancelBubble = true;</code></p>
-</blockquote>
-<h4 id="7-5-事件委托（代理、委派）"><a href="#7-5-事件委托（代理、委派）" class="headerlink" title="7.5 事件委托（代理、委派）"></a>7.5 事件委托（代理、委派）</h4><ul>
-<li><p><strong>原理（非常重要）</strong></p>
+<p><strong>一个小bug：</strong></p>
+<p>当一个动画效果在瞬间被触发多次，他会强制执行多次，从而产生排队效果，当你停止触发时，他还是会将排队的效果呈现完毕才会停止。</p>
 <ul>
-<li>不是每个子节点单独设置事件监听器，而是将事件监听设置在他们的父节点上，然后利用冒泡原理影响设置的每个子结点</li>
+<li>动画队列：动画/效果一旦出发就必定会执行完毕，若多次出发，就会造成动画/效果的排队执行</li>
 </ul>
-</li>
-<li><p>作用：</p>
+<p>解决方法：</p>
 <ul>
-<li>只操作了一次DOM，降低访问次数，提高程序性能</li>
+<li>停止排队：用<code>stop()</code>停止上一个动画</li>
+<li>注意：<code>stop()</code>应写到动画或者效果的前面（用来停止前一个）</li>
 </ul>
-</li>
-<li><blockquote>
-<p>与<code>e.target</code>配合可以控制单个子元素</p>
 </blockquote>
+<h4 id="5-4-淡入淡出效果"><a href="#5-4-淡入淡出效果" class="headerlink" title="5.4 淡入淡出效果"></a>5.4 淡入淡出效果</h4><ul>
+<li><p>淡入：<code>fadeIn([s, [e], [f]]);</code></p>
 </li>
-</ul>
-<h4 id="7-6-常见的鼠标事件2"><a href="#7-6-常见的鼠标事件2" class="headerlink" title="7.6 常见的鼠标事件2"></a>7.6 常见的鼠标事件2</h4><ul>
-<li>禁止鼠标右击菜单<ul>
-<li><code>contestmenu</code>主要控制当前何时显示上下文菜单，主要用于程序员取消该设置</li>
-</ul>
+<li><p>淡出：<code>fadeOut([s, [e], [f]]);</code></p>
 </li>
-<li>禁止鼠标选中（Selectstart 开始选中）<ul>
-<li>常配置<code>e.preventDefault()</code>的侦听器</li>
-</ul>
+<li><p>切换：<code>fadeToggle([s, [e], [f]]);</code></p>
 </li>
-<li>鼠标事件对象：<ul>
-<li><code>event</code>对象代表事件的状态，跟事件相关的一系列信息的集合，现阶段主要用鼠标事件对象<code>MouseEvent</code>和键盘事件对象<code>KeyboardEvent</code></li>
-</ul>
-</li>
-<li>鼠标事件第二弹<ul>
-<li><code>e.clientX</code>：返回鼠标相对于<strong>浏览器</strong>可视区的X坐标</li>
-<li><code>e.clientY</code>：返回鼠标相对于浏览器可视区的Y坐标</li>
-<li><code>e.pageX</code>：返回鼠标相对于<strong>文档页面</strong>的X坐标（IE9+）</li>
-<li><code>e.pageY</code>：返回鼠标相对于文档页面的Y坐标（IE9+）</li>
-<li><code>e.screenX</code>：返回鼠标相对于<strong>电脑屏幕</strong>的X坐标</li>
-<li><code>e.screenY</code>：返回鼠标相对于电脑屏幕的Y坐标</li>
+<li><p>渐进式调整到指定的不同透明度：<code>fadeTo([s], opacity, [e], [f]);</code></p>
+<ul>
+<li><code>opacity</code>透明度，必须写，取值在<code>0~1</code>之间</li>
+<li><code>speed</code>也必须写</li>
 </ul>
 </li>
 </ul>
-<h4 id="7-7-常用的键盘事件"><a href="#7-7-常用的键盘事件" class="headerlink" title="7.7 常用的键盘事件"></a>7.7 常用的键盘事件</h4><ul>
-<li>以下为执行顺序排列，1为最先执行</li>
+<h4 id="5-5-自定义动画"><a href="#5-5-自定义动画" class="headerlink" title="5.5 自定义动画"></a>5.5 自定义动画</h4><ul>
+<li>语法：<code>animate(params, [speed], [easing], [fn]);</code></li>
+<li>参数：<ul>
+<li>params：想要改变的样式属性，以对象形式传递，必须写。</li>
+<li>属性名可以不带引号，若为复合属性名字采取驼峰命名法</li>
 </ul>
-<ol>
-<li><code>onkeydown</code>：某个按键按下时触发，不区分大小写</li>
-<li><code>onkeypress</code>：某个按键按下时触发，但不是识别功能键（如shift、ctrl之类），区分大小写</li>
-<li><code>onkeyup</code>：某个按键松开弹起时触发，不区分大小写</li>
+</li>
+<li>其他参数与显示隐藏一致</li>
+</ul>
+<h3 id="六、jQuery属性操作"><a href="#六、jQuery属性操作" class="headerlink" title="六、jQuery属性操作"></a>六、jQuery属性操作</h3><ul>
+<li><p>设置或获取元素固有属性<code>prop()</code>：<code>$("a").prop("href");</code>获取<code>href</code>属性</p>
+<ul>
+<li>获取：<code>$(" ").prop("属性");</code></li>
+<li>设置：<code>$(" ").prop("属性", "属性值");</code></li>
+</ul>
+</li>
+<li><p>设置或获取元素自定义属性<code>attr();</code></p>
+<ul>
+<li>获取：<code>$(" ").attr("自定义属性");</code></li>
+<li>设置：<code>$(" ").attr("自定义属性", "属性值");</code></li>
+</ul>
+</li>
+<li><p>数据缓存<code>data()</code></p>
+<ul>
+<li><p>可以在指定的元素上存取数据，并不会修改DOM元素结构，一旦页面刷新，存放的数据将被移除</p>
+</li>
+<li><pre class=" language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"span"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">"uname"</span><span class="token punctuation">,</span> <span class="token string">"andy"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 这段代码在DOM中并不会显示</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"span"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">"uname"</span><span class="token punctuation">,</span> <span class="token string">"andy"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 打印内容为："andy"</span>
+</code></pre>
+</li>
+<li><p>用<code>data()</code>也可以获取H5自定义属性的属性值，不同点：</p>
+<ul>
+<li>不用写<code>data-</code></li>
+<li>返回类型也不同</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="六、jQuery内容文本"><a href="#六、jQuery内容文本" class="headerlink" title="六、jQuery内容文本"></a>六、jQuery内容文本</h3><ul>
+<li>主要针对元素的内容和表单的值</li>
+<li>普通元素内容<code>html()</code>（相当于原生的<code>innerHTML</code>）<ul>
+<li>参数为空则表示获取元素内容</li>
+<li>参数有内容则表示设置元素内容</li>
+</ul>
+</li>
+<li>普通元素文本内容<code>text()</code>（相当于原生的<code>innerText</code>）<ul>
+<li>参数信息与<code>html</code>相同</li>
+<li>只对文本内容进行操作，不涉及标签、空格和换行</li>
+</ul>
+</li>
+<li>表单的值<code>val()</code><ul>
+<li>相当于原生的<code>value()</code></li>
+<li>参数同上</li>
+</ul>
+</li>
+</ul>
+<h3 id="七、jQuery元素操作"><a href="#七、jQuery元素操作" class="headerlink" title="七、jQuery元素操作"></a>七、jQuery元素操作</h3><ul>
+<li>主要是遍历、创建、添加、删除元素操作</li>
+</ul>
+<h4 id="7-1-遍历元素"><a href="#7-1-遍历元素" class="headerlink" title="7.1 遍历元素"></a>7.1 遍历元素</h4><ul>
+<li>jQuery隐式迭代是对同一元素做相同的操作，若要进行不同操作时，则需要遍历<ol>
+<li>语法1：<code>$("div").each(fonction(index, demEle) {xxx; })</code><ul>
+<li><code>each()</code>方法遍历匹配每一个元素，主要用DOM处理</li>
+<li>回调函数有两个参数：<ul>
+<li><code>index</code>是每一个元素的索引号</li>
+<li><code>domEle</code>是每个DOM元素，不是jQuery对象</li>
+</ul>
+</li>
+<li>想要作jQuery的方法，需要将DOM元素转换为jQuery对象（<code>$(DOM对象);</code>）</li>
+</ul>
+</li>
+<li>语法2：<code>$.each(object, function(index, ele) {xxx;})</code><ul>
+<li><code>$.each</code>可用于遍历任何对象，主要用于数据处理，如数组、对象</li>
+<li><code>index</code>为索引号，<code>ele</code>为遍历对象</li>
+</ul>
+</li>
 </ol>
-<ul>
-<li>键盘事件对象：keyCode可以返回相应按键的ASCII码值。</li>
+</li>
+</ul>
+<h4 id="7-2-创建元素"><a href="#7-2-创建元素" class="headerlink" title="7.2 创建元素"></a>7.2 创建元素</h4><ul>
+<li><code>$("&lt;li&gt;&lt;/li&gt;")</code> ：动态创建了一个li标签</li>
+</ul>
+<h4 id="7-3-添加元素"><a href="#7-3-添加元素" class="headerlink" title="7.3 添加元素"></a>7.3 添加元素</h4><ul>
+<li>内部添加（为父子关系）：<ul>
+<li><code>element.append(" ");</code>放到最后（”element“里的最后）</li>
+<li><code>element.prepend(" ");</code>放到最前面</li>
+</ul>
+</li>
+<li>外部添加（兄弟关系）：<ul>
+<li><code>element.after(" ");</code>放到element后面</li>
+<li><code>element.before(" ");</code>放到element前面</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-4-删除元素"><a href="#7-4-删除元素" class="headerlink" title="7.4 删除元素"></a>7.4 删除元素</h4><ul>
+<li><code>element.remove();</code>删除匹配的元素（本身）</li>
+<li><code>element.empty();</code>删除匹配的元素集合中的<strong>所有子节点</strong></li>
+<li><code>element.html(" ");</code>清空匹配的元素内容</li>
+</ul>
+<h3 id="八、jQuery事件"><a href="#八、jQuery事件" class="headerlink" title="八、jQuery事件"></a>八、jQuery事件</h3><h4 id="8-1-事件注册"><a href="#8-1-事件注册" class="headerlink" title="8.1 事件注册"></a>8.1 事件注册</h4><ul>
+<li>单个事件注册：<code>element.事件(function() {});</code><ul>
+<li>示例：<code>$("div").click(function() {事件处理程序})</code></li>
+</ul>
+</li>
+<li>其他事件类型基本与原生一致：mouseover, mouseout, blur, focus, change, keydown, keyup, resize, scroll等</li>
+</ul>
+<h4 id="8-2-事件处理on-绑定事件"><a href="#8-2-事件处理on-绑定事件" class="headerlink" title="8.2 事件处理on()绑定事件"></a>8.2 事件处理on()绑定事件</h4><ul>
+<li><code>on()</code>方法在匹配元素上绑定<strong>一个或多个</strong>事件的事件处理函数</li>
+<li>语法：<code>element.on(events, [selector], fn);</code><ul>
+<li><code>events</code>：一个或多个用空格隔开的事件类型</li>
+<li><code>selector</code>：元素的子元素选择器</li>
+<li><code>fn</code>：回调函数，即绑定在元素身上的侦听函数</li>
+</ul>
+</li>
+<li>优势：<ul>
+<li>可以绑定多个事件和多个事件处理程序</li>
+<li>可以实现事件委派操作</li>
+<li>动态创建的元素，<code>click()</code>没有办法绑定事件，<code>on()</code>可以给动态生成的元素绑定事件</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-3-事件处理off-解绑事件"><a href="#8-3-事件处理off-解绑事件" class="headerlink" title="8.3 事件处理off( )解绑事件"></a>8.3 事件处理off( )解绑事件</h4><ul>
+<li><code>$("p").off()</code>：解绑p元素的所有事件处理程序</li>
+<li><code>$("p").off("click")</code>：解绑p上的点击事件</li>
+<li><code>$("ul").off("click", "li")</code>：解绑事件委托</li>
+</ul>
+<h4 id="8-4-其他事件"><a href="#8-4-其他事件" class="headerlink" title="8.4 其他事件"></a>8.4 其他事件</h4><ul>
+<li>有些时间只触发一次，可以用<code>one()</code>来绑定<ul>
+<li><code>$("div").one(function() {})</code></li>
+</ul>
+</li>
+<li>自动触发事件<code>trigger()</code><ul>
+<li>有些事件希望自动触发，如轮播图自动播放等，可以利用定时器触发，不必点击触发</li>
+<li><code>element.click()</code>简写形式 <code>元素.事件()</code></li>
+<li><code>element.trigger("type")</code>//<code>元素.trigger("事件")</code></li>
+<li><code>element.triggeHandler("type")</code></li>
+<li>区别：第三种不会触发元素的默认行为</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-5-jQuery事件对象"><a href="#8-5-jQuery事件对象" class="headerlink" title="8.5 jQuery事件对象"></a>8.5 jQuery事件对象</h4><ul>
+<li>事件被触发，就会有事件对象产生</li>
+<li><code>element.on(events, [selector], function(event) {})</code></li>
+<li>阻止默认行为：<code>event.preventDefault();</code>或<code>return false;</code></li>
+<li>阻止冒泡：<code>event.stopPropagation()</code></li>
+</ul>
+<h4 id="8-6-jQuery对象拷贝"><a href="#8-6-jQuery对象拷贝" class="headerlink" title="8.6 jQuery对象拷贝"></a>8.6 jQuery对象拷贝</h4><ul>
+<li><code>$.extend([deep], target, object1, [objectN])</code></li>
+<li>参数：<ul>
+<li><code>deep</code>：设为true时为浅拷贝，false为深拷贝</li>
+<li><code>target</code>：拷贝对象，接收拷贝内容</li>
+<li><code>object1~N</code>：被拷贝的对象</li>
+<li>浅拷贝：把被拷贝的对象复杂数据类型中的地址拷贝给目标对象，修改目标对象会影响被拷贝的对象（指向同一个复杂数据类型空间）</li>
+<li>深拷贝：会将数据完全复制一份给目标对象，若属性不冲突则会合并，修改目标对象不会影响拷贝对象（重新开辟了一个复杂数据类型空间）</li>
+</ul>
+</li>
+</ul>
+<h3 id="九、jQuery多库共存"><a href="#九、jQuery多库共存" class="headerlink" title="九、jQuery多库共存"></a>九、jQuery多库共存</h3><ul>
+<li>问题概述：jQuery使用<code>$</code>作为标识符，随着jQuery流行，其他JS库也会用<code>$</code>作为标识符，会引起冲突</li>
+<li>客观要求：需要一个解决方案，让jQuery和其他的JS库不存在冲突</li>
+<li>jQuery解决方案：<ul>
+<li>将jQuery的所有<code>$</code>统一使用<code>jQuery</code></li>
+<li>给jQuery变量规定新名字：<code>$.noconflict()</code>。</li>
+<li>示例：<code>var xx = $.noconflict();</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="十、jQuery插件"><a href="#十、jQuery插件" class="headerlink" title="十、jQuery插件"></a>十、jQuery插件</h3><ul>
+<li>jQuery的功能毕竟有限，如果想要更复杂的特效效果，可以借助jQuery插件</li>
+<li>注意：<strong>这些插件依赖于jQuery，所以需要引入jQuery文件</strong></li>
+<li>jQuery插件常用的网站：<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jq22.com/">jQuery插件库</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.htmleaf.com/">jQuery之家</a></li>
+</ul>
+</li>
+<li>jQuery插件使用步骤：<ol>
+<li>引入相关文件（jQuery文件和插件文件）</li>
+<li>复制相关html, css, js（调用插件）</li>
+</ol>
+</li>
+<li>图片懒加载：图片使用延迟加载可以提高网页加载速度，减轻服务器负担，<strong>当页面滑动到可视区再加载图片</strong></li>
+<li>全屏滚动：（fullpage.js）<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullpage.js">GitHub链接</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.dowebok.com/demo/2014/77/">fullpage中文翻译网站</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="十一、jQuery尺寸位置操作"><a href="#十一、jQuery尺寸位置操作" class="headerlink" title="十一、jQuery尺寸位置操作"></a>十一、jQuery尺寸位置操作</h3><h4 id="11-1-尺寸"><a href="#11-1-尺寸" class="headerlink" title="11.1 尺寸"></a>11.1 尺寸</h4><ul>
+<li><code>width()</code>/<code>height()</code>：取得匹配元素的宽度和高度，只算width/height，不包含内边距和边框</li>
+<li><code>innerWidth()</code>/<code>innerHeight()</code>：取得匹配元素的宽度和高度，包含padding值</li>
+<li><code>outerWidth()</code>/<code>outerHeight()</code>：取得匹配元素的宽度和高度，包含padding、border值</li>
+<li><code>outerWidth(true)</code>/<code>outerHeight(true)</code>：取得匹配元素的宽度和高度，包含padding、border、margin值</li>
+<li>参数若为空，则取得相应值，返回数字型</li>
+<li>参数写数字，则修改相应值（<strong>不跟单位</strong>）</li>
+</ul>
+<h4 id="11-2-位置"><a href="#11-2-位置" class="headerlink" title="11.2 位置"></a>11.2 位置</h4><ul>
+<li><code>offset()</code>设置或获取元素偏移<ul>
+<li>该方法设置或返回的是被选元素相对<strong>文档</strong>的偏移坐标，与父级无关</li>
+</ul>
+</li>
+<li><code>position()</code>获取元素偏移<ul>
+<li>用于返回被选元素相对于带有父级定位偏移的坐标，若父级无定位，以文档为准</li>
+</ul>
+</li>
+<li><code>scrollTop()</code>/<code>scrollLeft()</code>设置或获取元素被卷去的头部和左侧</li>
 </ul>
 <blockquote>
-<p>JS-DOM的基础内容应该差不多就这些吧，对应的事件之类的我也只列举了一些常用的，更深层次的内容，或者说想要更深入的学习，还是查询响应文档比较好啦，毕竟我也只是一个刚刚起步的小白，很多东西没有使用到，也记不太住呀哈哈哈哈~</p>
+<p>最后的叭叭：</p>
+<p>欢乐的日子总是短暂的，jQuery我也只学了基础部分，更深层次的内容还需要劳烦读者们查阅文档啦~</p>
 </blockquote>
 <blockquote>
 <p>我是EagleH，一个正处于前端起步阶段的IT小白~</p>
@@ -992,7 +897,7 @@ btn<span class="token punctuation">.</span>onclick <span class="token operator">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/">http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/</a>
+                    <a href="http://codereagleh.github.io/2021/02/14/jquery-xue-xi-bi-ji/">http://codereagleh.github.io/2021/02/14/jquery-xue-xi-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1034,12 +939,12 @@ btn<span class="token punctuation">.</span>onclick <span class="token operator">
                                     <span class="chip bg-color">学习笔记</span>
                                 </a>
                             
-                                <a href="/tags/JavaScript/">
-                                    <span class="chip bg-color">JavaScript</span>
+                                <a href="/tags/jQuery/">
+                                    <span class="chip bg-color">jQuery</span>
                                 </a>
                             
-                                <a href="/tags/DOM/">
-                                    <span class="chip bg-color">DOM</span>
+                                <a href="/tags/JS%E5%BA%93/">
+                                    <span class="chip bg-color">JS库</span>
                                 </a>
                             
                         </div>
@@ -1209,9 +1114,10 @@ btn<span class="token punctuation">.</span>onclick <span class="token operator">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/02/14/jquery-xue-xi-bi-ji/">
                     <div class="card-image">
@@ -1228,9 +1134,9 @@ btn<span class="token punctuation">.</span>onclick <span class="token operator">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1243,6 +1149,7 @@ btn<span class="token punctuation">.</span>onclick <span class="token operator">
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1269,18 +1176,18 @@ btn<span class="token punctuation">.</span>onclick <span class="token operator">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/13/javascript-xue-xi-bi-ji/">
+                <a href="/2021/02/13/js-xue-xi-bi-ji-zhi-dom/">
                     <div class="card-image">
                         
-                        <img src="/./images/featureimages/JavaScriptxue-xi-bi-ji.jpg" class="responsive-img" alt="JavaScript学习笔记">
+                        <img src="/./images/featureimages/DOMxue-xi-bi-ji.png" class="responsive-img" alt="JS学习笔记之DOM">
                         
-                        <span class="card-title">JavaScript学习笔记</span>
+                        <span class="card-title">JS学习笔记之DOM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前端小白的学习路之JavaScript
+                            前端小白的学习路之JavaScript-DOM
                         
                     </div>
                     <div class="publish-info">
@@ -1308,6 +1215,10 @@ btn<span class="token punctuation">.</span>onclick <span class="token operator">
                     
                     <a href="/tags/JavaScript/">
                         <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                    <a href="/tags/DOM/">
+                        <span class="chip bg-color">DOM</span>
                     </a>
                     
                 </div>
