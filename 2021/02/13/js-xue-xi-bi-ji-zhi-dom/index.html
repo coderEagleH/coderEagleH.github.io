@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="H5C3新增学习笔记, EagleH World">
+    <meta name="keywords" content="JS学习笔记之DOM, EagleH World">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>H5C3新增学习笔记 | EagleH World</title>
+    <title>JS学习笔记之DOM | EagleH World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/./images/featureimages/H5C3xue-xi-bi-ji.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/./images/featureimages/DOMxue-xi-bi-ji.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">H5C3新增学习笔记</h1>
+                    <h1 class="description center-align post-title">JS学习笔记之DOM</h1>
                 </div>
             </div>
         </div>
@@ -412,16 +412,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/HTML/">
-                                <span class="chip bg-color">HTML</span>
-                            </a>
-                        
                             <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                                 <span class="chip bg-color">学习笔记</span>
                             </a>
                         
-                            <a href="/tags/CSS/">
-                                <span class="chip bg-color">CSS</span>
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
+                            </a>
+                        
+                            <a href="/tags/DOM/">
+                                <span class="chip bg-color">DOM</span>
                             </a>
                         
                     </div>
@@ -432,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/web%E5%89%8D%E7%AB%AF/" class="post-category">
-                                web前端
+                            <a href="/categories/WEB%E5%89%8D%E7%AB%AF/" class="post-category">
+                                WEB前端
                             </a>
                         
                     </div>
@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-12
+                    2021-02-13
                 </div>
                 
 
@@ -454,7 +454,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.2k
                 </div>
                 
 
@@ -472,534 +472,496 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>这部分内容是在看视频学习HTML和CSS后紧跟着讲解的H5C3的新增部分，与前两者相同，也是在学习过程中手写到笔记本上的笔记内容，所以内容上可能会有所欠缺，欢迎指正。况且现在互联网如此之发达，只要想学，并且付诸行动，就没有学不好的，加油啊~</p>
+<p>上一篇中笔记做的是JS的基础阶段，学习的是ECMAScript标准规定的基本语法，只要求掌握基础语法就可以了，为后面的JS打下基础。但是只学了语法，我们还是无法做到网页的交互效果，所以JS还有一个重要的阶段，叫”WEB APIs”，他是W3C组织的标准，在JS中我们要掌握的是DOM和BOM，但是BOM其实根据不同的浏览器有不同的要求，所以本片笔记主要只针对JS中的DOM部分，主要学习的是页面交互功能，冲鸭~</p>
 </blockquote>
-<h1 id="HTML5新增特性"><a href="#HTML5新增特性" class="headerlink" title="HTML5新增特性"></a>HTML5新增特性</h1><h3 id="HTML5新增"><a href="#HTML5新增" class="headerlink" title="HTML5新增"></a>HTML5新增</h3><blockquote>
-<p>针对以前的不足，增加了许多新的标签、表单和属性。</p>
-<p>（新特性都有兼容性问题，基本是<code>IE9+</code>以上版本的浏览器才支持，若不考虑兼容的问题，可以大量使用<strong>其实就目前而言，都2021年了，大多数情况下完全不需要考虑H5C3这部分的兼容问题</strong>）</p>
-</blockquote>
-<h3 id="一、新增的语义化标签"><a href="#一、新增的语义化标签" class="headerlink" title="一、新增的语义化标签"></a>一、新增的语义化标签</h3><ul>
-<li><code>&lt;header&gt;&lt;/header&gt;</code>：头部标签</li>
-<li><code>&lt;nav&gt;&lt;/nav&gt;</code>：导航标签</li>
-<li><code>&lt;article&gt;&lt;/article&gt;</code>：内容标签</li>
-<li><code>&lt;section&gt;&lt;/section&gt;</code>：定义文档某个区域</li>
-<li><code>&lt;aside&gt;&lt;/aside&gt;</code>：侧边栏标签</li>
-<li><code>&lt;footer&gt;&lt;/footer&gt;</code>：尾部标签</li>
+<h3 id="一、API概念"><a href="#一、API概念" class="headerlink" title="一、API概念"></a>一、API概念</h3><ul>
+<li>什么是API？<ul>
+<li>API（Application Programming Interface），翻译为应用程序编程接口</li>
+<li>是一些由官方预先定义好的函数，目的是提供应用程序与开发人员基于某软件或者硬件得以访问一组例程的能力，又无需访问源码或理解内部工作机制细节。</li>
+<li>说白了，<strong>API就是给程序员提供了一种工具，来轻松实现功能</strong></li>
+</ul>
+</li>
+<li>什么又是Web API？<ul>
+<li>Web API是浏览器提供的一套操作浏览器功能（BOM）和页面元素（DOM）的API。</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、DOM导读"><a href="#二、DOM导读" class="headerlink" title="二、DOM导读"></a>二、DOM导读</h3><ul>
+<li>DOM（Document Object Model）翻译为文档对象模型，处理可扩展语言（HTML或XML）的标准编程接口。可以通过DOM改变页面的结构、样式、内容。</li>
+<li>DOM树：<ul>
+<li>文档：一个页面就是一个文档，DOM中使用document来表示文档</li>
+<li>元素：页面中所有的标签都称为元素，DOM中用element来表示元素</li>
+<li>节点：网页中所有的内容都是节点（标签、属性、文本、注释），DOM中用node来表示节点</li>
+<li><strong>DOM把上面内容都看作对象</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="三、获取元素"><a href="#三、获取元素" class="headerlink" title="三、获取元素"></a>三、获取元素</h3><h4 id="3-1-根据id获取"><a href="#3-1-根据id获取" class="headerlink" title="3.1 根据id获取"></a>3.1 根据id获取</h4><ul>
+<li>使用<code>.getElementById()</code>的方法可以获取带有<code>id</code>的元素</li>
+<li>参数：<code>id</code></li>
+<li>参数是一个<strong>严格区分大小写</strong>的字符串，代表元素的<strong>唯一id</strong></li>
+<li>返回值：返回一个匹配到id的<code>Element</code>对象，没有找到则返回<code>null</code></li>
 </ul>
 <blockquote>
-<p>注意：</p>
-<ul>
-<li>语义化标准主要是针对搜索引擎</li>
-<li>这些新标签可以多次使用</li>
-<li>在<code>IE9+</code>版本的浏览器中，需要把这些转化为块级元素</li>
-<li>移动端更喜欢使用，并且没有兼容性问题</li>
-</ul>
+<p>PS：利用<code>console.dir()</code>可以打印返回的元素对象，更好的查看里面的方法和属性</p>
 </blockquote>
-<h3 id="二、新增的多媒体标签"><a href="#二、新增的多媒体标签" class="headerlink" title="二、新增的多媒体标签"></a>二、新增的多媒体标签</h3><h4 id="2-1-视频标签-lt-video-gt"><a href="#2-1-视频标签-lt-video-gt" class="headerlink" title="2.1 视频标签<video>"></a>2.1 视频标签<code>&lt;video&gt;</code></h4><ul>
-<li><p>目前仅支持<code>MP4,WebM,Ogg</code>三种格式，更推荐<code>MP4</code></p>
+<h4 id="3-2-根据标签名获取"><a href="#3-2-根据标签名获取" class="headerlink" title="3.2 根据标签名获取"></a>3.2 根据标签名获取</h4><ul>
+<li>使用<code>.getElementsByTagName()</code>方法可以获取带有<strong>指定标签名</strong>的对象</li>
+<li>返回的是获取来的元素对象的集合，以伪数组方式存储，若找不到则返回一个空的伪数组</li>
+<li>得到的元素对象是动态的</li>
+<li>两种情况：<ul>
+<li><code>document.getElementsByTagName();</code>获取整个文档中的对应标签名元素数组</li>
+<li><code>element.getElementsByTagName();</code>获取某个元素（父元素）中的对应标签名元素数组</li>
+</ul>
 </li>
-<li><p>语法：<code>&lt;video src="文件地址url" controls="controls"&gt; &lt;/video&gt;</code></p>
+<li><strong>注意：父元素必须是单个对象，必须指明是哪一个，并且在获取元素时不包含父元素</strong></li>
+</ul>
+<h4 id="3-3-通过类名获取"><a href="#3-3-通过类名获取" class="headerlink" title="3.3 通过类名获取"></a>3.3 通过类名获取</h4><ul>
+<li>使用<code>.getElementsByClassName();</code>方法可以获取拥有对应类名的元素</li>
+<li>返回该类名的元素对象的集合（伪数组形式）</li>
+<li>HTML5新增</li>
+</ul>
+<h4 id="3-4-指定选择器获取（单个元素）"><a href="#3-4-指定选择器获取（单个元素）" class="headerlink" title="3.4 指定选择器获取（单个元素）"></a>3.4 指定选择器获取（单个元素）</h4><ul>
+<li>使用<code>.querySelector();</code>方法可以获取指定选择器的<strong>第一个元素</strong></li>
+<li><strong>注意：括号里为选择器，而不只是名字</strong><ul>
+<li>类选择器：<code>.box</code></li>
+<li>标签选择器：<code>box</code></li>
+<li>id选择器：<code>#box</code></li>
+<li>等等等…..</li>
+</ul>
 </li>
-<li><p><strong>照顾兼容性写法</strong>：</p>
+</ul>
+<h4 id="3-5-指定选择器获取（集合）"><a href="#3-5-指定选择器获取（集合）" class="headerlink" title="3.5 指定选择器获取（集合）"></a>3.5 指定选择器获取（集合）</h4><ul>
+<li>使用<code>.querySelectorAll();</code>方法可以获取指定选择器的<strong>所有元素的集合</strong></li>
+<li>集合以伪数组的形式存储，使用方式与<code>3.4</code>相同</li>
+</ul>
+<h4 id="3-6-获取特殊元素"><a href="#3-6-获取特殊元素" class="headerlink" title="3.6 获取特殊元素"></a>3.6 获取特殊元素</h4><ul>
+<li>获取body元素：<code>document.body();</code></li>
+<li>获取HTML元素：<code>document.documentElement();</code></li>
+</ul>
+<h3 id="四、事件（基础部分）"><a href="#四、事件（基础部分）" class="headerlink" title="四、事件（基础部分）"></a>四、事件（基础部分）</h3><ul>
+<li>事件时可以被JavaScript侦测到的行为（触发—响应机制），JS中每个元素都可以添加触发事件</li>
+</ul>
+<h4 id="4-1事件三要素：事件源、事件类型、事件处理程序"><a href="#4-1事件三要素：事件源、事件类型、事件处理程序" class="headerlink" title="4.1事件三要素：事件源、事件类型、事件处理程序"></a>4.1事件三要素：事件源、事件类型、事件处理程序</h4><ul>
+<li><p>事件源：事件触发的对象，比如某个按钮</p>
+</li>
+<li><p>事件类型：如何触发、什么事件，如点击触发、经过触发等等</p>
+</li>
+<li><p>事件处理程序：通过函数赋值方式完成事件处理</p>
+</li>
+<li><p>示例：</p>
 <ul>
-<li><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>video</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>320<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>240<span class="token punctuation">"</span></span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>movie.mp4<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>video/mp4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> // mp4格式
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>movie.ogg<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>video/ogg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> // ogg格式
-    您的浏览器不支持video标签 // 都不支持的情况
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>video</span><span class="token punctuation">></span></span>
+<li><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'button-1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'按钮点击了'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
-</ul>
-</li>
-<li><p>常见的属性：</p>
-<ul>
-<li><code>autoplay</code>：<ul>
-<li>属性值：<code>autoplay</code></li>
-<li>描述：视频自动播放（谷歌浏览器需要添加<code>muted</code>才能有效）</li>
-</ul>
-</li>
-<li><code>controls</code>：<ul>
-<li>属性值：<code>controls</code></li>
-<li>描述：显示播放控件</li>
-</ul>
-</li>
-<li><code>width/height</code>：<ul>
-<li>属性值：像素<code>px</code></li>
-<li>描述：设置宽高</li>
-</ul>
-</li>
-<li><code>loop</code>：<ul>
-<li>属性值：<code>loop</code></li>
-<li>描述：循环播放</li>
-</ul>
-</li>
-<li><code>preload</code>：<ul>
-<li>属性值：<code>auto</code>:视频预加载、<code>none</code>:不预加载</li>
-<li>描述：是否预加载视频（若设置了<code>autoplay</code>，则此属性可无视）</li>
-</ul>
-</li>
-<li><code>src</code>：<ul>
-<li>属性值：<code>url</code></li>
-<li>描述：视频的地址<code>url</code></li>
-</ul>
-</li>
-<li><code>poster</code>：<ul>
-<li>属性值：<code>imgurl</code></li>
-<li>描述：等待画面的图片</li>
-</ul>
-</li>
-<li><code>muted</code>：<ul>
-<li>属性值：<code>muted</code></li>
-<li>描述：静音</li>
-</ul>
+<li><p>当点击按钮<code>button-1</code>，控制台打印：<code>按钮点击了</code></p>
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="2-2-音频-lt-audio-gt"><a href="#2-2-音频-lt-audio-gt" class="headerlink" title="2.2 音频<audio>"></a>2.2 音频<code>&lt;audio&gt;</code></h4><ul>
-<li><p>目前仅支持<code>MP3,Wav,Ogg</code>三种格式，更推荐<code>MP3</code></p>
-</li>
-<li><p>语法：<code>&lt;audio src="文件地址url" controls="controls"&gt; &lt;/audio&gt;</code></p>
-</li>
-<li><p>照顾兼容性写法：</p>
-<ul>
-<li><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>audio</span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>movie.mp3<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>video/mp3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> // mp3格式
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>movie.ogg<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>video/ogg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> // ogg格式
-    您的浏览器不支持audio标签 // 都不支持的情况
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>audio</span><span class="token punctuation">></span></span>
-</code></pre>
-</li>
-</ul>
-</li>
-<li><p>常见的属性：</p>
-<ul>
-<li><code>autoplay</code>：<ul>
-<li>属性值：<code>autoplay</code></li>
-<li>描述：自动播放（谷歌浏览器）</li>
-</ul>
-</li>
-<li><code>controls</code>：<ul>
-<li>属性值：<code>controls</code></li>
-<li>描述：显示控件</li>
-</ul>
-</li>
-<li><code>loop</code>：<ul>
-<li>属性值：<code>loop</code></li>
-<li>描述：是否循环播放</li>
-</ul>
-</li>
-<li><code>src</code>：<ul>
-<li>属性值：<code>url</code></li>
-<li>描述：音频地址<code>url</code></li>
-</ul>
-</li>
-<li><code>muted</code>：<ul>
-<li>属性值：<code>muted</code></li>
-<li>描述：静音</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-3-多媒体视频小结"><a href="#2-3-多媒体视频小结" class="headerlink" title="2.3 多媒体视频小结"></a>2.3 多媒体视频小结</h4><ul>
-<li>音频<code>&lt;audio&gt;</code>和视频<code>&lt;video&gt;</code>使用基本相同</li>
-<li>浏览器支持情况不同（推荐音频<code>.mp3</code>/视频<code>.mp4</code>）</li>
-<li>谷歌浏览器把<code>autoplay</code>禁止了（视频通过添加<code>muted</code>可以实现自动播放，音频不可以，只能以后考<code>JavaScript</code>）</li>
-<li><code>&lt;video&gt;</code>是重点，常用设置：自动播放，不显示空间，循环和设置大小尺寸</li>
-</ul>
-<h3 id="三、新增的-lt-input-gt-类型（type属性的类型）"><a href="#三、新增的-lt-input-gt-类型（type属性的类型）" class="headerlink" title="三、新增的<input>类型（type属性的类型）"></a>三、新增的<code>&lt;input&gt;</code>类型（<code>type</code>属性的类型）</h3><ul>
-<li><pre class=" language-html"><code class="language-html">type="email":限制用户输入必须为email类型
-     "url":限制用户输入必须为url地址类型
-     "date":限制用户输入必须为日期类型
-     "time":限制用户输入必须为时间类型
-     "month":限制用户输入必须为月份类型
-     "week":限制用户输入必须为周类型
-     "number":限制用户输入必须为数字类型
-     "tel":手机号（数字）
-     "search":搜索框
-     "color":生成一个颜色选择表单
-</code></pre>
-</li>
-<li><p><strong>注意：</strong></p>
-<ul>
-<li>验证时前面必须添加<code>&lt;form&gt;</code>表单域</li>
-<li>最后用<code>&lt;input&gt;</code>的<code>&lt;submit&gt;</code>提交按钮验证表单</li>
-</ul>
-</li>
-</ul>
-<h3 id="四、新增的表单属性"><a href="#四、新增的表单属性" class="headerlink" title="四、新增的表单属性"></a>四、新增的表单属性</h3><ul>
-<li><code>&lt;required&gt;</code><ul>
-<li>属性值：<code>required</code></li>
-<li>描述：限制表单内容不能为空</li>
-</ul>
-</li>
-<li><code>&lt;placeholder&gt;</code><ul>
-<li>属性值：<code>提示文字</code></li>
-<li>描述：提示信息，存在的默认值将不显示</li>
-</ul>
-</li>
-<li><code>&lt;autofocus&gt;</code><ul>
-<li>属性值：<code>autofocus</code></li>
-<li>描述：自动聚焦，页面加载完成自动聚焦到指定表单</li>
-</ul>
-</li>
-<li><code>&lt;autocomplete&gt;</code><ul>
-<li>属性值：<code>off/on</code></li>
-<li>描述：当用户输入时，会跳出曾经输入且成功提交的内容选项可供选择（表单需要由<code>name</code>属性），默认打开。</li>
-</ul>
-</li>
-<li><code>&lt;multiple&gt;</code><ul>
-<li>属性值：<code>multiple</code></li>
-<li>描述：可以多选文件提交。（用于<code>input:file</code>中多选上传）</li>
-</ul>
-</li>
-</ul>
-<h1 id="CSS3新增特性"><a href="#CSS3新增特性" class="headerlink" title="CSS3新增特性"></a>CSS3新增特性</h1><h3 id="CSS3新增"><a href="#CSS3新增" class="headerlink" title="CSS3新增"></a>CSS3新增</h3><blockquote>
-<p>兼容性问题，<code>ie9+</code>版本浏览器才能支持，移动端优于PC端</p>
+<h4 id="4-2-执行事件的步骤"><a href="#4-2-执行事件的步骤" class="headerlink" title="4.2 执行事件的步骤"></a>4.2 执行事件的步骤</h4><ol>
+<li>获取事件源</li>
+<li>注册事件（绑定事件）</li>
+<li>添加事件处理程序（函数赋值的方式）</li>
+</ol>
+<h4 id="4-3-常见的鼠标事件"><a href="#4-3-常见的鼠标事件" class="headerlink" title="4.3 常见的鼠标事件"></a>4.3 常见的鼠标事件</h4><blockquote>
+<p><code>onclikc</code>：鼠标点击左键触发</p>
+<p><code>onmouseover</code>：光标经过时触发</p>
+<p><code>onmouseout</code>：光标离开时触发</p>
+<p><code>onfocus</code>：元素获得鼠标焦点时触发</p>
+<p><code>onblur</code>：元素失去鼠标焦点时触发</p>
+<p><code>onmousemove</code>：鼠标移动触发</p>
+<p><code>onmouseup</code>：鼠标键弹起触发</p>
+<p><code>onmousedown</code>：鼠标按下触发</p>
 </blockquote>
-<h3 id="一、CSS新增选择器"><a href="#一、CSS新增选择器" class="headerlink" title="一、CSS新增选择器"></a>一、CSS新增选择器</h3><h4 id="1-1-属性选择器"><a href="#1-1-属性选择器" class="headerlink" title="1.1 属性选择器"></a>1.1 属性选择器</h4><ul>
-<li><p>根据元素特定的属性来选择元素，可以不用借助于类或者id</p>
+<h3 id="五、操作元素"><a href="#五、操作元素" class="headerlink" title="五、操作元素"></a>五、操作元素</h3><h4 id="5-1-改变元素内容"><a href="#5-1-改变元素内容" class="headerlink" title="5.1 改变元素内容"></a>5.1 改变元素内容</h4><ul>
+<li><code>element.innerText</code><ul>
+<li>不识别HTML标签</li>
+<li>从起始位置到终止位置的内容，但他除去了HTML标签，同时空格和换行也去除了</li>
+</ul>
 </li>
-<li><pre class=" language-css"><code class="language-css">E[att] // 选择具有att属性的E元素
-E[att=<span class="token string">"val"</span>] // 选择具有att属性且值为val的E元素
-E[att^=<span class="token string">"val"</span>] // 选择具有att属性且值为val开头的E元素
-E[att$=<span class="token string">"val"</span>] // 选择具有att属性且值以val结尾的E元素
-E[att*=<span class="token string">"val"</span>] // 选择具有att属性且值中含有val的E元素
-</code></pre>
+<li><code>element.innerHTML</code><ul>
+<li>识别HTML标签，使用的更多</li>
+<li>从起始位置到终止位置的所有内容，包括HTML标签，同时保留换行和空格</li>
+</ul>
 </li>
-<li><p><strong>注：属性选择器与类/伪类选择器权重一样，都是<code>(0,0,1,0)</code>。</strong></p>
+<li>常用的元素属性操作：<ul>
+<li><code>innerText</code>、<code>innerHTML</code>：修改元素内容</li>
+<li><code>src</code>、<code>href</code>：修改路径</li>
+<li><code>id</code>、<code>alt</code>、<code>title</code>：修改属性</li>
+</ul>
 </li>
 </ul>
-<h4 id="1-2-结构伪类选择器"><a href="#1-2-结构伪类选择器" class="headerlink" title="1.2 结构伪类选择器"></a>1.2 结构伪类选择器</h4><ul>
-<li><p>根据文档结构来选择，常用于根据父元素里面的子元素</p>
-</li>
-<li><pre class=" language-css"><code class="language-css"><span class="token property">E</span><span class="token punctuation">:</span>first-child // 父元素中的第一个子元素E
-<span class="token property">E</span><span class="token punctuation">:</span>last-child // 父元素中的最后一个子元素E
-<span class="token property">E</span><span class="token punctuation">:</span>nth-child // 父元素中的第n个子元素E
-<span class="token property">E</span><span class="token punctuation">:</span>first-of-type // 指定类型所有E元素中的第一个E元素
-<span class="token property">E</span><span class="token punctuation">:</span>last-of-type // 指定类型所有E元素中的最后一个E元素
-<span class="token property">E</span><span class="token punctuation">:</span><span class="token function">nth-of-type</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> // 指定类型所有E元素中的第n个E元素
-</code></pre>
-</li>
-<li><p><strong>注：</strong></p>
+<h4 id="5-2-表单元素的属性设置"><a href="#5-2-表单元素的属性设置" class="headerlink" title="5.2 表单元素的属性设置"></a>5.2 表单元素的属性设置</h4><ul>
+<li><p>利用DOM可以操作如下表单的属性：</p>
 <ul>
-<li><p><code>n</code>可以是数字，关键字，或者公式</p>
+<li><code>type</code></li>
+<li><code>value</code></li>
+<li><code>checked</code></li>
+<li><code>selected</code></li>
+<li><code>disabled</code></li>
+</ul>
 </li>
-<li><p>如果是数字，就是选择第<code>n</code>个子元素，从<code>1</code>开始</p>
+<li><p><strong>注意：表单的文字内容用<code>innerText</code>和<code>innerHTML</code>无法修改，用<code>value</code>修改</strong></p>
 </li>
-<li><p>如果是关键字，<code>even</code>偶数，<code>odd</code>奇数</p>
+<li><blockquote>
+<p>若要修改调用者的某些属性，可以用this代替调用者的元素变量</p>
+</blockquote>
 </li>
-<li><p>如果是公式，常见如下（从<code>0</code>开始每次<code>+1</code>，第0个和超出的会被忽略）：</p>
+</ul>
+<h4 id="5-3-样式的属性操作"><a href="#5-3-样式的属性操作" class="headerlink" title="5.3 样式的属性操作"></a>5.3 样式的属性操作</h4><ul>
+<li><p>通过JS修改元素的大小、颜色、位置等</p>
 <ul>
-<li><pre class=" language-css"><code class="language-css"><span class="token number">2</span>n // 偶数=even
-<span class="token number">2</span>n+<span class="token number">1</span> // 奇数=odd
-<span class="token number">5</span>n // <span class="token number">5</span>的倍数
-n+<span class="token number">5</span> // 从<span class="token number">5</span>开始（包括<span class="token number">5</span>）
--n+<span class="token number">5</span> // 前<span class="token number">5</span>个（包括<span class="token number">5</span>）
-</code></pre>
-</li>
-<li><p><code>of</code>类和<code>child</code>用法相似，但读取方式不同</p>
-<ul>
-<li><code>child</code>类会排列所有盒子，先看序号再看标签，都对应才会操作</li>
-<li><code>of</code>类会先看标签，同类标签排序再看序号</li>
-<li>其他n的用法也相同</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-3-伪元素选择器"><a href="#1-3-伪元素选择器" class="headerlink" title="1.3 伪元素选择器"></a>1.3 伪元素选择器</h4><ul>
-<li>利用CSS创建新标签元素，而不需要HTML标签，从而简化HTML结构</li>
-<li><code>::before</code>：在元素内部的前面插入内容</li>
-<li><code>::after</code>：在元素内部的后面插入内容</li>
+<li><code>element.style.[...]</code>：行内样式操作</li>
 <li><strong>注意：</strong><ul>
-<li>before和after创建一个元素，但属于行内元素</li>
-<li>新建的元素在文档树中找不到，成为伪元素</li>
-<li>语法：<code>element::before{ }</code></li>
-<li>before和after必须有content属性（用引号写内容）</li>
-<li>before在父元素内容的前面创建，after则是在后面</li>
-<li>伪元素选择器和标签选择器一样，权重为(0,0,0,1)</li>
-</ul>
-</li>
-</ul>
-<h3 id="二、新增盒子模型"><a href="#二、新增盒子模型" class="headerlink" title="二、新增盒子模型"></a>二、新增盒子模型</h3><ul>
-<li>可以通过<code>box-sizing</code>来制定盒子模型，有两个属性值：<ul>
-<li><code>content-box</code>：<ul>
-<li>默认的为<code>box-sizing: content-box;</code></li>
-<li>盒子大小为<code>width+ padding+ border</code></li>
-</ul>
-</li>
-<li><code>border-box</code>：<ul>
-<li><code>box-sizing: border-box;</code></li>
-<li>盒子大小为固定的<code>width</code>（自动计算）</li>
+<li>JS里的样式采用驼峰命名法，如<code>fontSize</code>, <code>backgrountColor</code>等等</li>
+<li>JS修改的是行内style样式操作，在CSS中权重更高</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>改变为CSS3的盒子模型(<code>border-box</code>)后，<code>padding</code>和<code>border</code>就不会在撑大盒子里（如果需要可以写入<code>*</code>里）</li>
-</ul>
-<h3 id="三、新增filter和calc属性"><a href="#三、新增filter和calc属性" class="headerlink" title="三、新增filter和calc属性"></a>三、新增<code>filter</code>和<code>calc</code>属性</h3><ul>
-<li>CSS3的滤镜<code>filter</code>：<ul>
-<li>将模糊或颜色偏移等效果应用于元素</li>
-<li>语法：<code>filter: 函数();</code></li>
-<li>示例：<code>filter: blur(5px);</code>blur模糊处理，值越大越模糊</li>
-</ul>
+<li><p>当需要修改的样式较多时，修改style会比较麻烦，可以用<strong>类名样式</strong>操作</p>
+<ul>
+<li><p><code>element.className.[...]</code>：类名样式操作</p>
 </li>
-<li><code>calc</code>计算函数：<ul>
-<li>让你声明CSS属性时执行一些计算</li>
-<li>语法：<code>width: calc( 100% - 80px)</code></li>
-<li>可以使用的计算符号有：<code>+ - * /</code></li>
-<li><strong>注意：计算符号两边必须添加空格，否则无法生效</strong></li>
+<li><p>将样式写入CSS中独立的类名样式中，再给需要更改此样式的元素添加一个类名（用<code>element.className = "..."</code>）</p>
+</li>
+<li><p><strong>注意：</strong>className会改变元素类名，覆盖<strong>原先的类名</strong>，若想要保留原先的类名，则需要将原先的类名<strong>也写入className中</strong></p>
+</li>
 </ul>
 </li>
 </ul>
-<h3 id="四、CSS过渡（重点）"><a href="#四、CSS过渡（重点）" class="headerlink" title="四、CSS过渡（重点）"></a>四、CSS过渡（重点）</h3><ul>
-<li>在不使用JS和Flash情况下，元素从一种样式变为另一种样式时添加效果，从一个样式慢慢过渡到另一种样式。（常与<code>:hover</code>一起使用）</li>
-<li>语法：<code>transition: 属性 花费时间 运动曲线 何时开始;</code></li>
-<li>属性值：<ul>
-<li>属性：要变化的CSS属性，宽高/背景色/内外边距都可以，若想要都变化过渡，写个<code>all</code>就行</li>
-<li>花费时间：单位必须写，为秒。如<code>0.5s</code></li>
-<li>运动曲线：默认为<code>ease</code>（可以省略）<ul>
-<li><code>linear</code>：匀速</li>
-<li><code>ease</code>：逐渐减速</li>
-<li><code>ease-in</code>：加速</li>
-<li><code>ease-out</code>：减速</li>
-<li><code>ease-in-out</code>：先加后减</li>
+<blockquote>
+<p><strong>排他思想：</strong></p>
+<ul>
+<li>若有一组相同的元素，想要某一个元素实现某种样式，需要用到循环的排他思想算法<ul>
+<li>所有元素全部清除样式</li>
+<li>给当前元素设置样式</li>
 </ul>
 </li>
-<li>何时开始：单位必须写（秒），可以设置延时触发，默认为<code>0s</code>（可选）</li>
+</ul>
+</blockquote>
+<h4 id="5-4-自定义属性的操作"><a href="#5-4-自定义属性的操作" class="headerlink" title="5.4 自定义属性的操作"></a>5.4 自定义属性的操作</h4><ol>
+<li>获取属性值：<ul>
+<li><code>element.属性</code>可以获得属性值</li>
+<li><code>element.getAttribute('属性');</code></li>
+<li><strong>两者的区别</strong>在于，第一个获取内置属性（元素本身自带的属性），而第二个主要用于获取自定义的属性（程序自定义的属性）</li>
 </ul>
 </li>
-<li><strong>注意：谁要过渡给谁添加<code>transition</code>。（多个属性用<code>“，”</code>分隔）</strong></li>
-</ul>
-<h3 id="五、CSS3的2D转换"><a href="#五、CSS3的2D转换" class="headerlink" title="五、CSS3的2D转换"></a>五、CSS3的2D转换</h3><ul>
-<li>转换（<code>transform</code>）可实现元素的位移、旋转和缩放效果（变形）<ul>
-<li>移动（<code>translate</code>）</li>
-<li>旋转（<code>rotate</code>）</li>
-<li>缩放（<code>scale</code>）</li>
+<li>设置属性值：<ul>
+<li><code>element.属性 = '值';</code> 设置内置属性的值</li>
+<li><code>element.setAttribute('属性', '值');</code> 针对自定义属性</li>
 </ul>
 </li>
-<li>二维坐标系：2D转换时改变标签在二维平面上的位置和形状</li>
+<li>移除属性：<ul>
+<li><code>removeAttribute('属性');</code> 移除自定义属性</li>
 </ul>
-<h4 id="5-1-translate移动"><a href="#5-1-translate移动" class="headerlink" title="5.1 translate移动"></a>5.1 translate移动</h4><ul>
-<li><p>语法：<code>transform: translate(x, y);</code>或者分开写<code>transform: translateX(n);transform: translateY(n);</code></p>
 </li>
-<li><p>定义2D转换中的移动，沿着X和Y轴移动元素</p>
+</ol>
+<blockquote>
+<p>HTML5自定义属性：</p>
+<ul>
+<li>目的是为了保存并使用数据，有些数据可以保存到页面中，而不用保存到数据库中</li>
+<li>但有的自定义属性容易引起歧义与元素自带的属性无法区分</li>
+<li>所以：<ul>
+<li>HTML5规定自定义属性用<code>data-</code>开头作为属性名和赋值</li>
+<li>示例：<code>&lt;div data-index="1"&gt; &lt;/div&gt;</code></li>
+<li>其中的<code>data-index</code>就是一个自定义属性</li>
+</ul>
 </li>
-<li><p>优点：不会影响其他元素位置</p>
+</ul>
+<p>HTML5新增获取属性值的方法：</p>
+<ul>
+<li><code>element.dataset.index</code>或者<code>element.dataset['index']</code></li>
+<li><code>dataset</code>为<code>data-</code>的集合，后面的<code>index</code>就不用再加<code>data-</code>了，但是有兼容性问题，需要IE11+以上版本</li>
+<li>若自定义属性里有多个<code>-</code>连接的单词，采用驼峰命名法</li>
+</ul>
+</blockquote>
+<h3 id="六、节点操作"><a href="#六、节点操作" class="headerlink" title="六、节点操作"></a>六、节点操作</h3><ul>
+<li><p>利用节点层次关系获取元素</p>
+<ul>
+<li>父子兄弟节点关系</li>
+<li>逻辑性强，兼容性稍差</li>
+</ul>
 </li>
-<li><p>translate中的百分比是相对于自身元素的<code>translate:(50%, 50%);</code></p>
+<li><p>一般的，节点至少拥有<code>nodeType（节点类型）</code>、<code>nodeName（节点名称）</code>和<code>nodeValue（节点值）</code>者三个基本属性</p>
 </li>
-<li><p>对行内标签没有效果</p>
+<li><p>节点类型：</p>
+<ul>
+<li>元素节点：nodeType为1（开发中主要操作）</li>
+<li>属性节点：nodeType为2</li>
+<li>文本节点：nodeType为3（包含文字、空格、换行）</li>
+</ul>
 </li>
-<li><blockquote>
-<p><strong>小技巧：实现盒子水平和垂直居中</strong></p>
-<p>{</p>
-<p>  position：absolute；</p>
-<p>  top: 50%;</p>
-<p>  left: 50%;</p>
-<p>  height: 200px</p>
-<p>  weight: 200px;</p>
-<p> transform: translate(-50%, -50%);</p>
-<p>}</p>
+</ul>
+<h4 id="6-1-节点层次"><a href="#6-1-节点层次" class="headerlink" title="6.1 节点层次"></a>6.1 节点层次</h4><ul>
+<li><p>父级节点：<code>node.parentNode</code></p>
+<ul>
+<li>得到的是距离<code>node</code>最近的上一级节点</li>
+<li>找不到则返回null</li>
+</ul>
+</li>
+<li><p>子级节点：</p>
+<ol>
+<li><code>node.childNodes</code><ul>
+<li>得到的是所有的子节点（包括元素节点和文本节点）</li>
+<li>若只想要拿到元素节点，需要专门处理，所以这个方法<strong>不推荐</strong></li>
+</ul>
+</li>
+<li><code>node.children</code><ul>
+<li>可以获取所有的<strong>子元素</strong>节点，<strong>推荐</strong></li>
+</ul>
+</li>
+<li><code>node.firstChild</code><ul>
+<li>获取第一个子节点（不区分节点类型）</li>
+</ul>
+</li>
+<li><code>node.lastChilde</code><ul>
+<li>获取最后一个子节点（不区分节点类型）</li>
+</ul>
+</li>
+<li><code>node.firstElementChild</code><ul>
+<li>获取第一个<strong>子元素</strong>节点，<strong>推荐</strong>，但兼容性问题（IE9+）</li>
+</ul>
+</li>
+<li><code>node.lastElementChild</code><ul>
+<li>获取最后一个<strong>子元素</strong>节点，兼容性问题（IE9+）</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>实际开发中：<br><code>node.children[0]</code>获取第一个子元素节点</p>
+<p><code>node.children[长度 - 1]</code>获取最后一个子元素节点</p>
 </blockquote>
 </li>
-</ul>
-<h4 id="5-2-rotate选旋转"><a href="#5-2-rotate选旋转" class="headerlink" title="5.2 rotate选旋转"></a>5.2 rotate选旋转</h4><ul>
-<li><p>语法：<code>transform: rotate(角度);</code></p>
-</li>
-<li><p><code>rotate</code>括号里填写旋转的角度，单位是<code>deg</code>，示例：<code>transform: rotate(45deg);</code></p>
-</li>
-<li><p>角度为正时，顺时针旋转，角度为负时，逆时针旋转</p>
-</li>
-<li><p>默认旋转的中心点时<strong>元素中心点</strong></p>
-</li>
-<li><p>手动设置转换中心点：</p>
+<li><p>兄弟节点：</p>
 <ul>
-<li>语法：<code>transform-origin: x y;</code></li>
-<li>注意x与y中间用空格隔开</li>
-<li>x和y默认转换的中心点时元素的中心点<code>（50% 50%）</code></li>
-<li>除了百分比外，也可以给x和y设置像素或者方位名词（<code>top/bottom/left/right</code>）</li>
+<li><code>node.nextSibling</code><ul>
+<li>返回当前元素的下一个兄弟节点，找不到则返回null（不区分节点类型）</li>
+</ul>
+</li>
+<li><code>node.previousSibling</code><ul>
+<li>返回上一个兄弟节点（不区分节点类型）</li>
+</ul>
+</li>
+<li><code>ndoe.nextElementSibling</code><ul>
+<li>返回下一个兄弟<strong>元素节点</strong>，找不到返回null，兼容性IE9+</li>
+</ul>
+</li>
+<li><code>node.previousElementSibling</code><ul>
+<li>返回上一个兄弟<strong>元素节点</strong>，兼容性IE9+</li>
 </ul>
 </li>
 </ul>
-<h4 id="5-3-scale缩放"><a href="#5-3-scale缩放" class="headerlink" title="5.3 scale缩放"></a>5.3 scale缩放</h4><ul>
-<li>语法：<code>transform: scale(x, y);</code></li>
-<li><code>x = y = 1</code>时，宽高放大为1一倍，等于没有放大</li>
-<li><code>transform: scale(2, 2);</code>放大2倍</li>
-<li>优势：可以设置转换中心点缩放，不影响其他盒子</li>
-</ul>
-<h4 id="5-4-2D转换的综合写法"><a href="#5-4-2D转换的综合写法" class="headerlink" title="5.4 2D转换的综合写法"></a>5.4 2D转换的综合写法</h4><ul>
-<li>同时使用多个转换，格式为：<code>transform: translate() rotate() scale();</code></li>
-<li>变换顺序会影响其他效果（比如旋转会改变坐标方向，在进行移动时方向可能有问题）</li>
-<li>当同时又位移和其他属性时，位移写在最前面（尽量规避前一个问题）</li>
-</ul>
-<h3 id="六、CSS3动画"><a href="#六、CSS3动画" class="headerlink" title="六、CSS3动画"></a>六、CSS3动画</h3><ul>
-<li>动画（animation）可以通过多个节点来精确控制一个或一组动画，常用来实现复杂的动画效果，相比过渡，动画可以实现更多变化，更多控制，连续自动播放等效果</li>
-<li>基本使用步骤<ul>
-<li>先定义动画</li>
-<li>再调用动画</li>
-</ul>
-</li>
-</ul>
-<h4 id="6-1-Keyframes定义动画"><a href="#6-1-Keyframes定义动画" class="headerlink" title="6.1 Keyframes定义动画"></a>6.1 <code>Keyframes</code>定义动画</h4><ul>
-<li><p>语法：</p>
+<blockquote>
+<p>其他办法：<strong>自己封装一个函数来获取兄弟节点</strong></p>
 <ul>
-<li><pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@keyframes</span> 动画名称</span> <span class="token punctuation">{</span>
-    <span class="token selector">0% </span><span class="token punctuation">{</span> <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span><span class="token punctuation">}</span> <span class="token selector">// 动画开头
-    100% </span><span class="token punctuation">{</span> <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span><span class="token punctuation">}</span> // 动画结尾
+<li><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getElementSibling</span><span class="token punctuation">(</span>element <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> el <span class="token operator">=</span> element<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>el <span class="token operator">=</span> el<span class="token punctuation">.</span>nextSibling <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">if</span><span class="token punctuation">(</span>el<span class="token punctuation">.</span>nodeType <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">return</span> <span class="token number">1</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+ <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 </li>
 </ul>
-</li>
-<li><p>使用动画：</p>
-<ul>
-<li><pre class=" language-css"><code class="language-css"><span class="token selector">div </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#1296db</span><span class="token punctuation">;</span>
-    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">100</span>px auto<span class="token punctuation">;</span>
-    <span class="token property">animation-name</span><span class="token punctuation">:</span> 动画名称<span class="token punctuation">;</span> // 调用动画
-    <span class="token property">animation-duration</span><span class="token punctuation">:</span> 持续时间； // 持续时长
-<span class="token punctuation">}</span>
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="6-2-动画序列"><a href="#6-2-动画序列" class="headerlink" title="6.2 动画序列"></a>6.2 动画序列</h4><ul>
-<li><code>0%</code>是动画的开始，<code>100%</code>是动画的完成</li>
-<li>在<code>@keyframes</code>中规定某项CSS样式，就能创建从当前样式逐渐改为新样式的动画效果</li>
-<li>动画是使元素从一种样式逐渐变化为另一种洋式的效果，可以改变任意多的样式和次数</li>
-<li>请用百分比来规定变化发生的事件，或<code>"form" "to"</code>(与<code>0% 100%</code>等效)</li>
-</ul>
-<h4 id="6-3-动画常用属性"><a href="#6-3-动画常用属性" class="headerlink" title="6.3 动画常用属性"></a>6.3 动画常用属性</h4><ul>
-<li><code>@keyframes</code>：规定动画</li>
-<li><code>animation</code>：所有动画属性的简写属性（除<code>animation-play-state</code>外）</li>
-<li><code>animation-name</code>：规定<code>@keyframes</code>动画的名称</li>
-<li><code>animation-duration</code>：完成一个动画周期需要花费的时间</li>
-<li><code>animation-timing-function</code>：规定动画的速度曲线，默认是<code>ease</code></li>
-<li><code>animation-delay</code>：动画延时开启，默认为0</li>
-<li><code>animation-iteration-count</code>：播放次数，默认为1，另一个属性值为<code>infinite</code>（无限循环）</li>
-<li><code>animation-direction</code>：是否在下一个周期逆向播放（<code>normal</code>：否；<code>alternate</code>：逆向）</li>
-<li><code>animation-play-state</code>：动画运行或暂停，默认为<code>running</code>（播放），还有<code>paused</code>（暂停）</li>
-<li><code>animation-fill-mode</code>：动画结束后的状态（<code>forwards</code>：保持当前状态；<code>backwards</code>：回到初始状态）</li>
-</ul>
-<h4 id="6-4-动画的简写方式"><a href="#6-4-动画的简写方式" class="headerlink" title="6.4 动画的简写方式"></a>6.4 动画的简写方式</h4><ul>
-<li><p>语法：<code>animation: 动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 结束状态;</code></p>
-</li>
-<li><p>不需要的属性值可以省略</p>
-</li>
-<li><p>速度曲线的细节：</p>
-<ul>
-<li><blockquote>
-<p>属性：animation-timing-function</p>
-<p>属性值：</p>
-<p>​                linear     匀速</p>
-<p>​                ease    默认，低速开始-&gt;加速-&gt;减速-&gt;低速停止</p>
-<p>​                ease-in    低速开始，加速</p>
-<p>​                ease-out    低速结束，减速</p>
-<p>​                ease-in-out    低速开始和结束</p>
-<p>​                steps( )    制定了函数中的间隔数量（步长，一步一步，不连续）</p>
 </blockquote>
 </li>
 </ul>
-</li>
-</ul>
-<h3 id="七、CSS的3D转换"><a href="#七、CSS的3D转换" class="headerlink" title="七、CSS的3D转换"></a>七、CSS的3D转换</h3><ul>
-<li>特点：近大远小；物体后面遮挡不可见<ul>
-<li>3D位移：<code>translate3d(x, y, z);</code></li>
-<li>3D旋转：<code>rotate3d(x, y, z);</code></li>
-<li>透视：<code>perspective</code></li>
-<li>3D呈现：<code>transform-style</code></li>
+<h4 id="6-2-节点操作"><a href="#6-2-节点操作" class="headerlink" title="6.2 节点操作"></a>6.2 节点操作</h4><ul>
+<li>创建节点<ul>
+<li><code>document.createElement('tagName');</code></li>
+<li>创建一个由<code>tagName</code>指定的HTML元素，因为这些元素本身不存在，根据需求动态生成，所以也称为动态创建元素节点</li>
 </ul>
 </li>
-</ul>
-<h4 id="7-1-translate3d"><a href="#7-1-translate3d" class="headerlink" title="7.1 translate3d( )"></a>7.1 translate3d( )</h4><ul>
-<li>用法与2D移动差不多，只是多了一个translateZ( );</li>
-<li>其中translateZ里的值一般使用px为单位</li>
-</ul>
-<h4 id="7-2-perspective"><a href="#7-2-perspective" class="headerlink" title="7.2 perspective"></a>7.2 perspective</h4><ul>
-<li>在2D平面产生近大远小的视觉效果</li>
-<li>想在网页中产生3D效果需要透视属性</li>
-<li>模拟人类视觉效果，可以认安排一只眼睛去看</li>
-<li>透视也成为视距，即人的眼睛到屏幕的距离</li>
-<li>单位为px，透视越小，物体越大</li>
-<li><strong>注意：透视写在被观察的父盒子上面</strong></li>
-</ul>
-<h4 id="7-3-rotate3d"><a href="#7-3-rotate3d" class="headerlink" title="7.3 rotate3d( )"></a>7.3 rotate3d( )</h4><ul>
-<li>可以沿x, y, z或者自定以方向旋转</li>
-<li>旋转方向：左手法则（负值则反方向）</li>
-</ul>
-<h4 id="7-4-transform-style"><a href="#7-4-transform-style" class="headerlink" title="7.4 transform-style"></a>7.4 transform-style</h4><ul>
-<li>控制子元素是否开启三维立体环境</li>
-<li><code>transform-style: flat; </code>子元素不开启3d空间（默认）</li>
-<li><code>transform-style: preserve-3d;</code> 开启</li>
-<li>代码写在父级盒子上，但影响的是子级盒子</li>
-<li><strong>这个属性很重要哦</strong></li>
-</ul>
-<h1 id="课外拓展"><a href="#课外拓展" class="headerlink" title="课外拓展"></a>课外拓展</h1><h3 id="课外知识拓展"><a href="#课外知识拓展" class="headerlink" title="课外知识拓展"></a>课外知识拓展</h3><h3 id="一、浏览器私有前缀"><a href="#一、浏览器私有前缀" class="headerlink" title="一、浏览器私有前缀"></a>一、浏览器私有前缀</h3><ul>
-<li><p>浏览器私有前缀是为了兼容老版本的写法，新版本无需添加</p>
-</li>
-<li><p>私有前缀：</p>
-<ul>
-<li><code>-moz-</code>：代表Firefox私有属性</li>
-<li><code>-ms-</code>：代表Ie私有属性</li>
-<li><code>-webkit-</code>：代表Safari，Chrome私有属性</li>
-<li><code>-o-</code>：代表Opera私有属性</li>
+<li>添加节点<ol>
+<li><code>node.appendChild(childNode)</code><ul>
+<li>将一个节点添加到指定父节点的子节点列表末尾（类似于after）</li>
 </ul>
 </li>
-<li><p>提倡的写法(以<code>border-radius</code>为例)：</p>
-<ul>
-<li><pre class=" language-css"><code class="language-css"><span class="token property">-moz-border-radius</span><span class="token punctuation">:</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
-<span class="token property">-webkit-border-radius</span><span class="token punctuation">:</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
-<span class="token property">-o-border-radius</span><span class="token punctuation">:</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
-<span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
-</code></pre>
-</li>
+<li><code>node.insertBefore(child, 指定元素)</code><ul>
+<li>在指定元素的前面添加元素（都是node的子元素）</li>
 </ul>
 </li>
-</ul>
-<h3 id="二、网站TDK三大标签SEO优化"><a href="#二、网站TDK三大标签SEO优化" class="headerlink" title="二、网站TDK三大标签SEO优化"></a>二、网站TDK三大标签SEO优化</h3><ul>
-<li>SEO（Search Engine Optimization）汉译为搜索引擎优化，是一种利用搜索引擎的规则提高网站在有关搜索引擎内自然排名的方式。</li>
-<li>目的：对网站进行深度的优化，使其提高搜索排名</li>
-<li>页面必须有三大标签来复合SEO优化：<ul>
-<li><code>title</code>：<ul>
-<li>网站标题（重要，不可替代）</li>
-<li>建议：<strong>网站名（产品名）-网站的介绍（少于30字较佳）</strong></li>
-</ul>
-</li>
-<li><code>description</code>：<ul>
-<li>网站说明（简要说明网站是做什么的）</li>
-<li>建议：description作为网站的总体业务和主题概括，多采用””我们是…”，”我们提供…”，”xxx网站作为…”，”电话：010-…”之类。 </li>
-</ul>
-</li>
-<li><code>keyword</code>：<ul>
-<li>关键字（页面关键字，搜索引擎关注点之一）</li>
-<li>建议：最好限制6-8个关键字，关键字之间用英文逗号<code>,</code>隔开，关键字越靠前，权重越高</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>LOGO SEO优化：<ol>
-<li>logo里首先放一个h1标签，目的是为了提权，显示重要性</li>
-<li>h1里放一个链接，可以返回首页</li>
-<li>链接里放文字（网站名称），但文字不显示<ul>
-<li>方法一：<code>text-indent</code>移动到盒子外（<code>text-indent: -99999px;</code>），然后<code>overflow: hidden;</code></li>
-<li>方法二：直接给<code>font-size:0;</code></li>
-</ul>
-</li>
-<li>给链接一个<code>title</code>属性。（鼠标放在logo上就可以看到提示文本）</li>
 </ol>
 </li>
+<li>删除节点<ul>
+<li><code>node.removeChild(childNode)</code></li>
+<li>从DOM中删除一个子节点，返回删除的节点</li>
+</ul>
+</li>
+<li>复制节点<ul>
+<li><code>node.cloneNode()</code></li>
+<li>返回调用该方法的节点的一个副本，也称克隆节点/拷贝节点</li>
+<li>克隆之后应当添加节点才能显示</li>
+<li><strong>注意：</strong><ul>
+<li>若括号参数为空或者false，则为浅拷贝，只复制节点，不包含里面的任何子节点</li>
+<li>若括号为true，则为深拷贝，复制所有内容</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <blockquote>
-<p><strong>日常叭叭叭</strong>：</p>
-<p>由于笔者也是一名刚刚入门的小白，对于学习时的很多内容可能并不太了解，所以具体有些小技巧没有运用的很熟练，如果经过验证后证实有问题，可以联系我修改，谢谢啦~</p>
+<p><strong>常见面试题</strong></p>
+<ol>
+<li><code>document.write()</code></li>
+<li><code>document.innerHTML()</code></li>
+<li><code>document.createElement()</code></li>
+</ol>
+<p>三种动态元素创建的区别？</p>
+<p>keys：</p>
+<ol>
+<li>第一种是直接将内容写入到页面的内容流里，文档流执行完毕以后，可能会导致<strong>页面重绘</strong></li>
+<li>第二种创建多个元素效率更高（不使用拼接，采取数组形式），但结构较为复杂</li>
+<li>第三种在创建多个元素时效率会低一些，但是结构更加清晰</li>
+</ol>
+<blockquote>
+<p>不同浏览器下，第二种比第三种效率高</p>
+</blockquote>
+</blockquote>
+<h3 id="七、事件（高级部分）"><a href="#七、事件（高级部分）" class="headerlink" title="七、事件（高级部分）"></a>七、事件（高级部分）</h3><h4 id="7-1-注册事件"><a href="#7-1-注册事件" class="headerlink" title="7.1 注册事件"></a>7.1 注册事件</h4><ul>
+<li>给元素添加事件，成为注册事件或绑定事件</li>
+<li>传统方式：<ul>
+<li>利用on开头的事件，如onclick</li>
+<li>特点：注册事件的<strong>唯一性</strong></li>
+<li>同一个元素同一个事件只能设置一个处理函数，后设置的会覆盖前一个</li>
+</ul>
+</li>
+<li><strong>方法监听注册事件</strong><ul>
+<li>W3C推荐</li>
+<li><code>addEventListener()</code>方法</li>
+<li>兼容性IE9以前不支持，可以用<code>attachEvent()</code>代替</li>
+<li>同一个元素同一个事件可以注册多个监听器</li>
+<li>按注册顺序依次执行</li>
+</ul>
+</li>
+<li>语法：<code>eventTarget.addEventListener(type, listener[, useCapture])</code></li>
+<li>参数：<ul>
+<li>type：事件类型字符串，如“click”、“mouseover”等等，<strong>注意不要加on</strong></li>
+<li>listener：事件处理函数，事件发生时会调用该监听函数</li>
+<li>useCapture：可选参数，是个布尔值，默认false，在DOM树中，注册了listener的元素， 是否要先于它下面的EventTarget，调用该listener。 当useCapture(设为true) 时，沿着DOM树向上冒泡的事件，不会触发listener。当一个元素嵌套了另一个元素，并且两个元素都对同一事件注册了一个处理函数时，所发生的事件冒泡和事件捕获是两种不同的事件传播方式。</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-2-删除事件（解绑事件）"><a href="#7-2-删除事件（解绑事件）" class="headerlink" title="7.2 删除事件（解绑事件）"></a>7.2 删除事件（解绑事件）</h4><ul>
+<li>传统方式：<code>eventTarget.onclick = null;</code></li>
+<li>方法监听注册方式：<ul>
+<li><code>eventTarget.removeEventListener(type, listener[, useCapture]);</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="7-3-DOM事件流"><a href="#7-3-DOM事件流" class="headerlink" title="7.3 DOM事件流"></a>7.3 DOM事件流</h4><ul>
+<li>描述的是从页面中接收事件的顺序，事件发生时会在元素节点之间按照特定的顺序传播，该过程成为DOM事件流</li>
+<li>DOM事件流分为三个阶段：<ul>
+<li>捕获阶段</li>
+<li>当前目标阶段</li>
+<li>冒泡阶段</li>
+</ul>
+</li>
+<li><strong>注：</strong><ul>
+<li>JS代码中只能执行捕获阶段或者冒泡阶段中的一个阶段</li>
+<li>传统的<code>onclick</code>和<code>attachEvent</code>只能得到冒泡阶段</li>
+<li><code>addEVentListener(type, listener[, useCapture])</code>的三个参数如果为true，则时间处于捕获阶段，如果是false或省略，则事件处于冒泡阶段</li>
+<li><strong>事实上，开发中很少使用事件捕获，更关注事件冒泡，但有些事件没有冒泡，比如：onbulr,onfocus,onmouseover,onmouseleave等等</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="7-4-事件对象"><a href="#7-4-事件对象" class="headerlink" title="7.4 事件对象"></a>7.4 事件对象</h4><ul>
+<li><p><code>tagName.onclick = function(event) {}</code></p>
+<ul>
+<li>代码中的<code>event</code>就是一个事件对象，写在监听函数的小括号中，可以当作形参来看待</li>
+<li>事件对象又有了事件后才存在，<strong>系统创建，无需传参</strong></li>
+<li>事件对象是事件的<strong>一系列相关数据的集合</strong>，与事件相关</li>
+<li>该事件可以自主命名，常用：event，evt，e</li>
+<li>事件对象也有兼容性问题，<code>IE6、7、8</code>通过<code>window.event</code>来获取</li>
+<li><strong>兼容性写法： e = e || window.eveng</strong></li>
+</ul>
+</li>
+<li><p>事件对象的常见属性和方法：</p>
+<ul>
+<li><code>e.target</code>：返回触发事件的对象（标准，ie9+使用）</li>
+<li><code>e.srcElement</code>：返回触发事件的对象（非标准，ie678使用）</li>
+<li><code>e.type</code>：返回事件类型（不带on的），如“click”</li>
+<li><code>e.cancelBubble</code>：该属性阻止冒泡（非标准）</li>
+<li><code>e.returnValue</code>：阻止默认事件或行为，比如不让链接跳转（非标准）</li>
+<li><code>e.preventDefault()</code>：该方法阻止默认事件或行为（标准）</li>
+<li><code>e.stopPropagation()</code>：该方法阻止冒泡（标准）</li>
+</ul>
+</li>
+<li><p><strong><code>e.target</code>与<code>this</code>的区别:</strong></p>
+<ul>
+<li><code>e.target</code>返回的是<strong>触发事件</strong>的对象，<code>this</code>返回的是<strong>绑定事件</strong>的对象</li>
+</ul>
+<blockquote>
+<p><code>return false</code>其实也可以组织默认事件和行为，并且没有兼容性问题，但是写在<code>return</code>后面的代码都不执行了，且仅限于传统注册方式</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>阻止事件冒泡</strong>（面试常问）</p>
+<p>事件冒泡开始是由最具体的元素接收，逐级向上传播到DOM最顶层的节点</p>
+<p>组织冒泡的标准写法：利用事件对象的<code>e.propagation()</code>方法</p>
+<p>非标准方法：<code>e.cancelBubble = true;</code></p>
+</blockquote>
+<h4 id="7-5-事件委托（代理、委派）"><a href="#7-5-事件委托（代理、委派）" class="headerlink" title="7.5 事件委托（代理、委派）"></a>7.5 事件委托（代理、委派）</h4><ul>
+<li><p><strong>原理（非常重要）</strong></p>
+<ul>
+<li>不是每个子节点单独设置事件监听器，而是将事件监听设置在他们的父节点上，然后利用冒泡原理影响设置的每个子结点</li>
+</ul>
+</li>
+<li><p>作用：</p>
+<ul>
+<li>只操作了一次DOM，降低访问次数，提高程序性能</li>
+</ul>
+</li>
+<li><blockquote>
+<p>与<code>e.target</code>配合可以控制单个子元素</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="7-6-常见的鼠标事件2"><a href="#7-6-常见的鼠标事件2" class="headerlink" title="7.6 常见的鼠标事件2"></a>7.6 常见的鼠标事件2</h4><ul>
+<li>禁止鼠标右击菜单<ul>
+<li><code>contestmenu</code>主要控制当前何时显示上下文菜单，主要用于程序员取消该设置</li>
+</ul>
+</li>
+<li>禁止鼠标选中（Selectstart 开始选中）<ul>
+<li>常配置<code>e.preventDefault()</code>的侦听器</li>
+</ul>
+</li>
+<li>鼠标事件对象：<ul>
+<li><code>event</code>对象代表事件的状态，跟事件相关的一系列信息的集合，现阶段主要用鼠标事件对象<code>MouseEvent</code>和键盘事件对象<code>KeyboardEvent</code></li>
+</ul>
+</li>
+<li>鼠标事件第二弹<ul>
+<li><code>e.clientX</code>：返回鼠标相对于<strong>浏览器</strong>可视区的X坐标</li>
+<li><code>e.clientY</code>：返回鼠标相对于浏览器可视区的Y坐标</li>
+<li><code>e.pageX</code>：返回鼠标相对于<strong>文档页面</strong>的X坐标（IE9+）</li>
+<li><code>e.pageY</code>：返回鼠标相对于文档页面的Y坐标（IE9+）</li>
+<li><code>e.screenX</code>：返回鼠标相对于<strong>电脑屏幕</strong>的X坐标</li>
+<li><code>e.screenY</code>：返回鼠标相对于电脑屏幕的Y坐标</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-7-常用的键盘事件"><a href="#7-7-常用的键盘事件" class="headerlink" title="7.7 常用的键盘事件"></a>7.7 常用的键盘事件</h4><ul>
+<li>以下为执行顺序排列，1为最先执行</li>
+</ul>
+<ol>
+<li><code>onkeydown</code>：某个按键按下时触发，不区分大小写</li>
+<li><code>onkeypress</code>：某个按键按下时触发，但不是识别功能键（如shift、ctrl之类），区分大小写</li>
+<li><code>onkeyup</code>：某个按键松开弹起时触发，不区分大小写</li>
+</ol>
+<ul>
+<li>键盘事件对象：keyCode可以返回相应按键的ASCII码值。</li>
+</ul>
+<blockquote>
+<p>JS-DOM的基础内容应该差不多就这些吧，对应的事件之类的我也只列举了一些常用的，更深层次的内容，或者说想要更深入的学习，还是查询响应文档比较好啦，毕竟我也只是一个刚刚起步的小白，很多东西没有使用到，也记不太住呀哈哈哈哈~</p>
 </blockquote>
 <blockquote>
 <p>我是EagleH，一个正处于前端起步阶段的IT小白~</p>
@@ -1030,7 +992,7 @@ n+<span class="token number">5</span> // 从<span class="token number">5</span>�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-xue-xi-bi-ji/">http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-xue-xi-bi-ji/</a>
+                    <a href="http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/">http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1068,16 +1030,16 @@ n+<span class="token number">5</span> // 从<span class="token number">5</span>�
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/HTML/">
-                                    <span class="chip bg-color">HTML</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                                     <span class="chip bg-color">学习笔记</span>
                                 </a>
                             
-                                <a href="/tags/CSS/">
-                                    <span class="chip bg-color">CSS</span>
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
+                                </a>
+                            
+                                <a href="/tags/DOM/">
+                                    <span class="chip bg-color">DOM</span>
                                 </a>
                             
                         </div>
@@ -1247,9 +1209,67 @@ n+<span class="token number">5</span> // 从<span class="token number">5</span>�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/02/13/js-xue-xi-bi-ji-zhi-dom/">
+                    <div class="card-image">
+                        
+                        <img src="/./images/featureimages/DOMxue-xi-bi-ji.png" class="responsive-img" alt="JS学习笔记之DOM">
+                        
+                        <span class="card-title">JS学习笔记之DOM</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前端小白的学习路之JavaScript-DOM
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/WEB%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    WEB前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                    <a href="/tags/DOM/">
+                        <span class="chip bg-color">DOM</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/02/13/javascript-xue-xi-bi-ji/">
                     <div class="card-image">
@@ -1266,9 +1286,9 @@ n+<span class="token number">5</span> // 从<span class="token number">5</span>�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1290,58 +1310,6 @@ n+<span class="token number">5</span> // 从<span class="token number">5</span>�
                     
                     <a href="/tags/JavaScript/">
                         <span class="chip bg-color">JavaScript</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/11/css-xue-xi-bi-ji/">
-                    <div class="card-image">
-                        
-                        <img src="/./images/featureimages/CSSxue-xi-bi-ji.jpg" class="responsive-img" alt="CSS学习笔记">
-                        
-                        <span class="card-title">CSS学习笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            前端小白的自学路之CSS
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-11
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/web%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    web前端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
-                    </a>
-                    
-                    <a href="/tags/CSS/">
-                        <span class="chip bg-color">CSS</span>
                     </a>
                     
                 </div>

@@ -6,7 +6,7 @@
   <link href="http://codereagleh.github.io/atom.xml" rel="self"/>
   
   <link href="http://codereagleh.github.io/"/>
-  <updated>2021-02-13T05:49:43.363Z</updated>
+  <updated>2021-02-13T08:32:44.199Z</updated>
   <id>http://codereagleh.github.io/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JS学习笔记之DOM</title>
+    <link href="http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/"/>
+    <id>http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/</id>
+    <published>2021-02-13T07:56:39.000Z</published>
+    <updated>2021-02-13T08:32:44.199Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;上一篇中笔记做的是JS的基础阶段，学习的是ECMAScript标准规定的基本语法，只要求掌握基础语法就可以了，为后面的JS打下基础。但是只学了语法，我们还是无法做到网页的交互效果，所以JS还有一个重要的阶段，叫”WEB</summary>
+        
+      
+    
+    
+    
+    <category term="WEB前端" scheme="http://codereagleh.github.io/categories/WEB%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="JavaScript" scheme="http://codereagleh.github.io/tags/JavaScript/"/>
+    
+    <category term="DOM" scheme="http://codereagleh.github.io/tags/DOM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript学习笔记</title>
-    <link href="http://codereagleh.github.io/2021/02/12/javascript-xue-xi-bi-ji/"/>
-    <id>http://codereagleh.github.io/2021/02/12/javascript-xue-xi-bi-ji/</id>
-    <published>2021-02-12T07:00:08.000Z</published>
-    <updated>2021-02-13T05:49:43.363Z</updated>
+    <link href="http://codereagleh.github.io/2021/02/13/javascript-xue-xi-bi-ji/"/>
+    <id>http://codereagleh.github.io/2021/02/13/javascript-xue-xi-bi-ji/</id>
+    <published>2021-02-13T03:00:08.000Z</published>
+    <updated>2021-02-13T08:33:25.736Z</updated>
     
     
       
@@ -49,7 +79,7 @@
     <link href="http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-xue-xi-bi-ji/"/>
     <id>http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-xue-xi-bi-ji/</id>
     <published>2021-02-12T03:48:31.000Z</published>
-    <updated>2021-02-13T05:50:35.297Z</updated>
+    <updated>2021-02-13T08:34:14.357Z</updated>
     
     
       
@@ -79,7 +109,7 @@
     <link href="http://codereagleh.github.io/2021/02/11/css-xue-xi-bi-ji/"/>
     <id>http://codereagleh.github.io/2021/02/11/css-xue-xi-bi-ji/</id>
     <published>2021-02-11T04:48:16.000Z</published>
-    <updated>2021-02-13T05:50:19.162Z</updated>
+    <updated>2021-02-13T08:34:13.209Z</updated>
     
     
       
@@ -135,7 +165,7 @@
     <link href="http://codereagleh.github.io/2021/02/09/gan-kun-wei-ding-ni-wo-jie-shi-hei-ma/"/>
     <id>http://codereagleh.github.io/2021/02/09/gan-kun-wei-ding-ni-wo-jie-shi-hei-ma/</id>
     <published>2021-02-09T13:09:25.000Z</published>
-    <updated>2021-02-10T10:25:23.199Z</updated>
+    <updated>2021-02-13T08:35:13.161Z</updated>
     
     
       
