@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>ElementUI-input的type=&#39;number&#39;时去掉上下箭头和鼠标滚轮滚动事件</title>
+      <link href="2021/04/01/elementui-input-de-type-number-shi-qu-diao-shang-xia-jian-tou-he-shu-biao-gun-lun-gun-dong-shi-jian/"/>
+      <url>2021/04/01/elementui-input-de-type-number-shi-qu-diao-shang-xia-jian-tou-he-shu-biao-gun-lun-gun-dong-shi-jian/</url>
+      
+        <content type="html"><![CDATA[<h3 id="话不多说，直接贴代码，亲测有用"><a href="#话不多说，直接贴代码，亲测有用" class="headerlink" title="话不多说，直接贴代码，亲测有用~"></a>话不多说，直接贴代码，亲测有用~</h3><h4 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h4><ul><li><p>用去禁用input输入框中滚轮可以调节数字的事件</p><ul><li><pre class=" language-html"><code class="language-html">&lt;el-input    type="number" // input的type为"number"    min="0"    style="flex: 1; text-align: center;"    v-model="Form"    autocomplete="off"    @mousewheel.native.prevent  // 添加上这句代码即可，禁用鼠标滚动事件><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-input</span><span class="token punctuation">></span></span></code></pre></li></ul></li></ul><h4 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h4><ul><li><p>用于去除input中的上下箭头：</p><ul><li><pre class=" language-css"><code class="language-css"><span class="token selector">input<span class="token pseudo-element">::-webkit-outer-spin-button</span>,input<span class="token pseudo-element">::-webkit-inner-spin-button</span> </span><span class="token punctuation">{</span>  <span class="token property">-webkit-appearance</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">input<span class="token attribute">[type='number']</span> </span><span class="token punctuation">{</span>  <span class="token property">-moz-appearance</span><span class="token punctuation">:</span> textfield<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre></li></ul></li><li><p>如果以上代码没有作用，查看style标签是否添加了<code>scoped</code>，如果是，那么需要在进行样式穿透，即在样式代码块前添加<code>::v-deep</code>或者<code>/deep/</code>即可</p><ul><li><pre class=" language-css"><code class="language-css"><span class="token selector">/deep/ input<span class="token pseudo-element">::-webkit-outer-spin-button</span>,/deep/ input<span class="token pseudo-element">::-webkit-inner-spin-button</span> </span><span class="token punctuation">{</span>  <span class="token property">-webkit-appearance</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">/deep/ input<span class="token attribute">[type='number']</span> </span><span class="token punctuation">{</span>  <span class="token property">-moz-appearance</span><span class="token punctuation">:</span> textfield<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> web前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Element UI </tag>
+            
+            <tag> 奇技淫巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue学习笔记</title>
+      <link href="2021/02/14/vue-xue-xi-bi-ji/"/>
+      <url>2021/02/14/vue-xue-xi-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>自从学习前端开发这几个月来，小白本白渐渐开始习惯了操作DOM元素的编程方式，甚至上一篇的jQuery上手也非常快（因为本质上都是操作DOM），而学完前面的那些基础内容以后，我开始去找一些前端框架的内容进行学习，于时接触到了Vue（因为开发团队有中国人尤大大，所以开发文档写的非常好，很方便阅读），开始学习的几个小时，我几乎没有怎么听懂，他有点颠覆了我之前学习的开发方式，让我突然觉得前端有点难学。但是，只要慢慢坚持，一步步走下来，就会发现Vue这种操作数据的开发方式似乎更加的便捷，</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> web前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> 前端框架 </tag>
+            
+            <tag> Vuejs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>jQuery学习笔记</title>
       <link href="2021/02/14/jquery-xue-xi-bi-ji/"/>
       <url>2021/02/14/jquery-xue-xi-bi-ji/</url>
