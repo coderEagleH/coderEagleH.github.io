@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>EagleH World</title>
+  <title>hyh&#39;s Blog</title>
   
   <subtitle>乾坤未定 你我皆是黑马</subtitle>
   <link href="http://codereagleh.github.io/atom.xml" rel="self"/>
   
   <link href="http://codereagleh.github.io/"/>
-  <updated>2021-04-01T03:05:56.438Z</updated>
+  <updated>2021-04-11T05:36:43.178Z</updated>
   <id>http://codereagleh.github.io/</id>
   
   <author>
-    <name>EagleH</name>
+    <name>hyh</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Node中的模块系统之exports和module.exports的关系</title>
+    <link href="http://codereagleh.github.io/2021/04/11/exports-he-module.exports-de-guan-xi/"/>
+    <id>http://codereagleh.github.io/2021/04/11/exports-he-module.exports-de-guan-xi/</id>
+    <published>2021-04-11T05:12:25.000Z</published>
+    <updated>2021-04-11T05:36:43.178Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Node中的模块系统之exports和module-exports的关系&quot;&gt;&lt;a href=&quot;#Node中的模块系统之exports和module-exports的关系&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="随便写写" scheme="http://codereagleh.github.io/categories/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
+    
+    
+    <category term="随笔" scheme="http://codereagleh.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>ElementUI-input的type=&#39;number&#39;时去掉上下箭头和鼠标滚轮滚动事件</title>
@@ -67,9 +92,9 @@
     
     <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="前端框架" scheme="http://codereagleh.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
     <category term="Vuejs" scheme="http://codereagleh.github.io/tags/Vuejs/"/>
+    
+    <category term="前端框架" scheme="http://codereagleh.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
