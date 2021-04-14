@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>推荐几个刷题网站</title>
+      <link href="2021/04/14/tui-jian-ji-ge-shua-ti-wang-zhan/"/>
+      <url>2021/04/14/tui-jian-ji-ge-shua-ti-wang-zhan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="推荐几个刷题网站"><a href="#推荐几个刷题网站" class="headerlink" title="推荐几个刷题网站"></a>推荐几个刷题网站</h1><blockquote><p>不知不觉，自学前端已经有一段时间了，每天都在汲取新知识，在有些时候会有种力不从心的感觉，对自己开始不自信，新的知识来不及学习，旧的知识已经渐渐遗忘，后来才慢慢发现，自己缺乏一种能够巩固自己知识的方式。从开始上学到大学毕业，其实老师都在教授我们这种方法，那就是刷题。通过刷题，可以巩固我们的理论基础，活学活用，查漏补缺，同时也可以在做题过程中不断提升自己的实力，收集了一些网上素材，下面推荐几个好用的刷题网站。</p></blockquote><h3 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h3><ul><li><a href="https://leetcode.com/">传送门</a></li><li>Leetcode的题目类型较多，但是普遍偏基础，基本很少考察复杂的算法，很多都是对基础知识的应用，很适合刚刚入门的像我一样觉得心有余而力不足的小灰。</li></ul><h3 id="w3cschool"><a href="#w3cschool" class="headerlink" title="w3cschool"></a>w3cschool</h3><ul><li><a href="https://www.w3cschool.cn/exam/">传送门</a></li><li>w3c（万维网联盟）作为国际标准组织的万维网，他提供的刷题网站涵盖了计算机方面的各种知识，甚至计算机方面的考试刷题都有涉及，所以如果你寻求不到自己适合的题目时，不妨来这里看看，在这里一定会找到想要刷的内容</li></ul><h3 id="51CTO题库"><a href="#51CTO题库" class="headerlink" title="51CTO题库"></a>51CTO题库</h3><ul><li><a href="https://edu.51cto.com/t/exam/">传送门</a></li><li>51CTO题库包含了社会上大部分工作岗位的题库，当然计算机各个方向的题库都很丰富，不论你学那个专业，都能够找到你想要的资料。</li></ul><h3 id="牛客网"><a href="#牛客网" class="headerlink" title="牛客网"></a>牛客网</h3><ul><li><a href="https://www.nowcoder.com/contestRoom/">传送门</a></li><li>这个大家都应该非常熟悉了，作为应届生求职题库的代表，很多校园招聘的实习笔试面试真题都会在牛客网上找到，让你直接感受大厂公司面试真题，直接爽中爽。</li></ul><h3 id="赛码网"><a href="#赛码网" class="headerlink" title="赛码网"></a>赛码网</h3><ul><li><a href="https://www.acmcoder.com/index">传送门</a></li><li>在这里，可以选择自己心仪的大厂直接刷题训练，对标往届成绩线，距离一目了然，每套试卷标准都有难度系数，可以自行挑选。</li></ul><h3 id="掘金"><a href="#掘金" class="headerlink" title="掘金"></a>掘金</h3><ul><li><a href="https://juejin.cn/">传送门</a></li><li>笔者觉得这是一个能够帮助开发者迅速成长的网站，他通过原理讲解、代码解释、视频运行来解释函数的使用场景，并且你可以在掘金上搜索到几乎你遇到的所有困难，同时也会有很多业界大佬在掘金上发表文章，偶尔看看也会受益匪浅。</li></ul><h3 id="大前端面试题库"><a href="#大前端面试题库" class="headerlink" title="大前端面试题库"></a>大前端面试题库</h3><ul><li><a href="http://bigerfe.com/">传送门</a></li><li>在这里你会得到很多前端知识的分享，以及一些重点难点，通过仔细的文字介绍和代码对比，让你理解函数的区别，在这里，你可以找到令你困惑许久的问题答案。</li></ul><blockquote><p>当然光刷题是不够的，拥有过硬的实操经验和理论基础才是重中之重，大家一起加油吧，希望还在学习的伙伴能够“日行千里”，将要面试的伙伴，祝大家锦鲤护体，拿下心仪offer，然后日进斗金，飞黄腾达~</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> web前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 奇技淫巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Node中的模块系统之exports和module.exports的关系</title>
       <link href="2021/04/11/exports-he-module.exports-de-guan-xi/"/>
       <url>2021/04/11/exports-he-module.exports-de-guan-xi/</url>
