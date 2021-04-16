@@ -348,7 +348,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.1k
                 </div>
                 
 
@@ -370,38 +370,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Node中的模块系统之exports和module-exports的关系"><a href="#Node中的模块系统之exports和module-exports的关系" class="headerlink" title="Node中的模块系统之exports和module.exports的关系"></a>Node中的模块系统之exports和module.exports的关系</h1><p>用Node编写应用程序，主要就是在使用：</p>
-<ul>
-<li><p>EcmaScript</p>
-<ul>
-<li>和浏览器不太一样，在Node中是没有BOM和DOM的</li>
-</ul>
-</li>
-<li><p>核心模块</p>
-<ul>
-<li>文件操作的fs模块</li>
-<li>http服务的http模块</li>
-<li>url路径的url模块</li>
-<li>path路径处理模块</li>
-<li>os操作系统信息模块</li>
-</ul>
-</li>
-<li><p>第三方模块</p>
-<ul>
-<li>art-template模块</li>
-<li>必须通过npm下载才能使用</li>
-</ul>
-</li>
-<li><p>自己写的模块</p>
-<ul>
-<li>自己创建的文件</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Tips：JavaScript本身是不支持模块化的</p>
-</blockquote>
-<h2 id="1-什么是文件模块化"><a href="#1-什么是文件模块化" class="headerlink" title="1.什么是文件模块化"></a>1.什么是文件模块化</h2><ul>
+                <h1 id="Node中的模块系统之exports和module-exports的关系"><a href="#Node中的模块系统之exports和module-exports的关系" class="headerlink" title="Node中的模块系统之exports和module.exports的关系"></a>Node中的模块系统之exports和module.exports的关系</h1><h2 id="1-什么是文件模块化"><a href="#1-什么是文件模块化" class="headerlink" title="1.什么是文件模块化"></a>1.什么是文件模块化</h2><ul>
 <li>文件作用域</li>
 <li>通信规则<ul>
 <li>加载</li>
@@ -415,7 +384,7 @@
 <li>使用require方法加载模块</li>
 <li>使用exports接口对象导出模块中的成员</li>
 </ul>
-<h3 id="2-1-加载require"><a href="#2-1-加载require" class="headerlink" title="2.1 加载require"></a>2.1 加载<code>require</code></h3><p>语法：</p>
+<h4 id="2-1-加载require"><a href="#2-1-加载require" class="headerlink" title="2.1 加载require"></a>2.1 加载<code>require</code></h4><p>语法：</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> 自定义变量名 <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'模块'</span><span class="token punctuation">)</span>
 </code></pre>
 <p>作用：</p>
@@ -423,7 +392,7 @@
 <li>执行被加载模块中的代码</li>
 <li>得到被加载模块中的<code>exports</code>导出接口对象</li>
 </ul>
-<h3 id="2-2-导出exports"><a href="#2-2-导出exports" class="headerlink" title="2.2 导出exports"></a>2.2 导出<code>exports</code></h3><ul>
+<h4 id="2-2-导出exports"><a href="#2-2-导出exports" class="headerlink" title="2.2 导出exports"></a>2.2 导出<code>exports</code></h4><ul>
 <li>Node中时模块作用域，默认文件中的左右成员只在当前文件模块内部有效</li>
 <li>对希望可以被其他模块访问的成员，需要把这些公开的成员挂载到<code>exports</code>接口对象中</li>
 </ul>
