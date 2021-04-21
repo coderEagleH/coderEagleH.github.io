@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何给标签伪元素添加鼠标事件</title>
+      <link href="2021/04/20/ru-he-gei-wei-yuan-su-tian-jia-shu-biao-shi-jian/"/>
+      <url>2021/04/20/ru-he-gei-wei-yuan-su-tian-jia-shu-biao-shi-jian/</url>
+      
+        <content type="html"><![CDATA[<h1 id="如何给标签伪元素-after和-before添加鼠标事件"><a href="#如何给标签伪元素-after和-before添加鼠标事件" class="headerlink" title="如何给标签伪元素::after和::before添加鼠标事件"></a>如何给标签伪元素<code>::after</code>和<code>::before</code>添加鼠标事件</h1><blockquote><p>今天在写项目时遇到了一个小问题，在一段文字中，我将超出父盒子部分隐藏并用省略号代替，然后父盒子添加了一个<code>::after</code>伪元素来显示了一个小图标，想通过点击这个小图标来触发事件打开展示所有文字的弹窗，突然发现我不知道如何给伪元素添加事件，经过查阅资料实现，记录并分享给大家。</p></blockquote><p>首先，对css比较熟悉的攻城狮们，一定对<code>::after</code>和<code>::before</code>两个伪元素非常熟悉，<strong>伪元素其实是一个元素的子元素</strong>，并且它是inline行内元素。给一个标签加上<code>::before</code>和<code>::after</code>，用浏览器检查。</p><p>它们的可以表现得像一个真实的元素一样，可以给它们设置边框、添加内容、修改颜色、背景，甚至添加图片，同时伪元素还有一个非常大的特点就是：<strong>它不存在于真实的html结构中。也就意味着，你无法用js获取到这个伪元素，或者增、删、改一个伪元素</strong></p><p>但同时伪元素的优点就体现在这里：<strong>你可以用伪元素制造视觉上的效果，但是不会增加JS查DOM的负担，它对JS是透明的。所以即使你给页面添加了很多伪元素，也不会影响查DOM的效率。</strong></p><p>同时，由于它不是一个实际的html标签，可以加快浏览器加载html文件，对优化SEO也是有帮助的。</p><hr><p>言归正传，既然我们无法用js操作DOM的方式去获取到这个伪元素，那如果正如我遇到的情况一样，如果我想对该伪元素进行添加事件时，该如何做呢？</p><p>聪明的小伙子当然会另寻他法：我们直接不用伪元素，用一个真实的标签不就可以了吗？</p><p>确实，直截了当，完美的解决了我所遇到的问题，但是，99分和100分，虽然只差一分，但是会相隔很多个排名哦~</p><p>如果我既可以完美利用到伪元素的优点，又可以实现添加事件操作，岂不是更加的完美？</p><h3 id="Talk-is-cheap-show-me-the-code！"><a href="#Talk-is-cheap-show-me-the-code！" class="headerlink" title="Talk is cheap, show me the code！"></a>Talk is cheap, show me the code！</h3><p><strong>html:</strong></p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btnClick()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这是一个真实的html标签<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre><p><strong>css：</strong></p><pre class=" language-css"><code class="language-css"><span class="token selector">div </span><span class="token punctuation">{</span>    <span class="token property">pointer-events</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* 关闭元素鼠标事件 */</span><span class="token punctuation">}</span><span class="token selector">div<span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">'这是我给标签添加的伪元素，注意添加伪元素content不可以省略，不然伪元素无效哦'</span><span class="token punctuation">;</span>    <span class="token property">pointer-events</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* 给伪元素鼠标事件 */</span><span class="token punctuation">}</span></code></pre><p><strong>js:</strong></p><pre class=" language-js"><code class="language-js"><span class="token function">btnClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'添加成功~'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>这里我们用到了一个比较少用的样式：</p><ul><li><code>pointer-events</code>。</li></ul><p>那么这个东西是什么呢？我们摘抄一句MDN的描述：</p><ul><li><strong><code>pointer-events</code></strong> CSS 属性指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 target</li><li>具体详解 –&gt; <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events">传送门</a></li></ul><p>通俗点就是说，允不允许这个元素被鼠标操作。</p><p>在我们这个案例中，它由具体做了啥？让我们一步步解析：</p><ul><li>首先，我们给标签样式添加<code>pointer-events: none;</code>，此时这个标签永远不会成为鼠标事件的target，也就是说我们无论如何点击这个<code>div</code>标签，都是不会触发该标签绑定的<code>btnClick()</code>回调函数</li><li>然后，我们给该标签的<code>::after</code>伪元素（<code>::before</code>也是可以的）样式里添加一句<code>pointer-events: auto;</code>，相当于给这个伪元素开启了鼠标事件，当我们点击该伪元素时，是可以触发鼠标事件的。</li></ul><hr><p>此时又有一个问题出现：</p><ul><li>那伪元素不存在于html中，我们无法用js的方法操作伪元素，又该怎么给这个伪元素添加鼠标事件呢？</li></ul><p><strong>Keys：</strong></p><p>这里就用到一个非常重要的知识点：<strong>事件的捕获和冒泡</strong>。具体的事件冒泡和捕获知识我就不在这里详细阐述，不明觉厉的狮子们可以去查阅一下相关内容，大牛们的详解一定比我的更加深刻。</p><p>你只要知道，当我们给<code>div</code>标签设置了<code>pointer-events: none;</code>后，它虽然永远不会成为鼠标事件的target，但是，<strong>当其后代元素的<code>pointer-events</code>属性指定其他值时，鼠标事件可以指向后代元素</strong>，在这种情况下，鼠标事件将在捕获或冒泡阶段触发父元素的事件侦听器。</p><p>而毫无疑问，伪元素是这个标签元素的子元素，那么当我们给这个标签绑定了事件和回调函数，关闭了它的鼠标事件，同时给伪元素开启了鼠标事件，这个绑定的事件就指向了这个伪元素，同时在事件捕获或者冒泡阶段，就会触发这个绑定事件的回调函数啦~</p><blockquote><p>Tips：不过这种方法还是有一个比较明显的缺陷，那就是无法区分after和before或者是其他的伪元素，因为他是采用了事件捕获和冒泡的机制来触发父元素的绑定事件和回调函数，也就是说当我们对多个伪元素都开起了鼠标事件，无论是哪一个伪元素触发了鼠标事件，都被会父元素的侦听器捕捉到并触发回调函数，这样就无法实现区分了。</p><p>但是无论如何，还是比较推荐大量使用伪元素的，什么？你问为啥？提高性能呗，优化SEO呗~</p></blockquote><p>OK，以上就是本文的核心内容，如果有什么地方写的不恰当，欢迎指正~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>推荐几个刷题网站</title>
       <link href="2021/04/14/tui-jian-ji-ge-shua-ti-wang-zhan/"/>
       <url>2021/04/14/tui-jian-ji-ge-shua-ti-wang-zhan/</url>

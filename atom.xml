@@ -6,7 +6,7 @@
   <link href="http://codereagleh.github.io/atom.xml" rel="self"/>
   
   <link href="http://codereagleh.github.io/"/>
-  <updated>2021-04-14T01:07:29.361Z</updated>
+  <updated>2021-04-21T01:20:43.621Z</updated>
   <id>http://codereagleh.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何给标签伪元素添加鼠标事件</title>
+    <link href="http://codereagleh.github.io/2021/04/20/ru-he-gei-wei-yuan-su-tian-jia-shu-biao-shi-jian/"/>
+    <id>http://codereagleh.github.io/2021/04/20/ru-he-gei-wei-yuan-su-tian-jia-shu-biao-shi-jian/</id>
+    <published>2021-04-20T09:41:43.000Z</published>
+    <updated>2021-04-21T01:20:43.621Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;如何给标签伪元素-after和-before添加鼠标事件&quot;&gt;&lt;a href=&quot;#如何给标签伪元素-after和-before添加鼠标事件&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="css" scheme="http://codereagleh.github.io/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>推荐几个刷题网站</title>
