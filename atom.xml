@@ -6,7 +6,7 @@
   <link href="http://codereagleh.github.io/atom.xml" rel="self"/>
   
   <link href="http://codereagleh.github.io/"/>
-  <updated>2021-04-21T01:20:43.621Z</updated>
+  <updated>2021-04-28T06:23:45.596Z</updated>
   <id>http://codereagleh.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>console.log是”异步打印吗“——寻求console.log的打印机制</title>
+    <link href="http://codereagleh.github.io/2021/04/27/guan-yu-js-zhong-console.log-de-da-yin-ji-zhi/"/>
+    <id>http://codereagleh.github.io/2021/04/27/guan-yu-js-zhong-console.log-de-da-yin-ji-zhi/</id>
+    <published>2021-04-27T00:32:21.000Z</published>
+    <updated>2021-04-28T06:23:45.596Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;console-log是”异步打印吗“——寻求console-log的打印机制&quot;&gt;&lt;a href=&quot;#console-log是”异步打印吗“——寻求console-log的打印机制&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>如何给标签伪元素添加鼠标事件</title>
