@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="console.log是”异步打印吗“——寻求console.log的打印机制, blog">
+    <meta name="keywords" content="console.log是“异步打印吗”——寻求console.log的打印机制, blog">
     <meta name="description" content="hyh的个人博客，主要用于存储一些个人文章和媒体资源。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>console.log是”异步打印吗“——寻求console.log的打印机制 | hyh&#39;s Blog</title>
+    <title>console.log是“异步打印吗”——寻求console.log的打印机制 | hyh&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">console.log是”异步打印吗“——寻求console.log的打印机制</h1>
+                    <h1 class="description center-align post-title">console.log是“异步打印吗”——寻求console.log的打印机制</h1>
                 </div>
             </div>
         </div>
@@ -451,7 +451,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="console-log是”异步打印吗“——寻求console-log的打印机制"><a href="#console-log是”异步打印吗“——寻求console-log的打印机制" class="headerlink" title="console.log是”异步打印吗“——寻求console.log的打印机制"></a>console.log是”异步打印吗“——寻求console.log的打印机制</h1><blockquote>
+                <h1 id="console-log是“异步打印吗”——寻求console-log的打印机制"><a href="#console-log是“异步打印吗”——寻求console-log的打印机制" class="headerlink" title="console.log是“异步打印吗”——寻求console.log的打印机制"></a>console.log是“异步打印吗”——寻求console.log的打印机制</h1><blockquote>
 <p>最近在跟进项目的过程中遇到一个很奇妙的问题，让我一度以为自己的电脑出现了故障（当然，从业未深的本白经常觉得电脑出故障哈哈哈）。但是经过死磕两小时，查阅了许多文章以后，我终于发现了问题所在，那就是js这个Console.log的打印机制问题，话不多说，一起来重现一下。</p>
 </blockquote>
 <h3 id="“bug”重现"><a href="#“bug”重现" class="headerlink" title="“bug”重现"></a>“bug”重现</h3><blockquote>
@@ -493,9 +493,9 @@
 </li>
 </ul>
 </blockquote>
-<p>但是当我拿到打印结果的时候，我感到非常的不可思议，因为：<strong>我的数据竟然”消失“了！！！</strong>，看图<br><img src="../../../../images/image-20210428092118751.png" style="zoom: 80%;"></p>
+<p>但是当我拿到打印结果的时候，我感到非常的不可思议，因为：<strong>我的数据竟然“消失”了！！！</strong>，看图<br><img src="../../../../images/image-20210428092118751.png" style="zoom: 80%;"></p>
 <p>这是为什么呢？我的数据从哪里开始丢失了？</p>
-<h3 id="排查”bug“"><a href="#排查”bug“" class="headerlink" title="排查”bug“"></a>排查”bug“</h3><p>我觉得很奇怪，我想知道是哪一步出了问题，于是，首先我给input输入框添加了一个change事件，每次内容改变就打印一次话术表单的内容</p>
+<h3 id="排查“bug”"><a href="#排查“bug”" class="headerlink" title="排查“bug”"></a>排查“bug”</h3><p>我觉得很奇怪，我想知道是哪一步出了问题，于是，首先我给input输入框添加了一个change事件，每次内容改变就打印一次话术表单的内容</p>
 <p><strong>html:</strong></p>
 <pre class=" language-html"><code class="language-html">...
 &lt;el-input
@@ -513,8 +513,8 @@
 <span class="token punctuation">}</span>
 </code></pre>
 <p>当我输入了两条话术，毫无疑问他打印了两次内容，因为没输入完一次，他就会打印一次<br><img src="../../../../images/image-20210428092920234.png" style="zoom: 67%;"><br><img src="../../../../images/image-20210428093045025.png" style="zoom:80%;"></p>
-<p>此时我想展开看看我输入的内容是否存在，以此来判断我的表单内容”消失“的问题是不是出在这个地方<br><img src="../../../../images/image-20210428093226031.png" style="zoom:80%;"></p>
-<p>谢天谢地，他依然存在，也就证明表单内容在这个地方他没有”消失“</p>
+<p>此时我想展开看看我输入的内容是否存在，以此来判断我的表单内容“消失”的问题是不是出在这个地方<br><img src="../../../../images/image-20210428093226031.png" style="zoom:80%;"></p>
+<p>谢天谢地，他依然存在，也就证明表单内容在这个地方他没有“消失”</p>
 <p>当然确实如此，起初我也觉得这里没有什么问题，但是我越看越觉得奇怪</p>
 <p>突然，我发现了一个重大的问题，<strong>他们在不同时间打印，第一次打印的时候第二条话术还没有输入，为什么他已经打印出来了？？？</strong></p>
 <p>这是什么机制？玄学？js的Bug？他预判了我的预判？</p>
@@ -580,14 +580,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token operator">...</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </code></pre>
-<p>为什么打印出来我的内容都”消失“了呢，原来是因为再上面这段代码的最后，我对表单内容进行了重置，也就意味着，当我点开控制台打印的数据时，访问到的引用地址内已经是一个空表单了，那么自然展示给我的打印内容也就都是空的啦~</p>
+<p>为什么打印出来我的内容都“消失”了呢，原来是因为再上面这段代码的最后，我对表单内容进行了重置，也就意味着，当我点开控制台打印的数据时，访问到的引用地址内已经是一个空表单了，那么自然展示给我的打印内容也就都是空的啦~</p>
 <p>我们试着直接打印一下这个表单里的话术列表</p>
 <pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>addWordsForm<span class="token punctuation">.</span>wordsList<span class="token punctuation">)</span>
 </code></pre>
 <img src="../../../../images/image-20210428140250306.png" style="zoom:80%;">
 
 <p>结果就跟前面我们分析的一模一样，引用的快照内是有数据，但是展开后的最终引用地址内的数据已经被重置了，所以都是空字符串。</p>
-<p>所以其实对实际开发没有影响，当我在重置表单之前将数据提交，数据其实依然存在，并没有”消失“。</p>
+<p>所以其实对实际开发没有影响，当我在重置表单之前将数据提交，数据其实依然存在，并没有”消失”。</p>
 <p><strong>综上所述：</strong></p>
 <ul>
 <li>当你在用调试的过程中使用到了控制台打印，并且发现打印的引用快照与展开后的数据不符时，需要意识到，这是浏览器I/O的异步化造成的</li>
@@ -1107,9 +1107,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="console.log是”异步打印吗“——寻求console.log的打印机制">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="console.log是“异步打印吗”——寻求console.log的打印机制">
                         
-                        <span class="card-title">console.log是”异步打印吗“——寻求console.log的打印机制</span>
+                        <span class="card-title">console.log是“异步打印吗”——寻求console.log的打印机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
