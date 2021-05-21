@@ -1,471 +1,240 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="zh-CN">
-
-
 <head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="终端命令行操作MySql, blog">
-    <meta name="description" content="hyh的个人博客，主要用于存储一些个人文章和媒体资源。">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-    <title>终端命令行操作MySql | hyh&#39;s Blog</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-
-    <script src="/libs/jquery/jquery.min.js"></script>
-
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.3.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"codereagleh.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。通过学习使用数据库的命令行，可以让我们更加底层的去操作数据库，同时也可以让我们在其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="终端命令行操作MySql">
+<meta property="og:url" content="http://codereagleh.github.io/2021/05/11/zhong-duan-ming-ling-xing-cao-zuo-mysql/index.html">
+<meta property="og:site_name" content="hyh&#39;s Blog">
+<meta property="og:description" content="MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。通过学习使用数据库的命令行，可以让我们更加底层的去操作数据库，同时也可以让我们在其">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-11T01:57:00.000Z">
+<meta property="article:modified_time" content="2021-05-21T10:28:53.308Z">
+<meta property="article:author" content="江鸟&#x2F;hyh">
+<meta property="article:tag" content="MySql">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://codereagleh.github.io/2021/05/11/zhong-duan-ming-ling-xing-cao-zuo-mysql/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>终端命令行操作MySql | hyh's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?934d22af6b4b0f59c320c4b919437646";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 <link rel="alternate" href="/atom.xml" title="hyh's Blog" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-
-
-<body>
-    <header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <span class="logo-span">hyh&#39;s Blog</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>首页</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
-
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <div class="logo-name">hyh&#39;s Blog</div>
-        <div class="logo-desc">
-            
-            hyh的个人博客，主要用于存储一些个人文章和媒体资源。
-            
-        </div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
+  </div>
 
-    
+  <div class="site-meta">
 
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			首页
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/coderEagleH/coderEagleH.github.io" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
-    </ul>
-</div>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">hyh's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">乾坤未定 你我皆是黑马</p>
+  </div>
 
-
-        </div>
-
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/coderEagleH/coderEagleH.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
-        
-    </nav>
-
-</header>
-
-    
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">终端命令行操作MySql</h1>
-                </div>
-            </div>
-        </div>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
     </div>
+  </div>
 </div>
 
 
 
 
-<main class="post-container content">
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-    #articleContent :focus {
-        outline: none;
-    }
 
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
+          <div class="content post posts-expand">
+            
 
-    .toc-widget .toc-title {
-        padding: 35px 0 15px 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/05/11/zhong-duan-ming-ling-xing-cao-zuo-mysql/">
 
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="江鸟/hyh">
+      <meta itemprop="description" content="江鸟(hyh)的个人博客，记录了一位不甘堕落的前端小白的心酸成长历程。">
+    </span>
 
-    #toc-content {
-        padding-bottom: 30px;
-        overflow: auto;
-    }
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hyh's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          终端命令行操作MySql
+        </h1>
 
-    #toc-content ol {
-        padding-left: 10px;
-    }
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-    #toc-content ol li {
-        padding-left: 10px;
-    }
+              <time title="创建时间：2021-05-11 09:57:00" itemprop="dateCreated datePublished" datetime="2021-05-11T09:57:00+08:00">2021-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-21 18:28:53" itemprop="dateModified" datetime="2021-05-21T18:28:53+08:00">2021-05-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
 
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
+          
+            <div class="post-description">MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。通过学习使用数据库的命令行，可以让我们更加底层的去操作数据库，同时也可以让我们在其他方面使用数据库时更加的轻松。</div>
 
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/MySql/">
-                                <span class="chip bg-color">MySql</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-11
-                </div>
-                
-
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10k
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    52 分
-                </div>
-                
-
-                
-            </div>
         </div>
-        <hr class="clearfix">
+      </header>
 
-        
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h1 id="终端命令行操作MySql"><a href="#终端命令行操作MySql" class="headerlink" title="终端命令行操作MySql"></a>终端命令行操作MySql</h1><p>关系型数据库</p>
-<h3 id="一、如何使用终端操作数据库"><a href="#一、如何使用终端操作数据库" class="headerlink" title="一、如何使用终端操作数据库"></a>一、如何使用终端操作数据库</h3><h4 id="1-1-如何登录数据库服务器"><a href="#1-1-如何登录数据库服务器" class="headerlink" title="1.1 如何登录数据库服务器"></a>1.1 如何登录数据库服务器</h4><pre class=" language-sql"><code class="language-sql">C:\<span class="token operator">></span>mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>p123456 <span class="token comment" spellcheck="true">// 通过账号密码登录</span>
+      
+        <h1 id="终端命令行操作MySql"><a href="#终端命令行操作MySql" class="headerlink" title="终端命令行操作MySql"></a>终端命令行操作MySql</h1><p>关系型数据库</p>
+<h3 id="一、如何使用终端操作数据库"><a href="#一、如何使用终端操作数据库" class="headerlink" title="一、如何使用终端操作数据库"></a>一、如何使用终端操作数据库</h3><h4 id="1-1-如何登录数据库服务器"><a href="#1-1-如何登录数据库服务器" class="headerlink" title="1.1 如何登录数据库服务器"></a>1.1 如何登录数据库服务器</h4><pre class=" language-sql"><code class="language-sql">C:\<span class="token operator">&gt;</span>mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>p123456 <span class="token comment" spellcheck="true">// 通过账号密码登录</span>
 
 mysql: <span class="token punctuation">[</span>Warning<span class="token punctuation">]</span> <span class="token keyword">Using</span> <span class="token number">a</span> password <span class="token keyword">on</span> the command line interface can <span class="token number">be</span> insecure<span class="token punctuation">.</span>
 Welcome <span class="token keyword">to</span> the MySQL monitor<span class="token punctuation">.</span>  Commands <span class="token keyword">end</span> <span class="token keyword">with</span> <span class="token punctuation">;</span> <span class="token operator">or</span> \g<span class="token punctuation">.</span>
@@ -480,7 +249,7 @@ owners<span class="token punctuation">.</span>
 
 <span class="token keyword">Type</span> <span class="token string">'help;'</span> <span class="token operator">or</span> <span class="token string">'\h'</span> <span class="token keyword">for</span> help<span class="token punctuation">.</span> <span class="token keyword">Type</span> <span class="token string">'\c'</span> <span class="token keyword">to</span> clear the <span class="token keyword">current</span> input statement<span class="token punctuation">.</span>
 </code></pre>
-<h4 id="1-2-如何查询数据库服务器中所有的数据"><a href="#1-2-如何查询数据库服务器中所有的数据" class="headerlink" title="1.2 如何查询数据库服务器中所有的数据"></a>1.2 如何查询数据库服务器中所有的数据</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 分号很重要，英文分号，不可省略</span>
+<h4 id="1-2-如何查询数据库服务器中所有的数据"><a href="#1-2-如何查询数据库服务器中所有的数据" class="headerlink" title="1.2 如何查询数据库服务器中所有的数据"></a>1.2 如何查询数据库服务器中所有的数据</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 分号很重要，英文分号，不可省略</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">--------------------+</span>
 <span class="token operator">|</span> <span class="token keyword">Database</span>           <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">--------------------+</span>
@@ -495,7 +264,7 @@ owners<span class="token punctuation">.</span>
 <span class="token number">7</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
 </code></pre>
 <h4 id="1-3-如何选中某一个数据库进行操作"><a href="#1-3-如何选中某一个数据库进行操作" class="headerlink" title="1.3 如何选中某一个数据库进行操作"></a>1.3 如何选中某一个数据库进行操作</h4><p>选择数据库</p>
-<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">use</span> test<span class="token punctuation">;</span>
+<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">use</span> test<span class="token punctuation">;</span>
 <span class="token keyword">Database</span> changed
 </code></pre>
 <p>查询所有数据</p>
@@ -506,16 +275,16 @@ owners<span class="token punctuation">.</span>
 <ul>
 <li><code>select * from xxx where 字段 = xx;</code></li>
 </ul>
-<h4 id="1-4-退出数据库服务器"><a href="#1-4-退出数据库服务器" class="headerlink" title="1.4 退出数据库服务器"></a>1.4 退出数据库服务器</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">exit</span>
+<h4 id="1-4-退出数据库服务器"><a href="#1-4-退出数据库服务器" class="headerlink" title="1.4 退出数据库服务器"></a>1.4 退出数据库服务器</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">exit</span>
 Bye
 </code></pre>
-<h4 id="1-5-如何在数据库服务器中创建我们的数据库"><a href="#1-5-如何在数据库服务器中创建我们的数据库" class="headerlink" title="1.5 如何在数据库服务器中创建我们的数据库"></a>1.5 如何在数据库服务器中创建我们的数据库</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">create</span> <span class="token keyword">database</span> test<span class="token punctuation">;</span>
+<h4 id="1-5-如何在数据库服务器中创建我们的数据库"><a href="#1-5-如何在数据库服务器中创建我们的数据库" class="headerlink" title="1.5 如何在数据库服务器中创建我们的数据库"></a>1.5 如何在数据库服务器中创建我们的数据库</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">create</span> <span class="token keyword">database</span> test<span class="token punctuation">;</span>
 Query OK<span class="token punctuation">,</span> <span class="token number">1</span> <span class="token keyword">row</span> affected <span class="token punctuation">(</span><span class="token number">0.03</span> sec<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="1-6-如何查看某个数据库中的所有数据表"><a href="#1-6-如何查看某个数据库中的所有数据表" class="headerlink" title="1.6 如何查看某个数据库中的所有数据表"></a>1.6 如何查看某个数据库中的所有数据表</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">use</span> test<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 先选择一个数据库</span>
+<h4 id="1-6-如何查看某个数据库中的所有数据表"><a href="#1-6-如何查看某个数据库中的所有数据表" class="headerlink" title="1.6 如何查看某个数据库中的所有数据表"></a>1.6 如何查看某个数据库中的所有数据表</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">use</span> test<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 先选择一个数据库</span>
 <span class="token keyword">Database</span> changed
 
-mysql<span class="token operator">></span> <span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看该数据库中的所有数据表</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看该数据库中的所有数据表</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------------+</span>
 <span class="token operator">|</span> Tables_in_test <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------------+</span>
@@ -523,12 +292,12 @@ mysql<span class="token operator">></span> <span class="token keyword">show</spa
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------------+</span>
 <span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="1-7-如何创建一个数据表"><a href="#1-7-如何创建一个数据表" class="headerlink" title="1.7 如何创建一个数据表"></a>1.7 如何创建一个数据表</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span>  <span class="token keyword">create</span> <span class="token keyword">table</span> students <span class="token punctuation">(</span>
-    <span class="token operator">-</span><span class="token operator">></span> name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">-</span><span class="token operator">></span> birth <span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h4 id="1-7-如何创建一个数据表"><a href="#1-7-如何创建一个数据表" class="headerlink" title="1.7 如何创建一个数据表"></a>1.7 如何创建一个数据表</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span>  <span class="token keyword">create</span> <span class="token keyword">table</span> students <span class="token punctuation">(</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> birth <span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.12</span> sec<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="1-8-如何查看数据表结构详情"><a href="#1-8-如何查看数据表结构详情" class="headerlink" title="1.8 如何查看数据表结构详情"></a>1.8 如何查看数据表结构详情</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">describe</span> students<span class="token punctuation">;</span>
+<h4 id="1-8-如何查看数据表结构详情"><a href="#1-8-如何查看数据表结构详情" class="headerlink" title="1.8 如何查看数据表结构详情"></a>1.8 如何查看数据表结构详情</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">describe</span> students<span class="token punctuation">;</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">-------+-------------+------+-----+---------+-------+</span>
 <span class="token operator">|</span> Field <span class="token operator">|</span> <span class="token keyword">Type</span>        <span class="token operator">|</span> <span class="token boolean">Null</span> <span class="token operator">|</span> <span class="token keyword">Key</span> <span class="token operator">|</span> <span class="token keyword">Default</span> <span class="token operator">|</span> Extra <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">-------+-------------+------+-----+---------+-------+</span>
@@ -537,15 +306,15 @@ Query OK<span class="token punctuation">,</span> <span class="token number">0</s
 <span class="token operator">+</span><span class="token comment" spellcheck="true">-------+-------------+------+-----+---------+-------+</span>
 <span class="token number">2</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="1-9-查看数据表记录"><a href="#1-9-查看数据表记录" class="headerlink" title="1.9 查看数据表记录"></a>1.9 查看数据表记录</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+<h4 id="1-9-查看数据表记录"><a href="#1-9-查看数据表记录" class="headerlink" title="1.9 查看数据表记录"></a>1.9 查看数据表记录</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
 Empty <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="1-10-如何往数据表中添加数据记录"><a href="#1-10-如何往数据表中添加数据记录" class="headerlink" title="1.10 如何往数据表中添加数据记录"></a>1.10 如何往数据表中添加数据记录</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">insert</span> <span class="token keyword">into</span> students
-    <span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'hyh'</span><span class="token punctuation">,</span><span class="token string">'1997-7-20'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h4 id="1-10-如何往数据表中添加数据记录"><a href="#1-10-如何往数据表中添加数据记录" class="headerlink" title="1.10 如何往数据表中添加数据记录"></a>1.10 如何往数据表中添加数据记录</h4><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">insert</span> <span class="token keyword">into</span> students
+    <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'hyh'</span><span class="token punctuation">,</span><span class="token string">'1997-7-20'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 Query OK<span class="token punctuation">,</span> <span class="token number">1</span> <span class="token keyword">row</span> affected <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 </code></pre>
 <p>再次查看数据表记录</p>
-<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">------+------------+</span>
 <span class="token operator">|</span> name <span class="token operator">|</span> birth      <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">------+------------+</span>
@@ -554,7 +323,7 @@ Query OK<span class="token punctuation">,</span> <span class="token number">1</s
 <span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 </code></pre>
 <p>再添加一条数据，并查询数据表</p>
-<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">------+------------+</span>
 <span class="token operator">|</span> name <span class="token operator">|</span> birth      <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">------+------------+</span>
@@ -563,7 +332,7 @@ Query OK<span class="token punctuation">,</span> <span class="token number">1</s
 <span class="token operator">+</span><span class="token comment" spellcheck="true">------+------------+</span>
 <span class="token number">2</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="练习一下"><a href="#练习一下" class="headerlink" title="练习一下"></a>练习一下</h4><pre class=" language-sql"><code class="language-sql">C:\Users\<span class="token number">12863</span><span class="token operator">></span>mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>p123456 <span class="token comment" spellcheck="true">// 登录数据库服务器</span>
+<h4 id="练习一下"><a href="#练习一下" class="headerlink" title="练习一下"></a>练习一下</h4><pre class=" language-sql"><code class="language-sql">C:\Users\<span class="token number">12863</span><span class="token operator">&gt;</span>mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>p123456 <span class="token comment" spellcheck="true">// 登录数据库服务器</span>
 mysql: <span class="token punctuation">[</span>Warning<span class="token punctuation">]</span> <span class="token keyword">Using</span> <span class="token number">a</span> password <span class="token keyword">on</span> the command line interface can <span class="token number">be</span> insecure<span class="token punctuation">.</span>
 Welcome <span class="token keyword">to</span> the MySQL monitor<span class="token punctuation">.</span>  Commands <span class="token keyword">end</span> <span class="token keyword">with</span> <span class="token punctuation">;</span> <span class="token operator">or</span> \g<span class="token punctuation">.</span>
 Your MySQL connection id <span class="token operator">is</span> <span class="token number">67</span>
@@ -577,7 +346,7 @@ owners<span class="token punctuation">.</span>
 
 <span class="token keyword">Type</span> <span class="token string">'help;'</span> <span class="token operator">or</span> <span class="token string">'\h'</span> <span class="token keyword">for</span> help<span class="token punctuation">.</span> <span class="token keyword">Type</span> <span class="token string">'\c'</span> <span class="token keyword">to</span> clear the <span class="token keyword">current</span> input statement<span class="token punctuation">.</span>
 
-mysql<span class="token operator">></span> <span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看数据库列表</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看数据库列表</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">--------------------+</span>
 <span class="token operator">|</span> <span class="token keyword">Database</span>           <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">--------------------+</span>
@@ -591,10 +360,10 @@ mysql<span class="token operator">></span> <span class="token keyword">show</spa
 <span class="token operator">+</span><span class="token comment" spellcheck="true">--------------------+</span>
 <span class="token number">7</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 
-mysql<span class="token operator">></span> <span class="token keyword">use</span> test <span class="token comment" spellcheck="true">// 选择数据库</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">use</span> test <span class="token comment" spellcheck="true">// 选择数据库</span>
 <span class="token keyword">Database</span> changed
 
-mysql<span class="token operator">></span> <span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看数据表列表</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看数据表列表</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------------+</span>
 <span class="token operator">|</span> Tables_in_test <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------------+</span>
@@ -603,16 +372,16 @@ mysql<span class="token operator">></span> <span class="token keyword">show</spa
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------------+</span>
 <span class="token number">2</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 
-mysql<span class="token operator">></span> <span class="token keyword">create</span> <span class="token keyword">table</span> pet<span class="token punctuation">(</span> <span class="token comment" spellcheck="true">// 新增数据表</span>
-    <span class="token operator">-</span><span class="token operator">></span> name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">-</span><span class="token operator">></span> owner <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">-</span><span class="token operator">></span> sex char<span class="token punctuation">,</span>
-    <span class="token operator">-</span><span class="token operator">></span> species <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">-</span><span class="token operator">></span> birth <span class="token keyword">date</span><span class="token punctuation">,</span>
-    <span class="token operator">-</span><span class="token operator">></span> death <span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">create</span> <span class="token keyword">table</span> pet<span class="token punctuation">(</span> <span class="token comment" spellcheck="true">// 新增数据表</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> owner <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> sex char<span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> species <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> birth <span class="token keyword">date</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> death <span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.09</span> sec<span class="token punctuation">)</span>
 
-mysql<span class="token operator">></span> <span class="token keyword">describe</span> pet<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看数据表结构</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">describe</span> pet<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看数据表结构</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">---------+-------------+------+-----+---------+-------+</span>
 <span class="token operator">|</span> Field   <span class="token operator">|</span> <span class="token keyword">Type</span>        <span class="token operator">|</span> <span class="token boolean">Null</span> <span class="token operator">|</span> <span class="token keyword">Key</span> <span class="token operator">|</span> <span class="token keyword">Default</span> <span class="token operator">|</span> Extra <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">---------+-------------+------+-----+---------+-------+</span>
@@ -625,10 +394,10 @@ mysql<span class="token operator">></span> <span class="token keyword">describe<
 <span class="token operator">+</span><span class="token comment" spellcheck="true">---------+-------------+------+-----+---------+-------+</span>
 <span class="token number">6</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 
-mysql<span class="token operator">></span>  <span class="token keyword">insert</span> <span class="token keyword">into</span> pet <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">"zhouzhou"</span><span class="token punctuation">,</span><span class="token string">"hyh"</span><span class="token punctuation">,</span><span class="token string">"f"</span><span class="token punctuation">,</span><span class="token string">"pig"</span><span class="token punctuation">,</span><span class="token string">"1999-01-29"</span><span class="token punctuation">,</span><span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 新增一条数据</span>
+mysql<span class="token operator">&gt;</span>  <span class="token keyword">insert</span> <span class="token keyword">into</span> pet <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">"zhouzhou"</span><span class="token punctuation">,</span><span class="token string">"hyh"</span><span class="token punctuation">,</span><span class="token string">"f"</span><span class="token punctuation">,</span><span class="token string">"pig"</span><span class="token punctuation">,</span><span class="token string">"1999-01-29"</span><span class="token punctuation">,</span><span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 新增一条数据</span>
 Query OK<span class="token punctuation">,</span> <span class="token number">1</span> <span class="token keyword">row</span> affected <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 
-mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> pet<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看数据表记录</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> pet<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查看数据表记录</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------+-------+------+---------+------------+-------+</span>
 <span class="token operator">|</span> name     <span class="token operator">|</span> owner <span class="token operator">|</span> sex  <span class="token operator">|</span> species <span class="token operator">|</span> birth      <span class="token operator">|</span> death <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------+-------+------+---------+------------+-------+</span>
@@ -636,7 +405,7 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------+-------+------+---------+------------+-------+</span>
 <span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="1-11-如何删除一条数据"><a href="#1-11-如何删除一条数据" class="headerlink" title="1.11 如何删除一条数据"></a>1.11 如何删除一条数据</h4><pre class=" language-mysql"><code class="language-mysql">mysql> select * from games;
+<h4 id="1-11-如何删除一条数据"><a href="#1-11-如何删除一条数据" class="headerlink" title="1.11 如何删除一条数据"></a>1.11 如何删除一条数据</h4><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from games;
 +----------+--------+
 | name     | zd     |
 +----------+--------+
@@ -645,10 +414,10 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
 +----------+--------+
 2 rows in set (0.01 sec)
 
-mysql> delete from games where name='王者荣耀'; // 删除语句
+mysql&gt; delete from games where name='王者荣耀'; // 删除语句
 Query OK, 1 row affected (0.02 sec)
 
-mysql> select * from games;
+mysql&gt; select * from games;
 +------+------+
 | name | zd   |
 +------+------+
@@ -656,11 +425,11 @@ mysql> select * from games;
 +------+------+
 1 row in set (0.00 sec)
 </code></pre>
-<h4 id="1-12-如何修改数据"><a href="#1-12-如何修改数据" class="headerlink" title="1.12 如何修改数据"></a>1.12 如何修改数据</h4><pre class=" language-mysql"><code class="language-mysql">mysql> update games set name='LOL2' where zd='pc'; // 修改语句
+<h4 id="1-12-如何修改数据"><a href="#1-12-如何修改数据" class="headerlink" title="1.12 如何修改数据"></a>1.12 如何修改数据</h4><pre class=" language-mysql"><code class="language-mysql">mysql&gt; update games set name='LOL2' where zd='pc'; // 修改语句
 Query OK, 1 row affected (0.03 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
-mysql> select * from games;
+mysql&gt; select * from games;
 +------+------+
 | name | zd   |
 +------+------+
@@ -678,12 +447,12 @@ mysql> select * from games;
 <ul>
 <li>关键字：<code>primary key</code></li>
 </ul>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table user(
-    -> id int primary key, // 声明为主键约束 
-    -> name varchar(20));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table user(
+    -&gt; id int primary key, // 声明为主键约束 
+    -&gt; name varchar(20));
 Query OK, 0 rows affected (0.44 sec)
 
-mysql> describe user;
+mysql&gt; describe user;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -693,15 +462,15 @@ mysql> describe user;
 2 rows in set (0.01 sec)
 </code></pre>
 <p>此时我们尝试重复添加同一个id的数据，就会报错</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into user
-    -> values(1, '张三');
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into user
+    -&gt; values(1, '张三');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into user
-    -> values(1, '张三');
+mysql&gt; insert into user
+    -&gt; values(1, '张三');
 ERROR 1062 (23000): Duplicate entry '1' for key 'user.PRIMARY' // 报错
 
-mysql> select * from user;
+mysql&gt; select * from user;
 +----+------+
 | id | name |
 +----+------+
@@ -709,19 +478,19 @@ mysql> select * from user;
 +----+------+
 1 row in set (0.00 sec)
 
-mysql> insert into user
-    -> values(null, '张三');
+mysql&gt; insert into user
+    -&gt; values(null, '张三');
 ERROR 1048 (23000): Column 'id' cannot be null // 同时也不能为null
 </code></pre>
 <h5 id="2-1-2-联合主键"><a href="#2-1-2-联合主键" class="headerlink" title="2.1.2 联合主键"></a>2.1.2 联合主键</h5><p>只要联合的主键不完全重复即可</p>
-<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">create</span> <span class="token keyword">table</span> user2<span class="token punctuation">(</span>
-    <span class="token operator">-</span><span class="token operator">></span> id <span class="token keyword">int</span><span class="token punctuation">,</span>
-    <span class="token operator">-</span><span class="token operator">></span> name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">-</span><span class="token operator">></span> password <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">-</span><span class="token operator">></span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 联合主键</span>
+<pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">create</span> <span class="token keyword">table</span> user2<span class="token punctuation">(</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> id <span class="token keyword">int</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> password <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 联合主键</span>
 Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.18</span> sec<span class="token punctuation">)</span>
 
-mysql<span class="token operator">></span> <span class="token keyword">describe</span> user2<span class="token punctuation">;</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">describe</span> user2<span class="token punctuation">;</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------+-------------+------+-----+---------+-------+</span>
 <span class="token operator">|</span> Field    <span class="token operator">|</span> <span class="token keyword">Type</span>        <span class="token operator">|</span> <span class="token boolean">Null</span> <span class="token operator">|</span> <span class="token keyword">Key</span> <span class="token operator">|</span> <span class="token keyword">Default</span> <span class="token operator">|</span> Extra <span class="token operator">|</span>
 <span class="token operator">+</span><span class="token comment" spellcheck="true">----------+-------------+------+-----+---------+-------+</span>
@@ -732,23 +501,23 @@ mysql<span class="token operator">></span> <span class="token keyword">describe<
 <span class="token number">3</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 </code></pre>
 <p>此时我们添加数据</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into user2
-    -> values(1, "张三", "123");
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into user2
+    -&gt; values(1, "张三", "123");
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into user2
-    -> values(2, "张三", "123");
+mysql&gt; insert into user2
+    -&gt; values(2, "张三", "123");
 Query OK, 1 row affected (0.03 sec)
 
-mysql> insert into user2
-    -> values(1, "李四", "123");
+mysql&gt; insert into user2
+    -&gt; values(1, "李四", "123");
 Query OK, 1 row affected (0.03 sec) // 仅重复一个参数是可以添加
 
-mysql> insert into user2
-    -> values(1, "张三", "123");
+mysql&gt; insert into user2
+    -&gt; values(1, "张三", "123");
 ERROR 1062 (23000): Duplicate entry '1-张三' for key 'user2.PRIMARY' // 全部重复则无法添加
 
-mysql> select * from user2;
+mysql&gt; select * from user2;
 +----+------+----------+
 | id | name | password |
 +----+------+----------+
@@ -758,12 +527,12 @@ mysql> select * from user2;
 +----+------+----------+
 3 rows in set (0.00 sec)
 </code></pre>
-<h5 id="2-1-3-自增约束"><a href="#2-1-3-自增约束" class="headerlink" title="2.1.3 自增约束"></a>2.1.3 自增约束</h5><pre class=" language-mysql"><code class="language-mysql">mysql> create table user3(
-    -> id int primary key auto_increment, // 自增约束指令
-    -> name varchar(20));
+<h5 id="2-1-3-自增约束"><a href="#2-1-3-自增约束" class="headerlink" title="2.1.3 自增约束"></a>2.1.3 自增约束</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table user3(
+    -&gt; id int primary key auto_increment, // 自增约束指令
+    -&gt; name varchar(20));
 Query OK, 0 rows affected (0.15 sec)
 
-mysql> describe user3;
+mysql&gt; describe user3;
 +-------+-------------+------+-----+---------+----------------+
 | Field | Type        | Null | Key | Default | Extra          |
 +-------+-------------+------+-----+---------+----------------+
@@ -772,16 +541,16 @@ mysql> describe user3;
 +-------+-------------+------+-----+---------+----------------+
 </code></pre>
 <p>此时的id就是一个自增的字段</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into user3 (name) values('张三'); // (name)表示只键入name字段的内容
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into user3 (name) values('张三'); // (name)表示只键入name字段的内容
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into user3 (name) values('张三');
+mysql&gt; insert into user3 (name) values('张三');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into user3 (name) values('张三');
+mysql&gt; insert into user3 (name) values('张三');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> select * from user3;
+mysql&gt; select * from user3;
 +----+------+
 | id | name |
 +----+------+
@@ -792,12 +561,12 @@ mysql> select * from user3;
 3 rows in set (0.00 sec)
 </code></pre>
 <h5 id="2-1-4-“亡羊补牢”"><a href="#2-1-4-“亡羊补牢”" class="headerlink" title="2.1.4 “亡羊补牢”"></a>2.1.4 “亡羊补牢”</h5><p>当我们在创建表的时候忘记创建主键约束</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table user4(
-    -> id int,
-    -> name varchar(20));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table user4(
+    -&gt; id int,
+    -&gt; name varchar(20));
 Query OK, 0 rows affected (0.06 sec)
 
-mysql> desc user4;
+mysql&gt; desc user4;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -807,11 +576,11 @@ mysql> desc user4;
 2 rows in set (0.01 sec)
 </code></pre>
 <p>我们可以进行补充约束，“亡羊补牢”（add）</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> alter table user4 add primary key(id); // 通过alter进行补充添加
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; alter table user4 add primary key(id); // 通过alter进行补充添加
 Query OK, 0 rows affected (0.09 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> desc user4;
+mysql&gt; desc user4;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -821,11 +590,11 @@ mysql> desc user4;
 2 rows in set (0.01 sec)
 </code></pre>
 <p>也可以通过修改的方式实现（modify）</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> alter table user4 modify id int primary key; // modify修改表
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; alter table user4 modify id int primary key; // modify修改表
 Query OK, 0 rows affected (0.22 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> desc user4;
+mysql&gt; desc user4;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -835,11 +604,11 @@ mysql> desc user4;
 2 rows in set (0.00 sec)
 </code></pre>
 <p>如何删除主键约束（drop）</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> alter table user4 drop primary key; // 通过drop的命令
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; alter table user4 drop primary key; // 通过drop的命令
 Query OK, 0 rows affected (0.08 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> desc user4;
+mysql&gt; desc user4;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -849,12 +618,12 @@ mysql> desc user4;
 2 rows in set (0.01 sec)
 </code></pre>
 <h4 id="2-2-唯一约束"><a href="#2-2-唯一约束" class="headerlink" title="2.2 唯一约束"></a>2.2 唯一约束</h4><p>约束字段的值不重复</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table user5(
-    -> id int unique,            // unique表示唯一
-    -> name varchar(20));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table user5(
+    -&gt; id int unique,            // unique表示唯一
+    -&gt; name varchar(20));
 Query OK, 0 rows affected (0.05 sec)
 
-mysql> desc user5;
+mysql&gt; desc user5;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -864,22 +633,22 @@ mysql> desc user5;
 2 rows in set (0.01 sec)
 </code></pre>
 <p>此时重复插入则会报错</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into user5
-    -> values(1, 'zhangsan');
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into user5
+    -&gt; values(1, 'zhangsan');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into user5
-    -> values(1, 'zhangsan');
+mysql&gt; insert into user5
+    -&gt; values(1, 'zhangsan');
 ERROR 1062 (23000): Duplicate entry '1' for key 'user5.id' // 报错
 </code></pre>
 <p>联合约束，指多个参数不完全相同即可</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table user6(
-    -> id int,
-    -> name varchar(20),
-    -> unique(id, name));      // 联合约束
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table user6(
+    -&gt; id int,
+    -&gt; name varchar(20),
+    -&gt; unique(id, name));      // 联合约束
 Query OK, 0 rows affected (0.09 sec)
 
-mysql> desc user6;
+mysql&gt; desc user6;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -888,20 +657,20 @@ mysql> desc user6;
 +-------+-------------+------+-----+---------+-------+
 2 rows in set (0.01 sec)
 
-mysql> insert into user6 values(1, '张三');
+mysql&gt; insert into user6 values(1, '张三');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into user6 values(2, '张三');
+mysql&gt; insert into user6 values(2, '张三');
 Query OK, 1 row affected (0.03 sec)
 
-mysql>
-mysql> insert into user6 values(1, '李四');
+mysql&gt;
+mysql&gt; insert into user6 values(1, '李四');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into user6 values(1, '张三');
+mysql&gt; insert into user6 values(1, '张三');
 ERROR 1062 (23000): Duplicate entry '1-张三' for key 'user6.id' // 报错
 
-mysql> select * from user6;
+mysql&gt; select * from user6;
 +------+------+
 | id   | name |
 +------+------+
@@ -912,7 +681,7 @@ mysql> select * from user6;
 3 rows in set (0.00 sec)
 </code></pre>
 <p>如何删除唯一约束</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> desc user5;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; desc user5;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -921,11 +690,11 @@ mysql> select * from user6;
 +-------+-------------+------+-----+---------+-------+
 2 rows in set (0.00 sec)
 
-mysql> alter table user5 drop index id; // 删除唯一约束
+mysql&gt; alter table user5 drop index id; // 删除唯一约束
 Query OK, 0 rows affected (0.05 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> desc user5;
+mysql&gt; desc user5;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -935,7 +704,7 @@ mysql> desc user5;
 2 rows in set (0.01 sec)
 </code></pre>
 <p>也可以通过modify的方式添加唯一约束</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> desc user5;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; desc user5;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -944,11 +713,11 @@ mysql> desc user5;
 +-------+-------------+------+-----+---------+-------+
 2 rows in set (0.01 sec)
 
-mysql> alter table user5 modify name varchar(20) unique; // 添加唯一约束
+mysql&gt; alter table user5 modify name varchar(20) unique; // 添加唯一约束
 Query OK, 0 rows affected (0.10 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> desc user5;
+mysql&gt; desc user5;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -965,13 +734,13 @@ mysql> desc user5;
 <li>可以通过alter … drop … 的方式删除</li>
 </ul>
 <h4 id="2-3-非空约束"><a href="#2-3-非空约束" class="headerlink" title="2.3 非空约束"></a>2.3 非空约束</h4><p>修饰的字段不能为空</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table user7(
-    -> id int,
-    -> name varchar(20) not null // 通过not null来添加非空约束
-    -> );
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table user7(
+    -&gt; id int,
+    -&gt; name varchar(20) not null // 通过not null来添加非空约束
+    -&gt; );
 Query OK, 0 rows affected (0.11 sec)
 
-mysql> desc user7;
+mysql&gt; desc user7;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -981,13 +750,13 @@ mysql> desc user7;
 2 rows in set (0.01 sec)
 </code></pre>
 <h4 id="2-4-默认约束"><a href="#2-4-默认约束" class="headerlink" title="2.4 默认约束"></a>2.4 默认约束</h4><p>插入字段值时，若没有传值，则会使用默认值</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table user8(
-    -> id int,
-    -> name varchar(20),
-    -> age int default 18); // 用default设置默认约束
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table user8(
+    -&gt; id int,
+    -&gt; name varchar(20),
+    -&gt; age int default 18); // 用default设置默认约束
 Query OK, 0 rows affected (0.05 sec)
 
-mysql> desc user8;
+mysql&gt; desc user8;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -998,10 +767,10 @@ mysql> desc user8;
 3 rows in set (0.01 sec)
 </code></pre>
 <p>添加一条数据</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into user8 (id, name) values(1, "张三"); // 没有插入age
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into user8 (id, name) values(1, "张三"); // 没有插入age
 Query OK, 1 row affected (0.02 sec)
 
-mysql> select * from user8;
+mysql&gt; select * from user8;
 +------+------+------+
 | id   | name | age  |
 +------+------+------+
@@ -1010,10 +779,10 @@ mysql> select * from user8;
 1 row in set (0.00 sec)
 </code></pre>
 <p>如果添加数据age不为空，则不会使用默认值</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into user8 values(2, "李四", 20);
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into user8 values(2, "李四", 20);
 Query OK, 1 row affected (0.01 sec)
 
-mysql> select * from user8;
+mysql&gt; select * from user8;
 +------+------+------+
 | id   | name | age  |
 +------+------+------+
@@ -1024,20 +793,20 @@ mysql> select * from user8;
 </code></pre>
 <p><strong>同样也可以使用modify和alter语法。</strong></p>
 <h4 id="2-5-外键约束"><a href="#2-5-外键约束" class="headerlink" title="2.5 外键约束"></a>2.5 外键约束</h4><p>涉及到两个表，一个是父表（主表），一个是子表（副表）</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table classes( // 父表
-    -> id int primary key,
-    -> name varchar(20));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table classes( // 父表
+    -&gt; id int primary key,
+    -&gt; name varchar(20));
 Query OK, 0 rows affected (0.06 sec)
 
-mysql> create table students( // 子表
-    -> id int primary key,
-    -> name varchar(20),
-    -> class_id int,
-    -> foreign key(class_id) references classes(id) // 将子表的class_id与父表的id相关联
-    -> );
+mysql&gt; create table students( // 子表
+    -&gt; id int primary key,
+    -&gt; name varchar(20),
+    -&gt; class_id int,
+    -&gt; foreign key(class_id) references classes(id) // 将子表的class_id与父表的id相关联
+    -&gt; );
 Query OK, 0 rows affected (0.14 sec)
 
-mysql> desc classes;
+mysql&gt; desc classes;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -1046,7 +815,7 @@ mysql> desc classes;
 +-------+-------------+------+-----+---------+-------+
 2 rows in set (0.00 sec)
 
-mysql> desc students;
+mysql&gt; desc students;
 +----------+-------------+------+-----+---------+-------+
 | Field    | Type        | Null | Key | Default | Extra |
 +----------+-------------+------+-----+---------+-------+
@@ -1057,19 +826,19 @@ mysql> desc students;
 3 rows in set (0.00 sec)
 </code></pre>
 <p>父表插入数据</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into classes values(1, "一班");
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into classes values(1, "一班");
 Query OK, 1 row affected (0.03 sec)
 
-mysql> insert into classes values(2, "二班");
+mysql&gt; insert into classes values(2, "二班");
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into classes values(3, "三班");
+mysql&gt; insert into classes values(3, "三班");
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into classes values(4, "四班");
+mysql&gt; insert into classes values(4, "四班");
 Query OK, 1 row affected (0.02 sec)
 
-mysql> select * from classes;
+mysql&gt; select * from classes;
 +----+------+
 | id | name |
 +----+------+
@@ -1081,19 +850,19 @@ mysql> select * from classes;
 4 rows in set (0.00 sec)
 </code></pre>
 <p>子表插入数据</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into students values(1001, "张三",1);
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into students values(1001, "张三",1);
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into students values(1002, "张三",2);
+mysql&gt; insert into students values(1002, "张三",2);
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into students values(1003, "张三",3);
+mysql&gt; insert into students values(1003, "张三",3);
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into students values(1004, "张三",4);
+mysql&gt; insert into students values(1004, "张三",4);
 Query OK, 1 row affected (0.03 sec)
 
-mysql> select * from students;
+mysql&gt; select * from students;
 +------+------+----------+
 | id   | name | class_id |
 +------+------+----------+
@@ -1106,7 +875,7 @@ mysql> select * from students;
 </code></pre>
 <p>这些张三姓名一样，班级和学号都不一样</p>
 <p>但是当插入一条数据班级为5时，由于关联的classes表里没有id为5的班级，所以会报错</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into students values(1005, "张三", 5);
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into students values(1005, "张三", 5);
 ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`test`.`students`, CONSTRAINT `students_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`))
 </code></pre>
 <ul>
@@ -1115,27 +884,27 @@ ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint f
 <li><p>主表中的记录被副表引用是不可删除的</p>
 </li>
 </ul>
-<pre class=" language-mys"><code class="language-mys">  mysql> delete from classes where id=3; // id = 3正在被副表引用
+<pre class=" language-mys"><code class="language-mys">  mysql&gt; delete from classes where id=3; // id = 3正在被副表引用
   ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`test`.`students`, CONSTRAINT `students_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`))
 </code></pre>
 <h3 id="三、数据库的三大设计范式"><a href="#三、数据库的三大设计范式" class="headerlink" title="三、数据库的三大设计范式"></a>三、数据库的三大设计范式</h3><h4 id="3-1-第一范式-1NF"><a href="#3-1-第一范式-1NF" class="headerlink" title="3.1 第一范式 1NF"></a>3.1 第一范式 1NF</h4><p>数据表中的所有字段都是<strong>不可分割</strong>的原子值</p>
 <p>先来新建一个表</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table student2(
-    -> id int,
-    -> name varchar(20),
-    -> address varchar(30));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table student2(
+    -&gt; id int,
+    -&gt; name varchar(20),
+    -&gt; address varchar(30));
 Query OK, 0 rows affected (0.10 sec)
 
-mysql> insert into student2 values(1, "张三", "中国浙江省杭州市余杭区");
+mysql&gt; insert into student2 values(1, "张三", "中国浙江省杭州市余杭区");
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into student2 values(2, "李四", "中国浙江省湖州市吴兴区");
+mysql&gt; insert into student2 values(2, "李四", "中国浙江省湖州市吴兴区");
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into student2 values(3, "王五", "中国浙江省杭州市临平区");
+mysql&gt; insert into student2 values(3, "王五", "中国浙江省杭州市临平区");
 Query OK, 1 row affected (0.02 sec)
 
-mysql> select * from student2;
+mysql&gt; select * from student2;
 +------+------+------------------------+
 | id   | name | address                |
 +------+------+------------------------+
@@ -1147,16 +916,16 @@ mysql> select * from student2;
 </code></pre>
 <p>上表中的address内的国、省、市、区都还可以拆分，所以不满足第一范式（<strong>数据表中的所有字段都是*不可分割*的原子值</strong>）</p>
 <p>应修改为下表中的结构，满足第一范式</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table student3(
-    -> id int,
-    -> name varchar(20),
-    -> country varchar(30),
-    -> privence varchar(30),
-    -> city varchar(30),
-    -> details varchar(30));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table student3(
+    -&gt; id int,
+    -&gt; name varchar(20),
+    -&gt; country varchar(30),
+    -&gt; privence varchar(30),
+    -&gt; city varchar(30),
+    -&gt; details varchar(30));
 Query OK, 0 rows affected (0.07 sec)
 
-mysql> describe student3;
+mysql&gt; describe student3;
 +----------+-------------+------+-----+---------+-------+
 | Field    | Type        | Null | Key | Default | Extra |
 +----------+-------------+------+-----+---------+-------+
@@ -1169,16 +938,16 @@ mysql> describe student3;
 +----------+-------------+------+-----+---------+-------+
 6 rows in set (0.01 sec)
 
-mysql> insert into student3 values(1, "张三" ,"中国", "浙江省", "杭州市", "余杭区");
+mysql&gt; insert into student3 values(1, "张三" ,"中国", "浙江省", "杭州市", "余杭区");
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into student3 values(2, "李四" ,"中国", "浙江省", "湖州市", "吴兴区");
+mysql&gt; insert into student3 values(2, "李四" ,"中国", "浙江省", "湖州市", "吴兴区");
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into student3 values(3, "王五" ,"中国", "浙江省", "杭州市", "临平区");
+mysql&gt; insert into student3 values(3, "王五" ,"中国", "浙江省", "杭州市", "临平区");
 Query OK, 1 row affected (0.02 sec)
 
-mysql> select * from student3;
+mysql&gt; select * from student3;
 +------+------+---------+----------+--------+---------+
 | id   | name | country | privence | city   | details |
 +------+------+---------+----------+--------+---------+
@@ -1190,16 +959,16 @@ mysql> select * from student3;
 </code></pre>
 <h4 id="3-2-第二范式-2NF"><a href="#3-2-第二范式-2NF" class="headerlink" title="3.2 第二范式 2NF"></a>3.2 第二范式 2NF</h4><p>必须是满足第一范式的前提下，第二范式要求，除主键外的每一列都必须完全依赖于主键</p>
 <p>如果出现不完全依赖，之可能发生在联合主键的情况下</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table my_order(
-    -> product_id int,
-    -> customer_id int,
-    -> product_name varchar(20),
-    -> customer_name varchar(20),
-    -> primary key(product_id, customer_id)
-    -> );
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table my_order(
+    -&gt; product_id int,
+    -&gt; customer_id int,
+    -&gt; product_name varchar(20),
+    -&gt; customer_name varchar(20),
+    -&gt; primary key(product_id, customer_id)
+    -&gt; );
 Query OK, 0 rows affected (0.07 sec)
 
-mysql> desc my_order;
+mysql&gt; desc my_order;
 +---------------+-------------+------+-----+---------+-------+
 | Field         | Type        | Null | Key | Default | Extra |
 +---------------+-------------+------+-----+---------+-------+
@@ -1213,26 +982,26 @@ mysql> desc my_order;
 <p>上表中的product_name只关联主键约束的字段product_id，customer_name只关联主键约束的字段customer_id</p>
 <p>他们都不完全关联整个primary key，所以不满足第二范式</p>
 <p>如果要满足第二范式，则应拆表，修改为三张表</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table my_order(
-    -> order_id int,
-    -> product_id int,
-    -> customer_id int,
-    -> primary key(order_id));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table my_order(
+    -&gt; order_id int,
+    -&gt; product_id int,
+    -&gt; customer_id int,
+    -&gt; primary key(order_id));
 Query OK, 0 rows affected (0.07 sec)
 
-mysql> create table product(
-    -> id int,
-    -> name varchar(20),
-    -> primary key(id));
+mysql&gt; create table product(
+    -&gt; id int,
+    -&gt; name varchar(20),
+    -&gt; primary key(id));
 Query OK, 0 rows affected (0.07 sec)
 
-mysql> create table customer(
-    -> id int,
-    -> name varchar(20),
-    -> primary key(id));
+mysql&gt; create table customer(
+    -&gt; id int,
+    -&gt; name varchar(20),
+    -&gt; primary key(id));
 Query OK, 0 rows affected (0.16 sec)
 
-mysql> desc my_order;
+mysql&gt; desc my_order;
 +-------------+------+------+-----+---------+-------+
 | Field       | Type | Null | Key | Default | Extra |
 +-------------+------+------+-----+---------+-------+
@@ -1242,7 +1011,7 @@ mysql> desc my_order;
 +-------------+------+------+-----+---------+-------+
 3 rows in set (0.01 sec)
 
-mysql> desc product;
+mysql&gt; desc product;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -1251,7 +1020,7 @@ mysql> desc product;
 +-------+-------------+------+-----+---------+-------+
 2 rows in set (0.00 sec)
 
-mysql> desc customer;
+mysql&gt; desc customer;
 +-------+-------------+------+-----+---------+-------+
 | Field | Type        | Null | Key | Default | Extra |
 +-------+-------------+------+-----+---------+-------+
@@ -1261,34 +1030,34 @@ mysql> desc customer;
 2 rows in set (0.00 sec)
 </code></pre>
 <h4 id="3-3-第三范式-3NF"><a href="#3-3-第三范式-3NF" class="headerlink" title="3.3 第三范式 3NF"></a>3.3 第三范式 3NF</h4><p>必须先满足第二范式，除开主键列的其他列之间不能有传递依赖关系</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table my_order(
-    -> order_id int,
-    -> product_id int,
-    -> customer_id int,
-    -> customer_phone varchar(15),
-    -> primary key(order_id));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table my_order(
+    -&gt; order_id int,
+    -&gt; product_id int,
+    -&gt; customer_id int,
+    -&gt; customer_phone varchar(15),
+    -&gt; primary key(order_id));
 Query OK, 0 rows affected (0.09 sec)
 
-mysql> create table customer(
-    -> id int,
-    -> name varchar(20),
-    -> primary key(id));
+mysql&gt; create table customer(
+    -&gt; id int,
+    -&gt; name varchar(20),
+    -&gt; primary key(id));
 Query OK, 0 rows affected (0.04 sec)
 </code></pre>
 <p>上表中涉及到customer_phone需要从my_order到customer进行传递，所以不满足第三范式</p>
 <p>若要满足第三范式，应当修改为</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table my_order(
-    -> order_id int,
-    -> product_id int,
-    -> customer_id int,
-    -> primary key(order_id));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table my_order(
+    -&gt; order_id int,
+    -&gt; product_id int,
+    -&gt; customer_id int,
+    -&gt; primary key(order_id));
 Query OK, 0 rows affected (0.09 sec)
 
-mysql> create table customer(
-    -> id int,
-    -> name varchar(20),
-    -> phone varchar(15),
-    -> primary key(id));
+mysql&gt; create table customer(
+    -&gt; id int,
+    -&gt; name varchar(20),
+    -&gt; phone varchar(15),
+    -&gt; primary key(id));
 Query OK, 0 rows affected (0.04 sec)
 </code></pre>
 <h4 id="3-4-注意事项"><a href="#3-4-注意事项" class="headerlink" title="3.4 注意事项"></a>3.4 注意事项</h4><p><strong>范式设计的越详细，对某些操作可能更好（比如进行筛选城市之类的操作），但不一定都是好处（例如完整地址则需要进行拼接）</strong></p>
@@ -1304,15 +1073,15 @@ Query OK, 0 rows affected (0.04 sec)
 </ul>
 </li>
 </ul>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table student(
-    -> student_no varchar(20) primary key,
-    -> name varchar(20) not null,
-    -> sex varchar(10) not null,
-    -> birth datetime,
-    -> class varchar(20));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table student(
+    -&gt; student_no varchar(20) primary key,
+    -&gt; name varchar(20) not null,
+    -&gt; sex varchar(10) not null,
+    -&gt; birth datetime,
+    -&gt; class varchar(20));
 Query OK, 0 rows affected (0.09 sec)
 
-mysql> desc student;
+mysql&gt; desc student;
 +------------+-------------+------+-----+---------+-------+
 | Field      | Type        | Null | Key | Default | Extra |
 +------------+-------------+------+-----+---------+-------+
@@ -1336,16 +1105,16 @@ mysql> desc student;
 </ul>
 </li>
 </ul>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table teacher(
-    -> teacher_no varchar(20) primary key,
-    -> name varchar(20) not null,
-    -> sex varchar(10) not null,
-    -> birth datetime,
-    -> professional varchar(20),
-    -> department varchar(20) not null);
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table teacher(
+    -&gt; teacher_no varchar(20) primary key,
+    -&gt; name varchar(20) not null,
+    -&gt; sex varchar(10) not null,
+    -&gt; birth datetime,
+    -&gt; professional varchar(20),
+    -&gt; department varchar(20) not null);
 Query OK, 0 rows affected (0.10 sec)
 
-mysql> desc teacher;
+mysql&gt; desc teacher;
 +--------------+-------------+------+-----+---------+-------+
 | Field        | Type        | Null | Key | Default | Extra |
 +--------------+-------------+------+-----+---------+-------+
@@ -1367,14 +1136,14 @@ mysql> desc teacher;
 </ul>
 </li>
 </ul>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table course(
-    -> course_no varchar(20) primary key,
-    -> name varchar(20) not null,
-    -> teacher_no varchar(20) not null,
-    -> foreign key(teacher_no) references teacher(teacher_no));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table course(
+    -&gt; course_no varchar(20) primary key,
+    -&gt; name varchar(20) not null,
+    -&gt; teacher_no varchar(20) not null,
+    -&gt; foreign key(teacher_no) references teacher(teacher_no));
 Query OK, 0 rows affected (0.21 sec)
 
-mysql> desc course;
+mysql&gt; desc course;
 +------------+-------------+------+-----+---------+-------+
 | Field      | Type        | Null | Key | Default | Extra |
 +------------+-------------+------+-----+---------+-------+
@@ -1393,15 +1162,15 @@ mysql> desc course;
 </ul>
 </li>
 </ul>
-<pre class=" language-mysql"><code class="language-mysql">mysql> create table score(
-    -> student_no varchar(20) primary key,
-    -> course_no varchar(20) not null,
-    -> grade varchar(20) not null,
-    -> foreign key(student_no) references student(student_no),
-    -> foreign key(course_no) references course(course_no));
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; create table score(
+    -&gt; student_no varchar(20) primary key,
+    -&gt; course_no varchar(20) not null,
+    -&gt; grade varchar(20) not null,
+    -&gt; foreign key(student_no) references student(student_no),
+    -&gt; foreign key(course_no) references course(course_no));
 Query OK, 0 rows affected (0.14 sec)
 
-mysql> desc score;
+mysql&gt; desc score;
 +------------+-------------+------+-----+---------+-------+
 | Field      | Type        | Null | Key | Default | Extra |
 +------------+-------------+------+-----+---------+-------+
@@ -1412,43 +1181,43 @@ mysql> desc score;
 3 rows in set (0.01 sec)
 </code></pre>
 <h4 id="4-2-添加数据"><a href="#4-2-添加数据" class="headerlink" title="4.2 添加数据"></a>4.2 添加数据</h4><p>添加学生</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into student values('100', '二狗', '男', '1997-07-20', '一班');
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into student values('100', '二狗', '男', '1997-07-20', '一班');
 Query OK, 1 row affected (0.03 sec)
 
-mysql> insert into student values('101', '山鸡', '女', '1997-10-25', '一班');
+mysql&gt; insert into student values('101', '山鸡', '女', '1997-10-25', '一班');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into student values('102', '野驴', '女', '1997-08-14', '一班');
+mysql&gt; insert into student values('102', '野驴', '女', '1997-08-14', '一班');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into student values('103', '勒布朗', '男', '1997-03-19', '四班');
+mysql&gt; insert into student values('103', '勒布朗', '男', '1997-03-19', '四班');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into student values('104', '马冬梅', '女', '1997-04-27', '四班');
+mysql&gt; insert into student values('104', '马冬梅', '女', '1997-04-27', '四班');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into student values('105', '张全蛋', '男', '1997-11-30', '二班');
+mysql&gt; insert into student values('105', '张全蛋', '男', '1997-11-30', '二班');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into student values('106', '李淳罡', '男', '1997-03-06', '三班');
+mysql&gt; insert into student values('106', '李淳罡', '男', '1997-03-06', '三班');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into student values('107', '赵铁柱', '男', '1997-04-16', '二班');
+mysql&gt; insert into student values('107', '赵铁柱', '男', '1997-04-16', '二班');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into student values('108', '王尼玛', '男', '1997-09-07', '二班');
+mysql&gt; insert into student values('108', '王尼玛', '男', '1997-09-07', '二班');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into student values('109', '灭绝师太', '女', '1997-12-10', '三班');
+mysql&gt; insert into student values('109', '灭绝师太', '女', '1997-12-10', '三班');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into student values('110', '猪猪侠', '男', '1997-01-02', '三班');
+mysql&gt; insert into student values('110', '猪猪侠', '男', '1997-01-02', '三班');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into student values('111', '玛卡巴卡', '女', '1997-06-25', '四班');
+mysql&gt; insert into student values('111', '玛卡巴卡', '女', '1997-06-25', '四班');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> select * from student;
+mysql&gt; select * from student;
 +------------+----------+-----+---------------------+-------+
 | student_no | name     | sex | birth               | class |
 +------------+----------+-----+---------------------+-------+
@@ -1468,22 +1237,22 @@ mysql> select * from student;
 12 rows in set (0.01 sec)
 </code></pre>
 <p>添加教师</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into teacher values('800', '太上老君', '男', '1925-05-30', '副教授', '炼丹系');
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into teacher values('800', '太上老君', '男', '1925-05-30', '副教授', '炼丹系');
 Query OK, 1 row affected (0.03 sec)
 
-mysql> insert into teacher values('801', '如来', '男', '1922-11-15', '副教授', '理发系');
+mysql&gt; insert into teacher values('801', '如来', '男', '1922-11-15', '副教授', '理发系');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into teacher values('802', '观音', '女', '1938-04-10', '讲师', '种植系');
+mysql&gt; insert into teacher values('802', '观音', '女', '1938-04-10', '讲师', '种植系');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into teacher values('803', '散财童子', '女', '1946-07-07', '助教', '炼丹系');
+mysql&gt; insert into teacher values('803', '散财童子', '女', '1946-07-07', '助教', '炼丹系');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into teacher values('804', '送财童子', '男', '1944-01-06', '助教', '理发系');
+mysql&gt; insert into teacher values('804', '送财童子', '男', '1944-01-06', '助教', '理发系');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> select * from teacher;
+mysql&gt; select * from teacher;
 +------------+----------+-----+---------------------+--------------+------------+
 | teacher_no | name     | sex | birth               | professional | department |
 +------------+----------+-----+---------------------+--------------+------------+
@@ -1496,22 +1265,22 @@ mysql> select * from teacher;
 5 rows in set (0.00 sec)
 </code></pre>
 <p>添加课程</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into course values('900', '金丹炼制', '800');
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into course values('900', '金丹炼制', '800');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into course values('901', '洗头', '801');
+mysql&gt; insert into course values('901', '洗头', '801');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into course values('902', '养食人花', '802');
+mysql&gt; insert into course values('902', '养食人花', '802');
 Query OK, 1 row affected (0.03 sec)
 
-mysql> insert into course values('903', '洗炼丹炉', '803');
+mysql&gt; insert into course values('903', '洗炼丹炉', '803');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into course values('904', '修面', '804');
+mysql&gt; insert into course values('904', '修面', '804');
 Query OK, 1 row affected (0.03 sec)
 
-mysql> select * from course;
+mysql&gt; select * from course;
 +-----------+----------+------------+
 | course_no | name     | teacher_no |
 +-----------+----------+------------+
@@ -1524,187 +1293,187 @@ mysql> select * from course;
 5 rows in set (0.00 sec)
 </code></pre>
 <p>添加成绩</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> insert into score values('100', '900', '95');
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; insert into score values('100', '900', '95');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('100', '901', '93');
+mysql&gt; insert into score values('100', '901', '93');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('100', '902', '96');
+mysql&gt; insert into score values('100', '902', '96');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('100', '903', '91');
+mysql&gt; insert into score values('100', '903', '91');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('100', '904', '90');
+mysql&gt; insert into score values('100', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('101', '900', '95');
+mysql&gt; insert into score values('101', '900', '95');
 Query OK, 1 row affected (0.04 sec)
 
-mysql> insert into score values('101', '901', '93');
+mysql&gt; insert into score values('101', '901', '93');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('101', '902', '96');
+mysql&gt; insert into score values('101', '902', '96');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('101', '903', '91');
+mysql&gt; insert into score values('101', '903', '91');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('101', '904', '90');
+mysql&gt; insert into score values('101', '904', '90');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('102', '900', '95');
+mysql&gt; insert into score values('102', '900', '95');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('102', '901', '93');
+mysql&gt; insert into score values('102', '901', '93');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('102', '902', '96');
+mysql&gt; insert into score values('102', '902', '96');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('102', '903', '91');
+mysql&gt; insert into score values('102', '903', '91');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('102', '904', '90');
+mysql&gt; insert into score values('102', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('103', '900', '95');
+mysql&gt; insert into score values('103', '900', '95');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('103', '901', '93');
+mysql&gt; insert into score values('103', '901', '93');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('103', '902', '96');
+mysql&gt; insert into score values('103', '902', '96');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('103', '903', '91');
+mysql&gt; insert into score values('103', '903', '91');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('103', '904', '90');
+mysql&gt; insert into score values('103', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('104', '900', '95');
+mysql&gt; insert into score values('104', '900', '95');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('104', '901', '93');
+mysql&gt; insert into score values('104', '901', '93');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('104', '902', '96');
+mysql&gt; insert into score values('104', '902', '96');
 Query OK, 1 row affected (0.00 sec)
 
-mysql> insert into score values('104', '903', '91');
+mysql&gt; insert into score values('104', '903', '91');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('104', '904', '90');
+mysql&gt; insert into score values('104', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('105', '900', '95');
+mysql&gt; insert into score values('105', '900', '95');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('105', '901', '93');
+mysql&gt; insert into score values('105', '901', '93');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('105', '902', '96');
+mysql&gt; insert into score values('105', '902', '96');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('105', '903', '91');
+mysql&gt; insert into score values('105', '903', '91');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('105', '904', '90');
+mysql&gt; insert into score values('105', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('106', '900', '95');
+mysql&gt; insert into score values('106', '900', '95');
 Query OK, 1 row affected (0.00 sec)
 
-mysql> insert into score values('106', '901', '93');
+mysql&gt; insert into score values('106', '901', '93');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('106', '902', '96');
+mysql&gt; insert into score values('106', '902', '96');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('106', '903', '91');
+mysql&gt; insert into score values('106', '903', '91');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('106', '904', '90');
+mysql&gt; insert into score values('106', '904', '90');
 Query OK, 1 row affected (0.03 sec)
 
-mysql> insert into score values('107', '900', '95');
+mysql&gt; insert into score values('107', '900', '95');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('107', '901', '93');
+mysql&gt; insert into score values('107', '901', '93');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('107', '902', '96');
+mysql&gt; insert into score values('107', '902', '96');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('107', '903', '91');
+mysql&gt; insert into score values('107', '903', '91');
 Query OK, 1 row affected (0.02 sec)
 
-mysql> insert into score values('107', '904', '90');
+mysql&gt; insert into score values('107', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('108', '900', '95');
+mysql&gt; insert into score values('108', '900', '95');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('108', '901', '93');
+mysql&gt; insert into score values('108', '901', '93');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('108', '902', '96');
+mysql&gt; insert into score values('108', '902', '96');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('108', '903', '91');
+mysql&gt; insert into score values('108', '903', '91');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('108', '904', '90');
+mysql&gt; insert into score values('108', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('109', '900', '95');
+mysql&gt; insert into score values('109', '900', '95');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('109', '901', '93');
+mysql&gt; insert into score values('109', '901', '93');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('109', '902', '96');
+mysql&gt; insert into score values('109', '902', '96');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('109', '903', '91');
+mysql&gt; insert into score values('109', '903', '91');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('109', '904', '90');
+mysql&gt; insert into score values('109', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('110', '900', '95');
+mysql&gt; insert into score values('110', '900', '95');
 Query OK, 1 row affected (0.00 sec)
 
-mysql> insert into score values('110', '901', '93');
+mysql&gt; insert into score values('110', '901', '93');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('110', '902', '96');
+mysql&gt; insert into score values('110', '902', '96');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('110', '903', '91');
+mysql&gt; insert into score values('110', '903', '91');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('110', '904', '90');
+mysql&gt; insert into score values('110', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('111', '900', '95');
+mysql&gt; insert into score values('111', '900', '95');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('111', '901', '93');
+mysql&gt; insert into score values('111', '901', '93');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('111', '902', '96');
+mysql&gt; insert into score values('111', '902', '96');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('111', '903', '91');
+mysql&gt; insert into score values('111', '903', '91');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into score values('111', '904', '90');
+mysql&gt; insert into score values('111', '904', '90');
 Query OK, 1 row affected (0.01 sec)
 
-mysql> select * from score;
+mysql&gt; select * from score;
 +------------+-----------+-------+
 | student_no | course_no | grade |
 +------------+-----------+-------+
@@ -1771,7 +1540,7 @@ mysql> select * from score;
 +------------+-----------+-------+
 60 rows in set (0.00 sec)
 </code></pre>
-<h4 id="4-3-练习"><a href="#4-3-练习" class="headerlink" title="4.3 练习"></a>4.3 练习</h4><h5 id="1-查询student表的所有记录"><a href="#1-查询student表的所有记录" class="headerlink" title="1 查询student表的所有记录"></a>1 查询student表的所有记录</h5><pre class=" language-mysql"><code class="language-mysql">mysql> select * from student;
+<h4 id="4-3-练习"><a href="#4-3-练习" class="headerlink" title="4.3 练习"></a>4.3 练习</h4><h5 id="1-查询student表的所有记录"><a href="#1-查询student表的所有记录" class="headerlink" title="1 查询student表的所有记录"></a>1 查询student表的所有记录</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from student;
 +------------+----------+-----+---------------------+-------+
 | student_no | name     | sex | birth               | class |
 +------------+----------+-----+---------------------+-------+
@@ -1790,7 +1559,7 @@ mysql> select * from score;
 +------------+----------+-----+---------------------+-------+
 12 rows in set (0.01 sec)
 </code></pre>
-<h5 id="2-查询student表中所有记录的name、sex和class列"><a href="#2-查询student表中所有记录的name、sex和class列" class="headerlink" title="2 查询student表中所有记录的name、sex和class列"></a>2 查询student表中所有记录的name、sex和class列</h5><pre class=" language-mysql"><code class="language-mysql">mysql> select name, sex, class from student;
+<h5 id="2-查询student表中所有记录的name、sex和class列"><a href="#2-查询student表中所有记录的name、sex和class列" class="headerlink" title="2 查询student表中所有记录的name、sex和class列"></a>2 查询student表中所有记录的name、sex和class列</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select name, sex, class from student;
 +----------+-----+-------+
 | name     | sex | class |
 +----------+-----+-------+
@@ -1809,7 +1578,7 @@ mysql> select * from score;
 +----------+-----+-------+
 12 rows in set (0.00 sec)
 </code></pre>
-<h5 id="3-查询教师所有的单位，即不重复的department列-知识点：distinct语法"><a href="#3-查询教师所有的单位，即不重复的department列-知识点：distinct语法" class="headerlink" title="3 查询教师所有的单位，即不重复的department列( 知识点：distinct语法)"></a>3 查询教师所有的单位，即不重复的department列( 知识点：distinct语法)</h5><pre class=" language-mysql"><code class="language-mysql">mysql> select distinct department from teacher; // 用distinct可以去重
+<h5 id="3-查询教师所有的单位，即不重复的department列-知识点：distinct语法"><a href="#3-查询教师所有的单位，即不重复的department列-知识点：distinct语法" class="headerlink" title="3 查询教师所有的单位，即不重复的department列( 知识点：distinct语法)"></a>3 查询教师所有的单位，即不重复的department列( 知识点：distinct语法)</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select distinct department from teacher; // 用distinct可以去重
 +------------+
 | department |
 +------------+
@@ -1820,7 +1589,7 @@ mysql> select * from score;
 3 rows in set (0.00 sec)
 </code></pre>
 <h5 id="4-查询score表中成绩为90，95或96的记录"><a href="#4-查询score表中成绩为90，95或96的记录" class="headerlink" title="4 查询score表中成绩为90，95或96的记录"></a>4 查询score表中成绩为90，95或96的记录</h5><p>方法一：<code>or</code>、<code>and</code>、<code>not</code></p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select * from score where grade=90 or grade=95 or grade=96; // 用where来限定条件
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from score where grade=90 or grade=95 or grade=96; // 用where来限定条件
 +------------+-----------+-------+
 | student_no | course_no | grade |
 +------------+-----------+-------+
@@ -1864,7 +1633,7 @@ mysql> select * from score;
 36 rows in set (0.00 sec)
 </code></pre>
 <p>方法2： <code>in(...)</code></p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select * from score where grade in(90, 95, 96); // 用in可以查询 '或'关系 的记录
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from score where grade in(90, 95, 96); // 用in可以查询 '或'关系 的记录
 +------------+-----------+-------+
 | student_no | course_no | grade |
 +------------+-----------+-------+
@@ -1907,7 +1676,7 @@ mysql> select * from score;
 +------------+-----------+-------+
 36 rows in set (0.00 sec)
 </code></pre>
-<h5 id="5-查询student表中’一班’或性别为’女’的同学记录"><a href="#5-查询student表中’一班’或性别为’女’的同学记录" class="headerlink" title="5 查询student表中’一班’或性别为’女’的同学记录"></a>5 查询student表中’一班’或性别为’女’的同学记录</h5><pre class=" language-mysql"><code class="language-mysql">mysql> select * from student where class="一班" or sex="女";
+<h5 id="5-查询student表中’一班’或性别为’女’的同学记录"><a href="#5-查询student表中’一班’或性别为’女’的同学记录" class="headerlink" title="5 查询student表中’一班’或性别为’女’的同学记录"></a>5 查询student表中’一班’或性别为’女’的同学记录</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from student where class="一班" or sex="女";
 +------------+----------+-----+---------------------+-------+
 | student_no | name     | sex | birth               | class |
 +------------+----------+-----+---------------------+-------+
@@ -1927,7 +1696,7 @@ mysql> select * from score;
 升序(`asc`)、降序(`desc`)，默认升序，所以`asc`可以不写
 
 ​```mysql
-mysql> select * from student order by student_no desc; // desc表示降序关键字，升序为asc，默认升序，所以asc可以不写
+mysql&gt; select * from student order by student_no desc; // desc表示降序关键字，升序为asc，默认升序，所以asc可以不写
 +------------+----------+-----+---------------------+-------+
 | student_no | name     | sex | birth               | class |
 +------------+----------+-----+---------------------+-------+
@@ -1947,7 +1716,7 @@ mysql> select * from student order by student_no desc; // desc表示降序关键
 12 rows in set (0.00 sec)
 </code></pre>
 <h5 id="7-查询’四班’的学生人数"><a href="#7-查询’四班’的学生人数" class="headerlink" title="7 查询’四班’的学生人数"></a>7 查询’四班’的学生人数</h5><p>统计<code>count</code></p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select count(*) from student where class="四班"; // count关键字统计总数
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select count(*) from student where class="四班"; // count关键字统计总数
 +----------+
 | count(*) |
 +----------+
@@ -1956,7 +1725,7 @@ mysql> select * from student order by student_no desc; // desc表示降序关键
 1 row in set (0.01 sec)
 </code></pre>
 <h5 id="8-查询score表中成绩在90-92之间的所有记录"><a href="#8-查询score表中成绩在90-92之间的所有记录" class="headerlink" title="8 查询score表中成绩在90-92之间的所有记录"></a>8 查询score表中成绩在90-92之间的所有记录</h5><p>方法一：<code>between ... and ...</code></p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select * from score where grade between 90 and 92; // 查询区间用between ... and ...
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from score where grade between 90 and 92; // 查询区间用between ... and ...
 +------------+-----------+-------+
 | student_no | course_no | grade |
 +------------+-----------+-------+
@@ -1988,7 +1757,7 @@ mysql> select * from student order by student_no desc; // desc表示降序关键
 24 rows in set (0.00 sec)
 </code></pre>
 <p>方法2：<code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>和<code>&lt;=</code></p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select * from score where grade >= 90 and grade <= 92;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from score where grade &gt;= 90 and grade &lt;= 92;
 +------------+-----------+-------+
 | student_no | course_no | grade |
 +------------+-----------+-------+
@@ -2019,7 +1788,7 @@ mysql> select * from student order by student_no desc; // desc表示降序关键
 +------------+-----------+-------+
 24 rows in set (0.00 sec)
 </code></pre>
-<h5 id="9-以course-no升序，grade降序查询scroe表的所有记录"><a href="#9-以course-no升序，grade降序查询scroe表的所有记录" class="headerlink" title="9 以course_no升序，grade降序查询scroe表的所有记录"></a>9 以course_no升序，grade降序查询scroe表的所有记录</h5><pre class=" language-mysql"><code class="language-mysql">mysql> select * from score order by course_no asc, grade desc;
+<h5 id="9-以course-no升序，grade降序查询scroe表的所有记录"><a href="#9-以course-no升序，grade降序查询scroe表的所有记录" class="headerlink" title="9 以course_no升序，grade降序查询scroe表的所有记录"></a>9 以course_no升序，grade降序查询scroe表的所有记录</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from score order by course_no asc, grade desc;
 +------------+-----------+-------+
 | student_no | course_no | grade |
 +------------+-----------+-------+
@@ -2087,7 +1856,7 @@ mysql> select * from student order by student_no desc; // desc表示降序关键
 60 rows in set (0.00 sec)
 </code></pre>
 <h5 id="10-查询score表中的最高分的学生学号和课程编号。（子查询或排序）"><a href="#10-查询score表中的最高分的学生学号和课程编号。（子查询或排序）" class="headerlink" title="10 查询score表中的最高分的学生学号和课程编号。（子查询或排序）"></a>10 查询score表中的最高分的学生学号和课程编号。（子查询或排序）</h5><p>子查询方式：符合查询</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select student_no, course_no from score where grade=(select max(grade) from score); // 用max查询最大值
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select student_no, course_no from score where grade=(select max(grade) from score); // 用max查询最大值
 +------------+-----------+
 | student_no | course_no |
 +------------+-----------+
@@ -2107,7 +1876,7 @@ mysql> select * from student order by student_no desc; // desc表示降序关键
 12 rows in set (0.00 sec)
 </code></pre>
 <p>排序方式：排序然后取第一个（<strong>小bug：当最高分有多个时，只会取到第一个</strong>）</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select student_no, course_no from score order by grade desc limit 0, 1;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select student_no, course_no from score order by grade desc limit 0, 1;
 +------------+-----------+
 | student_no | course_no |
 +------------+-----------+
@@ -2117,7 +1886,7 @@ mysql> select * from student order by student_no desc; // desc表示降序关键
 </code></pre>
 <h4 id="4-4-进阶练习"><a href="#4-4-进阶练习" class="headerlink" title="4.4 进阶练习"></a>4.4 进阶练习</h4><h5 id="1-查询每门课的平均成绩"><a href="#1-查询每门课的平均成绩" class="headerlink" title="1 查询每门课的平均成绩"></a>1 查询每门课的平均成绩</h5><p><code>avg</code>平均值关键字</p>
 <p>单个操作</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select avg(grade) from score where course_no="900";
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select avg(grade) from score where course_no="900";
 +------------+
 | avg(grade) |
 +------------+
@@ -2125,7 +1894,7 @@ mysql> select * from student order by student_no desc; // desc表示降序关键
 +------------+
 1 row in set (0.00 sec)
 
-mysql> select avg(grade) from score where course_no="901";
+mysql&gt; select avg(grade) from score where course_no="901";
 +------------+
 | avg(grade) |
 +------------+
@@ -2133,7 +1902,7 @@ mysql> select avg(grade) from score where course_no="901";
 +------------+
 1 row in set (0.00 sec)
 
-mysql> select avg(grade) from score where course_no="902";
+mysql&gt; select avg(grade) from score where course_no="902";
 +------------+
 | avg(grade) |
 +------------+
@@ -2141,7 +1910,7 @@ mysql> select avg(grade) from score where course_no="902";
 +------------+
 1 row in set (0.00 sec)
 
-mysql> select avg(grade) from score where course_no="903";
+mysql&gt; select avg(grade) from score where course_no="903";
 +------------+
 | avg(grade) |
 +------------+
@@ -2149,7 +1918,7 @@ mysql> select avg(grade) from score where course_no="903";
 +------------+
 1 row in set (0.00 sec)
 
-mysql> select avg(grade) from score where course_no="904";
+mysql&gt; select avg(grade) from score where course_no="904";
 +------------+
 | avg(grade) |
 +------------+
@@ -2158,7 +1927,7 @@ mysql> select avg(grade) from score where course_no="904";
 1 row in set (0.00 sec)
 </code></pre>
 <p>同步操作，使用<code>group by</code>的方式。</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select avg(grade) from score group by course_no;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select avg(grade) from score group by course_no;
 +------------+
 | avg(grade) |
 +------------+
@@ -2171,7 +1940,7 @@ mysql> select avg(grade) from score where course_no="904";
 5 rows in set (0.00 sec)
 </code></pre>
 <p>但是不知道成绩分别是谁的，所以需要添加课程编号</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select course_no, avg(grade) from score group by course_no;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select course_no, avg(grade) from score group by course_no;
 +-----------+------------+
 | course_no | avg(grade) |
 +-----------+------------+
@@ -2184,8 +1953,8 @@ mysql> select avg(grade) from score where course_no="904";
 5 rows in set (0.00 sec)
 </code></pre>
 <h5 id="2-查询score表中至少有2名学生选修的并以3结尾的课程的平均分数"><a href="#2-查询score表中至少有2名学生选修的并以3结尾的课程的平均分数" class="headerlink" title="2 查询score表中至少有2名学生选修的并以3结尾的课程的平均分数"></a>2 查询score表中至少有2名学生选修的并以3结尾的课程的平均分数</h5><p>关键字：<code>having</code>和<code>like</code></p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select course_no, avg(grade) from score group by course_no
-    -> having course_no >= 2 and course_no like "%3";
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select course_no, avg(grade) from score group by course_no
+    -&gt; having course_no &gt;= 2 and course_no like "%3";
 +-----------+------------+
 | course_no | avg(grade) |
 +-----------+------------+
@@ -2194,8 +1963,8 @@ mysql> select avg(grade) from score where course_no="904";
 1 row in set (0.00 sec)
 </code></pre>
 <p>添加上展示人数的需求</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select course_no, avg(grade), count(*) from score group by course_no
-    -> having course_no >= 2 and course_no like "%3";
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select course_no, avg(grade), count(*) from score group by course_no
+    -&gt; having course_no &gt;= 2 and course_no like "%3";
 +-----------+------------+----------+
 | course_no | avg(grade) | count(*) |
 +-----------+------------+----------+
@@ -2205,7 +1974,7 @@ mysql> select avg(grade) from score where course_no="904";
 </code></pre>
 <h5 id="3-查询所有学生的name-course-no和grade列"><a href="#3-查询所有学生的name-course-no和grade列" class="headerlink" title="3 查询所有学生的name, course_no和grade列"></a>3 查询所有学生的name, course_no和grade列</h5><p>字段来自于不同的表，涉及到多表查询</p>
 <p>单个操作</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select name from student; // 查学生姓名
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select name from student; // 查学生姓名
 +----------+
 | name     |
 +----------+
@@ -2224,7 +1993,7 @@ mysql> select avg(grade) from score where course_no="904";
 +----------+
 12 rows in set (0.00 sec)
 
-mysql> select course_no, grade from score; // 查所有的成绩和对应课程编号
+mysql&gt; select course_no, grade from score; // 查所有的成绩和对应课程编号
 +-----------+-------+
 | course_no | grade |
 +-----------+-------+
@@ -2292,8 +2061,8 @@ mysql> select course_no, grade from score; // 查所有的成绩和对应课程�
 60 rows in set (0.00 sec)
 </code></pre>
 <p>同步操作，由于两张表有相同的student_no，所以可以通过添加该条件来进行查询</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select name, course_no, grade from student, score
-    -> where student.student_no = score.student_no;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select name, course_no, grade from student, score
+    -&gt; where student.student_no = score.student_no;
 +----------+-----------+-------+
 | name     | course_no | grade |
 +----------+-----------+-------+
@@ -2360,7 +2129,7 @@ mysql> select course_no, grade from score; // 查所有的成绩和对应课程�
 +----------+-----------+-------+
 60 rows in set (0.00 sec)
 </code></pre>
-<h5 id="4-查询所有学生的student-no、-课程名称和成绩"><a href="#4-查询所有学生的student-no、-课程名称和成绩" class="headerlink" title="4 查询所有学生的student_no、 课程名称和成绩"></a>4 查询所有学生的student_no、 课程名称和成绩</h5><pre class=" language-mysql"><code class="language-mysql">mysql> select student_no, name, grade from course, score where course.course_no = score.course_no;
+<h5 id="4-查询所有学生的student-no、-课程名称和成绩"><a href="#4-查询所有学生的student-no、-课程名称和成绩" class="headerlink" title="4 查询所有学生的student_no、 课程名称和成绩"></a>4 查询所有学生的student_no、 课程名称和成绩</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select student_no, name, grade from course, score where course.course_no = score.course_no;
 +------------+----------+-------+
 | student_no | name     | grade |
 +------------+----------+-------+
@@ -2427,8 +2196,8 @@ mysql> select course_no, grade from score; // 查所有的成绩和对应课程�
 +------------+----------+-------+
 60 rows in set (0.01 sec)
 </code></pre>
-<h5 id="5-查询所有学生的name-课程名称和grade列"><a href="#5-查询所有学生的name-课程名称和grade列" class="headerlink" title="5 查询所有学生的name, 课程名称和grade列"></a>5 查询所有学生的name, 课程名称和grade列</h5><pre class=" language-mysql"><code class="language-mysql">mysql> select student.name, course.name, grade from student, course, score 
-    -> where student.student_no = score.student_no and course.course_no = score.course_no;
+<h5 id="5-查询所有学生的name-课程名称和grade列"><a href="#5-查询所有学生的name-课程名称和grade列" class="headerlink" title="5 查询所有学生的name, 课程名称和grade列"></a>5 查询所有学生的name, 课程名称和grade列</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select student.name, course.name, grade from student, course, score 
+    -&gt; where student.student_no = score.student_no and course.course_no = score.course_no;
 +----------+----------+-------+
 | name     | name     | grade |
 +----------+----------+-------+
@@ -2497,8 +2266,8 @@ mysql> select course_no, grade from score; // 查所有的成绩和对应课程�
 </code></pre>
 <blockquote>
 <p>可以用<code>as</code>关键字来给查询的字段起别名，如下</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select student.name as student, course.name as course, grade from student, course, score
-    -> where student.student_no=score.student_no and score.course_no=course.course_no;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select student.name as student, course.name as course, grade from student, course, score
+    -&gt; where student.student_no=score.student_no and score.course_no=course.course_no;
 +----------+----------+-------+
 | student  | course   | grade | // 原先的两个name就变成了对应的别名
 +----------+----------+-------+
@@ -2512,9 +2281,9 @@ mysql> select course_no, grade from score; // 查所有的成绩和对应课程�
 60 rows in set (0.00 sec)
 </code></pre>
 </blockquote>
-<h5 id="6-查询“一班”学生每门课的平均分"><a href="#6-查询“一班”学生每门课的平均分" class="headerlink" title="6 查询“一班”学生每门课的平均分"></a>6 查询“一班”学生每门课的平均分</h5><pre class=" language-mysql"><code class="language-mysql">mysql> select course_no, avg(grade) from score 
-    -> where student_no in (select student_no from student where class="一班")
-    -> group by course_no;
+<h5 id="6-查询“一班”学生每门课的平均分"><a href="#6-查询“一班”学生每门课的平均分" class="headerlink" title="6 查询“一班”学生每门课的平均分"></a>6 查询“一班”学生每门课的平均分</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select course_no, avg(grade) from score 
+    -&gt; where student_no in (select student_no from student where class="一班")
+    -&gt; group by course_no;
 +-----------+------------+
 | course_no | avg(grade) |
 +-----------+------------+
@@ -2526,8 +2295,8 @@ mysql> select course_no, grade from score; // 查所有的成绩和对应课程�
 +-----------+------------+
 5 rows in set (0.01 sec)
 </code></pre>
-<h5 id="7-查询和学号为104的同学同月出生的所有学生的student-no、name和birthday列"><a href="#7-查询和学号为104的同学同月出生的所有学生的student-no、name和birthday列" class="headerlink" title="7 查询和学号为104的同学同月出生的所有学生的student_no、name和birthday列"></a>7 查询和学号为104的同学同月出生的所有学生的student_no、name和birthday列</h5><pre class=" language-mysql"><code class="language-mysql">mysql> select student_no, name, birth from student // datetime类型的，用year函数查年份，month查月份
-    -> where month(birth) = (select month(birth) from student where student_no="104");
+<h5 id="7-查询和学号为104的同学同月出生的所有学生的student-no、name和birthday列"><a href="#7-查询和学号为104的同学同月出生的所有学生的student-no、name和birthday列" class="headerlink" title="7 查询和学号为104的同学同月出生的所有学生的student_no、name和birthday列"></a>7 查询和学号为104的同学同月出生的所有学生的student_no、name和birthday列</h5><pre class=" language-mysql"><code class="language-mysql">mysql&gt; select student_no, name, birth from student // datetime类型的，用year函数查年份，month查月份
+    -&gt; where month(birth) = (select month(birth) from student where student_no="104");
 +------------+--------+---------------------+
 | student_no | name   | birth               |
 +------------+--------+---------------------+
@@ -2537,805 +2306,182 @@ mysql> select course_no, grade from score; // 查所有的成绩和对应课程�
 2 rows in set (0.01 sec)
 </code></pre>
 
-                
-            </div>
-            <hr/>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">EagleH</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://codereagleh.github.io/2021/05/11/zhong-duan-ming-ling-xing-cao-zuo-mysql/">http://codereagleh.github.io/2021/05/11/zhong-duan-ming-ling-xing-cao-zuo-mysql/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">EagleH</a>
-                    !
-                </span>
-            </div>
-        
     </div>
 
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
+    
+    
+    
+        <div class="reward-container">
+  <div>您的支持就是我前进的动力！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="江鸟/hyh 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="江鸟/hyh 支付宝">
+        <p>支付宝</p>
+      </div>
 
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MySql/" rel="tag"># MySql</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/27/guan-yu-js-zhong-console.log-de-da-yin-ji-zhi/" rel="prev" title="console.log是“异步打印”吗——寻求console.log的打印机制">
+      <i class="fa fa-chevron-left"></i> console.log是“异步打印”吗——寻求console.log的打印机制
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/14/if-yu-ju-nei-de-han-shu-sheng-ming-wen-ti/" rel="next" title="if语句内的函数声明问题">
+      if语句内的函数声明问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
       }
-    </script>
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            
-                                <a href="/tags/MySql/">
-                                    <span class="chip bg-color">MySql</span>
-                                </a>
-                            
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
-</div>
-
-                </div>
-            </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
     }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
     });
+  }
 </script>
 
-            
         </div>
-    </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
 
-    
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
-    
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
-    
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9CMySql"><span class="nav-text">终端命令行操作MySql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">一、如何使用终端操作数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%A6%82%E4%BD%95%E7%99%BB%E5%BD%95%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">1.1 如何登录数据库服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-text">1.2 如何查询数据库服务器中所有的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E5%A6%82%E4%BD%95%E9%80%89%E4%B8%AD%E6%9F%90%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="nav-text">1.3 如何选中某一个数据库进行操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E9%80%80%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">1.4 退出数据库服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E5%A6%82%E4%BD%95%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E5%88%9B%E5%BB%BA%E6%88%91%E4%BB%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">1.5 如何在数据库服务器中创建我们的数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">1.6 如何查看某个数据库中的所有数据表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">1.7 如何创建一个数据表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-8-%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%BB%93%E6%9E%84%E8%AF%A6%E6%83%85"><span class="nav-text">1.8 如何查看数据表结构详情</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-9-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E8%A1%A8%E8%AE%B0%E5%BD%95"><span class="nav-text">1.9 查看数据表记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-10-%E5%A6%82%E4%BD%95%E5%BE%80%E6%95%B0%E6%8D%AE%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95"><span class="nav-text">1.10 如何往数据表中添加数据记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0%E4%B8%80%E4%B8%8B"><span class="nav-text">练习一下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-11-%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E4%B8%80%E6%9D%A1%E6%95%B0%E6%8D%AE"><span class="nav-text">1.11 如何删除一条数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-12-%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE"><span class="nav-text">1.12 如何修改数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-13-%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93"><span class="nav-text">1.13 命令行操作总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81mySql%E5%BB%BA%E8%A1%A8%E7%BA%A6%E6%9D%9F"><span class="nav-text">二、mySql建表约束</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F%E5%92%8C%E8%87%AA%E5%A2%9E%E7%BA%A6%E6%9D%9F"><span class="nav-text">2.1 主键约束和自增约束</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="nav-text">2.1.1 主键约束</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2-%E8%81%94%E5%90%88%E4%B8%BB%E9%94%AE"><span class="nav-text">2.1.2 联合主键</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-3-%E8%87%AA%E5%A2%9E%E7%BA%A6%E6%9D%9F"><span class="nav-text">2.1.3 自增约束</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-4-%E2%80%9C%E4%BA%A1%E7%BE%8A%E8%A1%A5%E7%89%A2%E2%80%9D"><span class="nav-text">2.1.4 “亡羊补牢”</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E5%94%AF%E4%B8%80%E7%BA%A6%E6%9D%9F"><span class="nav-text">2.2 唯一约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E9%9D%9E%E7%A9%BA%E7%BA%A6%E6%9D%9F"><span class="nav-text">2.3 非空约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-%E9%BB%98%E8%AE%A4%E7%BA%A6%E6%9D%9F"><span class="nav-text">2.4 默认约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="nav-text">2.5 外键约束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%89%E5%A4%A7%E8%AE%BE%E8%AE%A1%E8%8C%83%E5%BC%8F"><span class="nav-text">三、数据库的三大设计范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F-1NF"><span class="nav-text">3.1 第一范式 1NF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E7%AC%AC%E4%BA%8C%E8%8C%83%E5%BC%8F-2NF"><span class="nav-text">3.2 第二范式 2NF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-%E7%AC%AC%E4%B8%89%E8%8C%83%E5%BC%8F-3NF"><span class="nav-text">3.3 第三范式 3NF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text">3.4 注意事项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%9F%A5%E8%AF%A2%E7%BB%83%E4%B9%A0"><span class="nav-text">四、查询练习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E5%BB%BA%E8%A1%A8"><span class="nav-text">4.1 建表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-text">4.2 添加数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E7%BB%83%E4%B9%A0"><span class="nav-text">4.3 练习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E6%9F%A5%E8%AF%A2student%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E8%AE%B0%E5%BD%95"><span class="nav-text">1 查询student表的所有记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%9F%A5%E8%AF%A2student%E8%A1%A8%E4%B8%AD%E6%89%80%E6%9C%89%E8%AE%B0%E5%BD%95%E7%9A%84name%E3%80%81sex%E5%92%8Cclass%E5%88%97"><span class="nav-text">2 查询student表中所有记录的name、sex和class列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%9F%A5%E8%AF%A2%E6%95%99%E5%B8%88%E6%89%80%E6%9C%89%E7%9A%84%E5%8D%95%E4%BD%8D%EF%BC%8C%E5%8D%B3%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84department%E5%88%97-%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%9Adistinct%E8%AF%AD%E6%B3%95"><span class="nav-text">3 查询教师所有的单位，即不重复的department列( 知识点：distinct语法)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E6%9F%A5%E8%AF%A2score%E8%A1%A8%E4%B8%AD%E6%88%90%E7%BB%A9%E4%B8%BA90%EF%BC%8C95%E6%88%9696%E7%9A%84%E8%AE%B0%E5%BD%95"><span class="nav-text">4 查询score表中成绩为90，95或96的记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E6%9F%A5%E8%AF%A2student%E8%A1%A8%E4%B8%AD%E2%80%99%E4%B8%80%E7%8F%AD%E2%80%99%E6%88%96%E6%80%A7%E5%88%AB%E4%B8%BA%E2%80%99%E5%A5%B3%E2%80%99%E7%9A%84%E5%90%8C%E5%AD%A6%E8%AE%B0%E5%BD%95"><span class="nav-text">5 查询student表中’一班’或性别为’女’的同学记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-%E6%9F%A5%E8%AF%A2%E2%80%99%E5%9B%9B%E7%8F%AD%E2%80%99%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BA%BA%E6%95%B0"><span class="nav-text">7 查询’四班’的学生人数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-%E6%9F%A5%E8%AF%A2score%E8%A1%A8%E4%B8%AD%E6%88%90%E7%BB%A9%E5%9C%A890-92%E4%B9%8B%E9%97%B4%E7%9A%84%E6%89%80%E6%9C%89%E8%AE%B0%E5%BD%95"><span class="nav-text">8 查询score表中成绩在90-92之间的所有记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-%E4%BB%A5course-no%E5%8D%87%E5%BA%8F%EF%BC%8Cgrade%E9%99%8D%E5%BA%8F%E6%9F%A5%E8%AF%A2scroe%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E8%AE%B0%E5%BD%95"><span class="nav-text">9 以course_no升序，grade降序查询scroe表的所有记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-%E6%9F%A5%E8%AF%A2score%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%9C%80%E9%AB%98%E5%88%86%E7%9A%84%E5%AD%A6%E7%94%9F%E5%AD%A6%E5%8F%B7%E5%92%8C%E8%AF%BE%E7%A8%8B%E7%BC%96%E5%8F%B7%E3%80%82%EF%BC%88%E5%AD%90%E6%9F%A5%E8%AF%A2%E6%88%96%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">10 查询score表中的最高分的学生学号和课程编号。（子查询或排序）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-%E8%BF%9B%E9%98%B6%E7%BB%83%E4%B9%A0"><span class="nav-text">4.4 进阶练习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E6%9F%A5%E8%AF%A2%E6%AF%8F%E9%97%A8%E8%AF%BE%E7%9A%84%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9"><span class="nav-text">1 查询每门课的平均成绩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%9F%A5%E8%AF%A2score%E8%A1%A8%E4%B8%AD%E8%87%B3%E5%B0%91%E6%9C%892%E5%90%8D%E5%AD%A6%E7%94%9F%E9%80%89%E4%BF%AE%E7%9A%84%E5%B9%B6%E4%BB%A53%E7%BB%93%E5%B0%BE%E7%9A%84%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%B9%B3%E5%9D%87%E5%88%86%E6%95%B0"><span class="nav-text">2 查询score表中至少有2名学生选修的并以3结尾的课程的平均分数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84name-course-no%E5%92%8Cgrade%E5%88%97"><span class="nav-text">3 查询所有学生的name, course_no和grade列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84student-no%E3%80%81-%E8%AF%BE%E7%A8%8B%E5%90%8D%E7%A7%B0%E5%92%8C%E6%88%90%E7%BB%A9"><span class="nav-text">4 查询所有学生的student_no、 课程名称和成绩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84name-%E8%AF%BE%E7%A8%8B%E5%90%8D%E7%A7%B0%E5%92%8Cgrade%E5%88%97"><span class="nav-text">5 查询所有学生的name, 课程名称和grade列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-%E6%9F%A5%E8%AF%A2%E2%80%9C%E4%B8%80%E7%8F%AD%E2%80%9D%E5%AD%A6%E7%94%9F%E6%AF%8F%E9%97%A8%E8%AF%BE%E7%9A%84%E5%B9%B3%E5%9D%87%E5%88%86"><span class="nav-text">6 查询“一班”学生每门课的平均分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%AD%A6%E5%8F%B7%E4%B8%BA104%E7%9A%84%E5%90%8C%E5%AD%A6%E5%90%8C%E6%9C%88%E5%87%BA%E7%94%9F%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84student-no%E3%80%81name%E5%92%8Cbirthday%E5%88%97"><span class="nav-text">7 查询和学号为104的同学同月出生的所有学生的student_no、name和birthday列</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
 
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table,
-    th,
-    td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table,
-    th,
-    td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n),
-    thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #42b983;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked),
-    [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table,
-    th,
-    td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n),
-    thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked),
-    [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling"
-        style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
-    </div>
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="江鸟/hyh"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">江鸟/hyh</p>
+  <div class="site-description" itemprop="description">江鸟(hyh)的个人博客，记录了一位不甘堕落的前端小白的心酸成长历程。</div>
 </div>
-
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'xKv8XYcvOIe6u57dklKSmCte-gzGzoHsz',
-        appKey: 'kaLPp2Enu2SLhKFe3XoP6NVn',
-        visitor: 'true' === 'true',
-        avatar: 'monsterid',
-        pageSize: '10',
-        enableQQ: 'true',
-        requiredFields: ['nick', 'mail'],
-        lang: 'zh-cn',
-        placeholder: '有什么想法，快快告诉我叭，记得留下你的昵称哦~'
-    });
-</script>
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2021/05/14/if-yu-ju-nei-de-han-shu-sheng-ming-wen-ti/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="if语句内的函数声明问题">
-                        
-                        <span class="card-title">if语句内的函数声明问题</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-14
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/web%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    web前端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/04/27/guan-yu-js-zhong-console.log-de-da-yin-ji-zhi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="console.log是“异步打印”吗——寻求console.log的打印机制">
-                        
-                        <span class="card-title">console.log是“异步打印”吗——寻求console.log的打印机制</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-27
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            EagleH
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
-
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/coderEagleH" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;coderEagleH" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.cn/user/2410576811924808/posts" title="掘金 → https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;2410576811924808&#x2F;posts" rel="noopener" target="_blank"><i class="fa fa-angle-double-down fa-fw"></i>掘金</a>
+      </span>
+  </div>
 
 
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
 
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('100')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: hyh&#39;s Blog<br />'
-            + '文章作者: hyh<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
+      </div>
 
     </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
+      </div>
+    </main>
 
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
+    <footer class="footer">
+      <div class="footer-inner">
+        
 
         
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
 
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">江鸟/hyh</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
 
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
         
-    });
-</script>
-
-    
-
-</main>
-
-
-
-
-    <footer class="page-footer bg-color">
-    
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            
-                <span id="year">2021</span>
-            
-            <span id="year">2021</span>
-            <a href="/about" target="_blank">hyh</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            
-            
-            
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
-            
-            <br>
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/coderEagleH" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:eaglehuang720@foxmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
 
 
 
@@ -3343,9 +2489,30 @@ mysql> select course_no, grade from score; // 查所有的成绩和对应课程�
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1286384262" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1286384262" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
 
 
 
@@ -3353,174 +2520,17 @@ mysql> select course_no, grade from score; // 查所有的成绩和对应课程�
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-    </div>
-</footer>
-
-<div class="progress-bar"></div>
 
 
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script type="text/javascript">
-$(function () {
-    var searchFunc = function (path, search_id, content_id) {
-        'use strict';
-        $.ajax({
-            url: path,
-            dataType: "xml",
-            success: function (xmlResponse) {
-                // get the contents from search data
-                var datas = $("entry", xmlResponse).map(function () {
-                    return {
-                        title: $("title", this).text(),
-                        content: $("content", this).text(),
-                        url: $("url", this).text()
-                    };
-                }).get();
-                var $input = document.getElementById(search_id);
-                var $resultContent = document.getElementById(content_id);
-                $input.addEventListener('input', function () {
-                    var str = '<ul class=\"search-result-list\">';
-                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                    $resultContent.innerHTML = "";
-                    if (this.value.trim().length <= 0) {
-                        return;
-                    }
-                    // perform local searching
-                    datas.forEach(function (data) {
-                        var isMatch = true;
-                        var data_title = data.title.trim().toLowerCase();
-                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                        var data_url = data.url;
-                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
-                        var index_title = -1;
-                        var index_content = -1;
-                        var first_occur = -1;
-                        // only match artiles with not empty titles and contents
-                        if (data_title !== '' && data_content !== '') {
-                            keywords.forEach(function (keyword, i) {
-                                index_title = data_title.indexOf(keyword);
-                                index_content = data_content.indexOf(keyword);
-                                if (index_title < 0 && index_content < 0) {
-                                    isMatch = false;
-                                } else {
-                                    if (index_content < 0) {
-                                        index_content = 0;
-                                    }
-                                    if (i === 0) {
-                                        first_occur = index_content;
-                                    }
-                                }
-                            });
-                        }
-                        // show search results
-                        if (isMatch) {
-                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                            var content = data.content.trim().replace(/<[^>]+>/g, "");
-                            if (first_occur >= 0) {
-                                // cut out 100 characters
-                                var start = first_occur - 20;
-                                var end = first_occur + 80;
-                                if (start < 0) {
-                                    start = 0;
-                                }
-                                if (start === 0) {
-                                    end = 100;
-                                }
-                                if (end > content.length) {
-                                    end = content.length;
-                                }
-                                var match_content = content.substr(start, end);
-                                // highlight all keywords
-                                keywords.forEach(function (keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
-                                });
-
-                                str += "<p class=\"search-result\">" + match_content + "...</p>"
-                            }
-                            str += "</li>";
-                        }
-                    });
-                    str += "</ul>";
-                    $resultContent.innerHTML = str;
-                });
-            }
-        });
-    };
-
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
-});
-</script>
-
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
 
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
 
-    <!-- Baidu Analytics -->
 
-    <!-- Baidu Push -->
 
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
 
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
+  
 
-    
-
-    
-
-	
-    
-
-    
-
-    
-
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
+  
 
 </body>
-
 </html>
