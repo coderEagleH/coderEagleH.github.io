@@ -6,7 +6,7 @@
   <link href="http://codereagleh.github.io/atom.xml" rel="self"/>
   
   <link href="http://codereagleh.github.io/"/>
-  <updated>2021-05-21T10:25:43.126Z</updated>
+  <updated>2021-05-24T05:54:11.629Z</updated>
   <id>http://codereagleh.github.io/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>if语句内的函数声明问题</title>
-    <link href="http://codereagleh.github.io/2021/05/14/if-yu-ju-nei-de-han-shu-sheng-ming-wen-ti/"/>
-    <id>http://codereagleh.github.io/2021/05/14/if-yu-ju-nei-de-han-shu-sheng-ming-wen-ti/</id>
+    <title>if条件语句内的Function函数声明的变量提升</title>
+    <link href="http://codereagleh.github.io/2021/05/14/if-tiao-jian-yu-ju-nei-de-function-han-shu-sheng-ming-de-bian-liang-ti-sheng/"/>
+    <id>http://codereagleh.github.io/2021/05/14/if-tiao-jian-yu-ju-nei-de-function-han-shu-sheng-ming-de-bian-liang-ti-sheng/</id>
     <published>2021-05-14T04:54:51.000Z</published>
-    <updated>2021-05-21T10:25:43.126Z</updated>
+    <updated>2021-05-24T05:54:11.629Z</updated>
     
     
     <summary type="html">今天在学习群里看到一个伙伴的提问，但是由于其他大佬讨论别的问题，导致没有人回答他，所以我选择自己研究，查阅资料，然后给他解答，并祈愿自己以后在路上有困惑时也能够得到他人的解答。</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="JavaScript" scheme="http://codereagleh.github.io/tags/JavaScript/"/>
@@ -40,7 +40,7 @@
     <link href="http://codereagleh.github.io/2021/05/11/zhong-duan-ming-ling-xing-cao-zuo-mysql/"/>
     <id>http://codereagleh.github.io/2021/05/11/zhong-duan-ming-ling-xing-cao-zuo-mysql/</id>
     <published>2021-05-11T01:57:00.000Z</published>
-    <updated>2021-05-21T10:28:53.308Z</updated>
+    <updated>2021-05-24T05:55:44.249Z</updated>
     
     
     <summary type="html">MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。通过学习使用数据库的命令行，可以让我们更加底层的去操作数据库，同时也可以让我们在其他方面使用数据库时更加的轻松。</summary>
@@ -59,13 +59,17 @@
     <link href="http://codereagleh.github.io/2021/04/27/guan-yu-js-zhong-console.log-de-da-yin-ji-zhi/"/>
     <id>http://codereagleh.github.io/2021/04/27/guan-yu-js-zhong-console.log-de-da-yin-ji-zhi/</id>
     <published>2021-04-27T00:32:21.000Z</published>
-    <updated>2021-05-21T10:31:23.439Z</updated>
+    <updated>2021-05-24T06:01:25.018Z</updated>
     
     
-    <summary type="html">console.log的打印机制，控制台打印数据“凭空消失”，console.log的“异步”打印原理，是bug，还是控制台的“小魔术”，请锁定——“hyh有话说~”。</summary>
+    <summary type="html">console.log的打印机制，控制台打印数据“凭空消失”，console.log的“异步”打印原理，是bug，还是控制台的“小魔术”。</summary>
     
     
     
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Javascript" scheme="http://codereagleh.github.io/tags/Javascript/"/>
     
   </entry>
   
@@ -74,14 +78,14 @@
     <link href="http://codereagleh.github.io/2021/04/20/ru-he-gei-wei-yuan-su-tian-jia-shu-biao-shi-jian/"/>
     <id>http://codereagleh.github.io/2021/04/20/ru-he-gei-wei-yuan-su-tian-jia-shu-biao-shi-jian/</id>
     <published>2021-04-20T09:41:43.000Z</published>
-    <updated>2021-05-21T12:34:50.882Z</updated>
+    <updated>2021-05-24T06:03:34.287Z</updated>
     
     
     <summary type="html">伪元素不是真实元素，不存在于DOM树中，那么该如何给伪元素添加鼠标事件呢？什么？你说不用伪元素，换成真实元素标签？确实可行嗷~但是抱歉，这个牛角尖，我钻了！</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="css" scheme="http://codereagleh.github.io/tags/css/"/>
@@ -93,62 +97,34 @@
     <link href="http://codereagleh.github.io/2021/04/14/tui-jian-ji-ge-shua-ti-wang-zhan/"/>
     <id>http://codereagleh.github.io/2021/04/14/tui-jian-ji-ge-shua-ti-wang-zhan/</id>
     <published>2021-04-14T00:43:30.000Z</published>
-    <updated>2021-05-21T10:38:40.891Z</updated>
+    <updated>2021-05-24T06:06:15.615Z</updated>
     
     
-    <summary type="html">不知不觉，自学前端已经有一段时间了，每天都在汲取新知识，在有些时候会有种力不从心的感觉，对自己开始不自信，新的知识来不及学习，旧的知识已经渐渐遗忘，后来才慢慢发现，自己缺乏一种能够巩固自己知识的方式。从开始上学到大学毕业，其实老师都在教授我们这种方法，那就是刷题。通过刷题，可以巩固我们的理论基础，活学活用，查漏补缺，同时也可以在做题过程中不断提升自己的实力，收集了一些网上素材，下面推荐几个好用的刷题网站。</summary>
+    <summary type="html">新的知识来不及学习，旧的知识已经渐渐遗忘，其实是缺乏一种能够巩固自己知识的方式。通过刷题，可以巩固理论基础，活学活用，查漏补缺，同时也可以在做题过程中不断提升自己的实力，收集了一些网上素材，下面推荐几个好用的刷题网站。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="http://codereagleh.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Node中的模块系统之exports和module.exports的关系</title>
+    <link href="http://codereagleh.github.io/2021/04/11/node-zhong-de-mo-kuai-xi-tong-zhi-exports-he-module.exports-de-guan-xi/"/>
+    <id>http://codereagleh.github.io/2021/04/11/node-zhong-de-mo-kuai-xi-tong-zhi-exports-he-module.exports-de-guan-xi/</id>
+    <published>2021-04-11T05:12:25.000Z</published>
+    <updated>2021-05-24T06:09:33.230Z</updated>
+    
+    
+    <summary type="html">很多初学者搞不懂module.exports和exports之间的关系，使用非常混乱，那么通过对本文的阅读，相信一定会对两者的关系有更深刻的理解。</summary>
     
     
     
     <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="学习资源" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Node中的模块系统之exports和module.exports的关系</title>
-    <link href="http://codereagleh.github.io/2021/04/11/exports-he-module.exports-de-guan-xi/"/>
-    <id>http://codereagleh.github.io/2021/04/11/exports-he-module.exports-de-guan-xi/</id>
-    <published>2021-04-11T05:12:25.000Z</published>
-    <updated>2021-04-16T01:07:18.680Z</updated>
-    
-    
-    <summary type="html">Node中的模块系统之exports和module.exports的关系
-1.什么是文件模块化
- * 文件作用域
- * 通信规则 * 加载
-    * 导出
-   
-   
-
-2.CommonJS模块规则
-在Node中的JavaScript有一个很重要的概念——模块系统。
-
- * 模块作用域
- * 使用require方法加载模块
- * 使用exports接口对象导出模块中的成员
-
-2.1 加载require
-语法：
-
-var 自定义变量名 = require(&#39;模块&#39;)
-
-
-作用：
-
- * 执行被加载模块中的代码
- * 得到被加载模块中的exports导出接口对象
-
-2.2 导出exports</summary>
-    
-    
-    
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="Node.js" scheme="http://codereagleh.github.io/tags/Node-js/"/>
+    <category term="Node" scheme="http://codereagleh.github.io/tags/Node/"/>
     
   </entry>
   
@@ -157,107 +133,101 @@ var 自定义变量名 = require(&#39;模块&#39;)
     <link href="http://codereagleh.github.io/2021/04/01/elementui-input-de-type-number-shi-qu-diao-shang-xia-jian-tou-he-shu-biao-gun-lun-gun-dong-shi-jian/"/>
     <id>http://codereagleh.github.io/2021/04/01/elementui-input-de-type-number-shi-qu-diao-shang-xia-jian-tou-he-shu-biao-gun-lun-gun-dong-shi-jian/</id>
     <published>2021-04-01T03:04:31.000Z</published>
-    <updated>2021-04-01T03:05:56.438Z</updated>
+    <updated>2021-05-24T06:11:21.997Z</updated>
     
     
-    <summary type="html">话不多说，直接贴代码，亲测有用~
-html代码
- * 用去禁用input输入框中滚轮可以调节数字的事件
-   
-    * </summary>
+    <summary type="html">ElementUI-input的type=&#39;number&#39;时去掉上下箭头和鼠标滚轮滚动事件的小技巧，在实际开发中可以使用，亲测有效。</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="Element UI" scheme="http://codereagleh.github.io/tags/Element-UI/"/>
     
-    <category term="奇技淫巧" scheme="http://codereagleh.github.io/tags/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    <category term="CSS" scheme="http://codereagleh.github.io/tags/CSS/"/>
     
   </entry>
   
   <entry>
-    <title>Vue学习笔记</title>
-    <link href="http://codereagleh.github.io/2021/02/14/vue-xue-xi-bi-ji/"/>
-    <id>http://codereagleh.github.io/2021/02/14/vue-xue-xi-bi-ji/</id>
+    <title>Vue入门</title>
+    <link href="http://codereagleh.github.io/2021/02/14/vue-ru-men/"/>
+    <id>http://codereagleh.github.io/2021/02/14/vue-ru-men/</id>
     <published>2021-02-14T11:16:03.000Z</published>
-    <updated>2021-05-21T12:34:40.012Z</updated>
+    <updated>2021-05-24T06:16:23.608Z</updated>
     
     
     <summary type="html">Vue.js是一款流行的JavaScript前端框架，旨在更好地组织与简化Web开发。Vue所关注的核心是MVC模式中的视图层，同时，它也能方便地获取数据更新，并通过组件内部特定的方法实现视图与模型的交互。</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-    <category term="Vuejs" scheme="http://codereagleh.github.io/tags/Vuejs/"/>
-    
-    <category term="前端框架" scheme="http://codereagleh.github.io/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    <category term="Vue" scheme="http://codereagleh.github.io/tags/Vue/"/>
     
   </entry>
   
   <entry>
-    <title>jQuery学习笔记</title>
-    <link href="http://codereagleh.github.io/2021/02/14/jquery-xue-xi-bi-ji/"/>
-    <id>http://codereagleh.github.io/2021/02/14/jquery-xue-xi-bi-ji/</id>
+    <title>jQuery入门</title>
+    <link href="http://codereagleh.github.io/2021/02/14/jquery-ru-men/"/>
+    <id>http://codereagleh.github.io/2021/02/14/jquery-ru-men/</id>
     <published>2021-02-14T04:53:23.000Z</published>
-    <updated>2021-05-21T12:32:46.183Z</updated>
+    <updated>2021-05-24T06:16:35.319Z</updated>
     
     
-    <summary type="html">jQuery是小白EagleH正式接触的除web前端三件套以外的第一门前端工具，也是从jQuery的学习中，渐渐开始觉得合理运用这些不一样的思想和方法，对于前端开发来说更为的简单方便了，正如jQuery封面上写的那句：Write less, Do more。朋友告诉我，不论是后面要学习Vue还是React亦或者是其他框架，他们的思想都是从jQuery中获得的启发，所以不论将来是否使用jQuery，将它的思想和基础内容学习一下也是非常有利于以后其他内容的学习</summary>
+    <summary type="html">jQuery是我正式接触的除web前端三件套以外的第一门前端工具，也是从jQuery的学习中，渐渐开始觉得合理运用这些不一样的思想和方法，对于前端开发来说更为的简单方便了，正如jQuery封面上写的那句：Write less, Do more。朋友告诉我，不论是后面要学习Vue还是React亦或者是其他框架，他们的思想都是从jQuery中获得的启发，所以不论将来是否使用jQuery，将它的思想和基础内容学习一下也是非常有利于以后其他内容的学习</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
+    
+    <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     <category term="jQuery" scheme="http://codereagleh.github.io/tags/jQuery/"/>
     
-    <category term="JS库" scheme="http://codereagleh.github.io/tags/JS%E5%BA%93/"/>
-    
   </entry>
   
   <entry>
-    <title>JS学习笔记之DOM</title>
-    <link href="http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/"/>
-    <id>http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/</id>
+    <title>JS入门之DOM</title>
+    <link href="http://codereagleh.github.io/2021/02/13/js-ru-men-zhi-dom/"/>
+    <id>http://codereagleh.github.io/2021/02/13/js-ru-men-zhi-dom/</id>
     <published>2021-02-13T07:56:39.000Z</published>
-    <updated>2021-05-21T12:21:45.387Z</updated>
+    <updated>2021-05-24T06:16:30.588Z</updated>
     
     
     <summary type="html">上一篇中笔记做的是JS的基础阶段，学习的是ECMAScript标准规定的基本语法，只要求掌握基础语法就可以了，为后面的JS打下基础。但是只学了语法，我们还是无法做到网页的交互效果，所以JS还有一个重要的阶段，叫&quot;WEB APIs&quot;，他是W3C组织的标准，在JS中我们要掌握的是DOM和BOM，但是BOM其实根据不同的浏览器有不同的要求，所以本片笔记主要只针对JS中的DOM部分，主要学习的是页面交互功能</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     <category term="JavaScript" scheme="http://codereagleh.github.io/tags/JavaScript/"/>
     
-    <category term="DOM" scheme="http://codereagleh.github.io/tags/DOM/"/>
-    
   </entry>
   
   <entry>
-    <title>JavaScript学习笔记</title>
-    <link href="http://codereagleh.github.io/2021/02/13/javascript-xue-xi-bi-ji/"/>
-    <id>http://codereagleh.github.io/2021/02/13/javascript-xue-xi-bi-ji/</id>
+    <title>JavaScript入门</title>
+    <link href="http://codereagleh.github.io/2021/02/13/javascript-ru-men/"/>
+    <id>http://codereagleh.github.io/2021/02/13/javascript-ru-men/</id>
     <published>2021-02-13T03:00:08.000Z</published>
-    <updated>2021-05-21T12:19:20.698Z</updated>
+    <updated>2021-05-24T06:16:41.337Z</updated>
     
     
     <summary type="html">JavaScript ( JS ) 是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发Web 页面的脚本语言而出名的，但是它也被用到了很多非浏览器环境中，例如 Node.js、 Apache CouchDB 和 Adobe Acrobat。JavaScript 是一种基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。 ——摘自MDN</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
+    
+    <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     <category term="JavaScript" scheme="http://codereagleh.github.io/tags/JavaScript/"/>
     
@@ -265,57 +235,59 @@ html代码
   
   <entry>
     <title>H5C3新增基础</title>
-    <link href="http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-xue-xi-bi-ji/"/>
-    <id>http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-xue-xi-bi-ji/</id>
+    <link href="http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-ji-chu/"/>
+    <id>http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-ji-chu/</id>
     <published>2021-02-12T03:48:31.000Z</published>
-    <updated>2021-05-21T12:17:37.577Z</updated>
+    <updated>2021-05-24T06:16:57.629Z</updated>
     
     
     <summary type="html">这部分内容是在看视频学习HTML和CSS后紧跟着讲解的H5C3的新增部分，与前两者相同，也是在学习过程中手写到笔记本上的笔记内容，所以内容上可能会有所欠缺，欢迎指正。况且现在互联网如此之发达，只要想学，并且付诸行动，就没有学不好的</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    
-    <category term="HTML" scheme="http://codereagleh.github.io/tags/HTML/"/>
     
     <category term="CSS" scheme="http://codereagleh.github.io/tags/CSS/"/>
+    
+    <category term="HTML" scheme="http://codereagleh.github.io/tags/HTML/"/>
     
   </entry>
   
   <entry>
     <title>CSS入门</title>
-    <link href="http://codereagleh.github.io/2021/02/11/css-xue-xi-bi-ji/"/>
-    <id>http://codereagleh.github.io/2021/02/11/css-xue-xi-bi-ji/</id>
+    <link href="http://codereagleh.github.io/2021/02/11/css-ru-men/"/>
+    <id>http://codereagleh.github.io/2021/02/11/css-ru-men/</id>
     <published>2021-02-11T04:48:16.000Z</published>
-    <updated>2021-05-21T12:17:47.108Z</updated>
+    <updated>2021-05-24T06:17:05.607Z</updated>
     
     
     <summary type="html">这些笔记都是之前学习时写在笔记本上或者记录在markdown文件上的，现在学习搭建了一个自己的个人博客，所以将学习笔记都一点点写在个人博客上，作为自己个人博客的起步内容，同时也正好复习一遍WEB前端的基础学习内容</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="CSS" scheme="http://codereagleh.github.io/tags/CSS/"/>
+    
+    <category term="学习笔记" scheme="http://codereagleh.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>HTML入门</title>
-    <link href="http://codereagleh.github.io/2021/02/10/html-xue-xi-bi-ji/"/>
-    <id>http://codereagleh.github.io/2021/02/10/html-xue-xi-bi-ji/</id>
+    <link href="http://codereagleh.github.io/2021/02/10/html-ru-men/"/>
+    <id>http://codereagleh.github.io/2021/02/10/html-ru-men/</id>
     <published>2021-02-10T10:19:41.000Z</published>
-    <updated>2021-05-21T12:11:20.721Z</updated>
+    <updated>2021-05-24T06:16:48.794Z</updated>
     
     
     <summary type="html">作为一名即将毕业的普通大四学生，面对未来一片迷茫，回想一下大学四年下来，似乎除了享受无边无际的大学生活，随着时间流逝，在最后关头即将毕业才发现自己一无所有。面临毕业即失业的问题，花时间认真思考了一下自己的未来和兴趣，在做毕业设计的过程中，发现自己对所学专业的工作并不是非常喜欢，反而偶然接触到了前端，在学习过程中感觉时间飞快，最终选择了从web前端入手，趁着自己还年轻，还保有学习的热情，以及浓密的头发，开启了一名小白踏足IT的求学之路</summary>
     
     
     
-    <category term="web前端" scheme="http://codereagleh.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://codereagleh.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="HTML" scheme="http://codereagleh.github.io/tags/HTML/"/>

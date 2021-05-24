@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"codereagleh.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"codereagleh.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="江鸟(hyh)的个人博客，记录了一位不甘堕落的前端小白的心酸成长历程。">
@@ -84,10 +84,10 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="hyh's Blog" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="hyh's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -115,6 +115,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -149,11 +150,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -176,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/05/14/if-yu-ju-nei-de-han-shu-sheng-ming-wen-ti/">
+    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/05/14/if-tiao-jian-yu-ju-nei-de-function-han-shu-sheng-ming-de-bian-liang-ti-sheng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -190,7 +218,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/14/if-yu-ju-nei-de-han-shu-sheng-ming-wen-ti/" class="post-title-link" itemprop="url">if语句内的函数声明问题</a>
+            <a href="/2021/05/14/if-tiao-jian-yu-ju-nei-de-function-han-shu-sheng-ming-de-bian-liang-ti-sheng/" class="post-title-link" itemprop="url">if条件语句内的Function函数声明的变量提升</a>
         </h2>
 
         <div class="post-meta">
@@ -207,7 +235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 18:25:43" itemprop="dateModified" datetime="2021-05-21T18:25:43+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 13:54:11" itemprop="dateModified" datetime="2021-05-24T13:54:11+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -215,7 +243,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -233,7 +261,7 @@
           <p>今天在学习群里看到一个伙伴的提问，但是由于其他大佬讨论别的问题，导致没有人回答他，所以我选择自己研究，查阅资料，然后给他解答，并祈愿自己以后在路上有困惑时也能够得到他人的解答。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/14/if-yu-ju-nei-de-han-shu-sheng-ming-wen-ti/">
+              <a class="btn" href="/2021/05/14/if-tiao-jian-yu-ju-nei-de-function-han-shu-sheng-ming-de-bian-liang-ti-sheng/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -288,7 +316,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 18:28:53" itemprop="dateModified" datetime="2021-05-21T18:28:53+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 13:55:44" itemprop="dateModified" datetime="2021-05-24T13:55:44+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -369,8 +397,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 18:31:23" itemprop="dateModified" datetime="2021-05-21T18:31:23+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 14:01:25" itemprop="dateModified" datetime="2021-05-24T14:01:25+08:00">2021-05-24</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
 
           
 
@@ -383,7 +420,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>console.log的打印机制，控制台打印数据“凭空消失”，console.log的“异步”打印原理，是bug，还是控制台的“小魔术”，请锁定——“hyh有话说~”。</p>
+          <p>console.log的打印机制，控制台打印数据“凭空消失”，console.log的“异步”打印原理，是bug，还是控制台的“小魔术”。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/27/guan-yu-js-zhong-console.log-de-da-yin-ji-zhi/">
@@ -441,7 +478,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 20:34:50" itemprop="dateModified" datetime="2021-05-21T20:34:50+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 14:03:34" itemprop="dateModified" datetime="2021-05-24T14:03:34+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -449,7 +486,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -522,7 +559,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 18:38:40" itemprop="dateModified" datetime="2021-05-21T18:38:40+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 14:06:15" itemprop="dateModified" datetime="2021-05-24T14:06:15+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -530,7 +567,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">学习资源</span></a>
                 </span>
             </span>
 
@@ -545,7 +582,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>不知不觉，自学前端已经有一段时间了，每天都在汲取新知识，在有些时候会有种力不从心的感觉，对自己开始不自信，新的知识来不及学习，旧的知识已经渐渐遗忘，后来才慢慢发现，自己缺乏一种能够巩固自己知识的方式。从开始上学到大学毕业，其实老师都在教授我们这种方法，那就是刷题。通过刷题，可以巩固我们的理论基础，活学活用，查漏补缺，同时也可以在做题过程中不断提升自己的实力，收集了一些网上素材，下面推荐几个好用的刷题网站。</p>
+          <p>新的知识来不及学习，旧的知识已经渐渐遗忘，其实是缺乏一种能够巩固自己知识的方式。通过刷题，可以巩固理论基础，活学活用，查漏补缺，同时也可以在做题过程中不断提升自己的实力，收集了一些网上素材，下面推荐几个好用的刷题网站。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/14/tui-jian-ji-ge-shua-ti-wang-zhan/">
@@ -572,7 +609,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/04/11/exports-he-module.exports-de-guan-xi/">
+    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/04/11/node-zhong-de-mo-kuai-xi-tong-zhi-exports-he-module.exports-de-guan-xi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -586,7 +623,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/11/exports-he-module.exports-de-guan-xi/" class="post-title-link" itemprop="url">Node中的模块系统之exports和module.exports的关系</a>
+            <a href="/2021/04/11/node-zhong-de-mo-kuai-xi-tong-zhi-exports-he-module.exports-de-guan-xi/" class="post-title-link" itemprop="url">Node中的模块系统之exports和module.exports的关系</a>
         </h2>
 
         <div class="post-meta">
@@ -603,7 +640,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-16 09:07:18" itemprop="dateModified" datetime="2021-04-16T09:07:18+08:00">2021-04-16</time>
+                <time title="修改时间：2021-05-24 14:09:33" itemprop="dateModified" datetime="2021-05-24T14:09:33+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -611,7 +648,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -626,36 +663,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          Node中的模块系统之exports和module.exports的关系
-1.什么是文件模块化
- * 文件作用域
- * 通信规则 * 加载
-    * 导出
-   
-   
-
-2.CommonJS模块规则
-在Node中的JavaScript有一个很重要的概念——模块系统。
-
- * 模块作用域
- * 使用require方法加载模块
- * 使用exports接口对象导出模块中的成员
-
-2.1 加载require
-语法：
-
-var 自定义变量名 = require('模块')
-
-
-作用：
-
- * 执行被加载模块中的代码
- * 得到被加载模块中的exports导出接口对象
-
-2.2 导出exports
+          <p>很多初学者搞不懂module.exports和exports之间的关系，使用非常混乱，那么通过对本文的阅读，相信一定会对两者的关系有更深刻的理解。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/04/11/exports-he-module.exports-de-guan-xi/#more" rel="contents">
+              <a class="btn" href="/2021/04/11/node-zhong-de-mo-kuai-xi-tong-zhi-exports-he-module.exports-de-guan-xi/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -702,17 +713,23 @@ var 自定义变量名 = require('模块')
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-01 11:04:31 / 修改时间：11:05:56" itemprop="dateCreated datePublished" datetime="2021-04-01T11:04:31+08:00">2021-04-01</time>
+              <time title="创建时间：2021-04-01 11:04:31" itemprop="dateCreated datePublished" datetime="2021-04-01T11:04:31+08:00">2021-04-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-24 14:11:21" itemprop="dateModified" datetime="2021-05-24T14:11:21+08:00">2021-05-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -727,14 +744,10 @@ var 自定义变量名 = require('模块')
     <div class="post-body" itemprop="articleBody">
 
       
-          话不多说，直接贴代码，亲测有用~
-html代码
- * 用去禁用input输入框中滚轮可以调节数字的事件
-   
-    * 
+          <p>ElementUI-input的type='number'时去掉上下箭头和鼠标滚轮滚动事件的小技巧，在实际开发中可以使用，亲测有效。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/04/01/elementui-input-de-type-number-shi-qu-diao-shang-xia-jian-tou-he-shu-biao-gun-lun-gun-dong-shi-jian/#more" rel="contents">
+              <a class="btn" href="/2021/04/01/elementui-input-de-type-number-shi-qu-diao-shang-xia-jian-tou-he-shu-biao-gun-lun-gun-dong-shi-jian/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -758,7 +771,7 @@ html代码
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/14/vue-xue-xi-bi-ji/">
+    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/14/vue-ru-men/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -772,7 +785,7 @@ html代码
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/14/vue-xue-xi-bi-ji/" class="post-title-link" itemprop="url">Vue学习笔记</a>
+            <a href="/2021/02/14/vue-ru-men/" class="post-title-link" itemprop="url">Vue入门</a>
         </h2>
 
         <div class="post-meta">
@@ -789,7 +802,7 @@ html代码
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 20:34:40" itemprop="dateModified" datetime="2021-05-21T20:34:40+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 14:16:23" itemprop="dateModified" datetime="2021-05-24T14:16:23+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -797,7 +810,7 @@ html代码
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -815,7 +828,7 @@ html代码
           <p>Vue.js是一款流行的JavaScript前端框架，旨在更好地组织与简化Web开发。Vue所关注的核心是MVC模式中的视图层，同时，它也能方便地获取数据更新，并通过组件内部特定的方法实现视图与模型的交互。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/02/14/vue-xue-xi-bi-ji/">
+              <a class="btn" href="/2021/02/14/vue-ru-men/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -839,7 +852,7 @@ html代码
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/14/jquery-xue-xi-bi-ji/">
+    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/14/jquery-ru-men/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -853,7 +866,7 @@ html代码
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/14/jquery-xue-xi-bi-ji/" class="post-title-link" itemprop="url">jQuery学习笔记</a>
+            <a href="/2021/02/14/jquery-ru-men/" class="post-title-link" itemprop="url">jQuery入门</a>
         </h2>
 
         <div class="post-meta">
@@ -870,7 +883,7 @@ html代码
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 20:32:46" itemprop="dateModified" datetime="2021-05-21T20:32:46+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 14:16:35" itemprop="dateModified" datetime="2021-05-24T14:16:35+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -878,7 +891,7 @@ html代码
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -893,10 +906,10 @@ html代码
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>jQuery是小白EagleH正式接触的除web前端三件套以外的第一门前端工具，也是从jQuery的学习中，渐渐开始觉得合理运用这些不一样的思想和方法，对于前端开发来说更为的简单方便了，正如jQuery封面上写的那句：Write less, Do more。朋友告诉我，不论是后面要学习Vue还是React亦或者是其他框架，他们的思想都是从jQuery中获得的启发，所以不论将来是否使用jQuery，将它的思想和基础内容学习一下也是非常有利于以后其他内容的学习</p>
+          <p>jQuery是我正式接触的除web前端三件套以外的第一门前端工具，也是从jQuery的学习中，渐渐开始觉得合理运用这些不一样的思想和方法，对于前端开发来说更为的简单方便了，正如jQuery封面上写的那句：Write less, Do more。朋友告诉我，不论是后面要学习Vue还是React亦或者是其他框架，他们的思想都是从jQuery中获得的启发，所以不论将来是否使用jQuery，将它的思想和基础内容学习一下也是非常有利于以后其他内容的学习</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/02/14/jquery-xue-xi-bi-ji/">
+              <a class="btn" href="/2021/02/14/jquery-ru-men/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -920,7 +933,7 @@ html代码
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/13/js-xue-xi-bi-ji-zhi-dom/">
+    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/13/js-ru-men-zhi-dom/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -934,7 +947,7 @@ html代码
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/13/js-xue-xi-bi-ji-zhi-dom/" class="post-title-link" itemprop="url">JS学习笔记之DOM</a>
+            <a href="/2021/02/13/js-ru-men-zhi-dom/" class="post-title-link" itemprop="url">JS入门之DOM</a>
         </h2>
 
         <div class="post-meta">
@@ -951,7 +964,7 @@ html代码
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 20:21:45" itemprop="dateModified" datetime="2021-05-21T20:21:45+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 14:16:30" itemprop="dateModified" datetime="2021-05-24T14:16:30+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -959,7 +972,7 @@ html代码
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -977,7 +990,7 @@ html代码
           <p>上一篇中笔记做的是JS的基础阶段，学习的是ECMAScript标准规定的基本语法，只要求掌握基础语法就可以了，为后面的JS打下基础。但是只学了语法，我们还是无法做到网页的交互效果，所以JS还有一个重要的阶段，叫"WEB APIs"，他是W3C组织的标准，在JS中我们要掌握的是DOM和BOM，但是BOM其实根据不同的浏览器有不同的要求，所以本片笔记主要只针对JS中的DOM部分，主要学习的是页面交互功能</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/02/13/js-xue-xi-bi-ji-zhi-dom/">
+              <a class="btn" href="/2021/02/13/js-ru-men-zhi-dom/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1001,7 +1014,7 @@ html代码
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/13/javascript-xue-xi-bi-ji/">
+    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/13/javascript-ru-men/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1015,7 +1028,7 @@ html代码
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/13/javascript-xue-xi-bi-ji/" class="post-title-link" itemprop="url">JavaScript学习笔记</a>
+            <a href="/2021/02/13/javascript-ru-men/" class="post-title-link" itemprop="url">JavaScript入门</a>
         </h2>
 
         <div class="post-meta">
@@ -1032,7 +1045,7 @@ html代码
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 20:19:20" itemprop="dateModified" datetime="2021-05-21T20:19:20+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 14:16:41" itemprop="dateModified" datetime="2021-05-24T14:16:41+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1040,7 +1053,7 @@ html代码
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -1058,7 +1071,7 @@ html代码
           <p>JavaScript ( JS ) 是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发Web 页面的脚本语言而出名的，但是它也被用到了很多非浏览器环境中，例如 Node.js、 Apache CouchDB 和 Adobe Acrobat。JavaScript 是一种基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。 ——摘自MDN</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/02/13/javascript-xue-xi-bi-ji/">
+              <a class="btn" href="/2021/02/13/javascript-ru-men/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1082,7 +1095,7 @@ html代码
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-xue-xi-bi-ji/">
+    <link itemprop="mainEntityOfPage" href="http://codereagleh.github.io/2021/02/12/h5c3-xin-zeng-ji-chu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1096,7 +1109,7 @@ html代码
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/12/h5c3-xin-zeng-xue-xi-bi-ji/" class="post-title-link" itemprop="url">H5C3新增基础</a>
+            <a href="/2021/02/12/h5c3-xin-zeng-ji-chu/" class="post-title-link" itemprop="url">H5C3新增基础</a>
         </h2>
 
         <div class="post-meta">
@@ -1113,7 +1126,7 @@ html代码
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 20:17:37" itemprop="dateModified" datetime="2021-05-21T20:17:37+08:00">2021-05-21</time>
+                <time title="修改时间：2021-05-24 14:16:57" itemprop="dateModified" datetime="2021-05-24T14:16:57+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1121,7 +1134,7 @@ html代码
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -1139,7 +1152,7 @@ html代码
           <p>这部分内容是在看视频学习HTML和CSS后紧跟着讲解的H5C3的新增部分，与前两者相同，也是在学习过程中手写到笔记本上的笔记内容，所以内容上可能会有所欠缺，欢迎指正。况且现在互联网如此之发达，只要想学，并且付诸行动，就没有学不好的</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/02/12/h5c3-xin-zeng-xue-xi-bi-ji/">
+              <a class="btn" href="/2021/02/12/h5c3-xin-zeng-ji-chu/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1231,7 +1244,7 @@ html代码
           <a href="/archives/">
         
           <span class="site-state-item-count">15</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
@@ -1243,7 +1256,7 @@ html代码
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1284,10 +1297,28 @@ html代码
   </span>
   <span class="author" itemprop="copyrightHolder">江鸟/hyh</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -1321,6 +1352,10 @@ html代码
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
